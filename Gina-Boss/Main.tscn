@@ -356,6 +356,9 @@ format = 1
 
 [node name="Gina" parent="Environment" instance=ExtResource( 7 )]
 
+[node name="Camara" type="Camera2D" parent="Environment/Gina"]
+current = true
+
 [node name="ItemSpawn" type="Node2D" parent="Environment"]
 z_index = 4
 

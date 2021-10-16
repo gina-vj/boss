@@ -6,11 +6,9 @@
 [ext_resource path="res://entities/player/Gina.gd" type="Script" id=4]
 [ext_resource path="res://assets/gina/Idle__000.png" type="Texture" id=5]
 
-
-
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 40.5
-height = 76.9322
+radius = 34.1129
+height = 71.9478
 
 [node name="Gina" type="KinematicBody2D"]
 position = Vector2( 462, 380 )
@@ -30,6 +28,6 @@ position = Vector2( -26, -64 )
 shape = SubResource( 1 )
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( -33, -82 )
-scale = Vector2( 0.331035, 0.328 )
+position = Vector2( -28.8376, -71.2971 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
