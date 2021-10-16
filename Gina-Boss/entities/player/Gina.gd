@@ -17,7 +17,7 @@ export (int) var max_health = 20
 export (float) var ACCELERATION:float = 30.0
 export (float) var H_SPEED_LIMIT:float = 400.0
 export (int) var jump_speed = 1000
-export (float) var FRICTION_WEIGHT:float = 0.1
+export (float) var FRICTION_WEIGHT:float = 0.2
 export (int) var gravity = 30
 
 var projectile_container
@@ -44,22 +44,11 @@ func _handle_deacceleration():
 	velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 	velocity.y = lerp(velocity.y, 0, FRICTION_WEIGHT) if abs(velocity.y) > 1 else 0
 
-
-
-
 func _apply_movement():
-
 	velocity = move_and_slide(velocity)
-
-
 
 func notify_hit(amount):
 	state_machine.notify_hit(amount)
 
-
 func _remove():
 	pass
-
-
-
-

@@ -1,6 +1,5 @@
 extends "res://entities/AbstractStateMachine.gd"
 
-
 func _ready():
 	states_map = {
 		"idle": $Idle,
@@ -8,8 +7,5 @@ func _ready():
 		
 	}
 
-
 func notify_hit(amount):
 	pass
-
-

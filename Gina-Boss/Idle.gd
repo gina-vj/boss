@@ -5,7 +5,6 @@ func handle_input(event:InputEvent):
 	if _is_moved(event) :
 		emit_signal("finished", "walk")
 	
-
 func update(delta:float):
 	parent._handle_deacceleration()
 	parent._apply_movement()
