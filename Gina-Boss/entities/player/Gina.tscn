@@ -12,6 +12,7 @@ height = 71.9478
 
 [node name="Gina" type="KinematicBody2D"]
 position = Vector2( 462, 380 )
+collision_layer = 2
 script = ExtResource( 4 )
 
 [node name="StateMachine" type="Node" parent="."]

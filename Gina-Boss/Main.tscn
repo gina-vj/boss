@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/world/hyptosis_tile-art-batch-1.png" type="Texture" id=1]
 [ext_resource path="res://assets/world/battleground.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://entities/item/Item1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/item/Item2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://entities/item/Item3.tscn" type="PackedScene" id=10]
+[ext_resource path="res://entities/player/TakePopup.gd" type="Script" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "hyptosis_tile-art-batch-3.png 0"
@@ -275,10 +276,10 @@ points = PoolVector2Array( 0, 0, 96, 0, 96, 32, 0, 32 )
 2/shapes = [  ]
 2/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=17]
+[sub_resource type="ConvexPolygonShape2D" id=15]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 128, 0, 128 )
 
-[sub_resource type="TileSet" id=15]
+[sub_resource type="TileSet" id=16]
 3/name = "hyptosis_tile-art-batch-3.png 3"
 3/texture = ExtResource( 3 )
 3/tex_offset = Vector2( 0, 0 )
@@ -289,19 +290,19 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 128, 0, 128 )
 3/navigation_offset = Vector2( 0, 0 )
 3/shape_offset = Vector2( 0, 0 )
 3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape = SubResource( 17 )
+3/shape = SubResource( 15 )
 3/shape_one_way = false
 3/shape_one_way_margin = 1.0
 3/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 17 ),
+"shape": SubResource( 15 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
 
-[sub_resource type="TileSet" id=16]
+[sub_resource type="TileSet" id=17]
 0/name = "House.png 0"
 0/texture = ExtResource( 6 )
 0/tex_offset = Vector2( 0, 0 )
@@ -353,12 +354,12 @@ tile_data = PoolIntArray( -131058, 536870912, 0, -131057, 536870912, 0, -131056,
 
 [node name="Tienda" type="TileMap" parent="Environment"]
 z_index = 3
-tile_set = SubResource( 15 )
+tile_set = SubResource( 16 )
 format = 1
 tile_data = PoolIntArray( 65539, 536870915, 0, 196620, 536870912, 0 )
 
 [node name="Casa" type="TileMap" parent="Environment"]
-tile_set = SubResource( 16 )
+tile_set = SubResource( 17 )
 format = 1
 tile_data = PoolIntArray( -393213, 536870912, 0, 262146, 0, 0 )
 
@@ -370,14 +371,49 @@ format = 1
 [node name="Camara" type="Camera2D" parent="Environment/Gina"]
 current = true
 
-[node name="ItemSpawn" type="Node2D" parent="Environment"]
-z_index = 4
+[node name="CanvasLayer" type="CanvasLayer" parent="Environment/Gina"]
+offset = Vector2( 0, 32 )
+transform = Transform2D( 1, 0, 0, 1, 0, 32 )
 
-[node name="item1" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
+[node name="TakePopup" type="Popup" parent="Environment/Gina/CanvasLayer"]
+show_behind_parent = true
+margin_left = 348.192
+margin_top = 201.557
+margin_right = 548.192
+margin_bottom = 271.557
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Item2" parent="Environment/ItemSpawn" instance=ExtResource( 9 )]
+[node name="RichTextLabel" type="Label" parent="Environment/Gina/CanvasLayer/TakePopup"]
+margin_right = 183.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "¿Querés agarrar este objeto?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Item3" parent="Environment/ItemSpawn" instance=ExtResource( 10 )]
+[node name="ToolButton" type="ToolButton" parent="Environment/Gina/CanvasLayer/TakePopup"]
+margin_left = 56.0
+margin_top = 16.0
+margin_right = 106.0
+margin_bottom = 38.0
+text = "Si"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSpawn" type="Node" parent="Environment"]
+
+[node name="Vacuna1" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
+position = Vector2( 868.996, 562.128 )
+
+[node name="Vacuna2" parent="Environment/ItemSpawn" instance=ExtResource( 9 )]
+
+[node name="Vacuna3" parent="Environment/ItemSpawn" instance=ExtResource( 10 )]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -386,3 +422,8 @@ layer = -1
 position = Vector2( 2710.56, 488.111 )
 scale = Vector2( 6.79227, 8.4218 )
 texture = ExtResource( 2 )
+
+[connection signal="close_item_popup" from="Environment/Gina" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_Gina_close_item_popup"]
+[connection signal="open_item_popup" from="Environment/Gina" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_Gina_open_item_popup"]
+[connection signal="item_taken" from="Environment/Gina/CanvasLayer/TakePopup" to="Environment/Gina" method="_on_TakePopup_item_taken"]
+[connection signal="pressed" from="Environment/Gina/CanvasLayer/TakePopup/ToolButton" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_ToolButton_pressed"]

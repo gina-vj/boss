@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://entities/player/Gina.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Vacuna",
+"language": "GDScript",
+"path": "res://entities/item/Vacuna1.gd"
 } ]
 _global_script_class_icons={
-"Player": ""
+"Player": "",
+"Vacuna": ""
 }
 
 [application]

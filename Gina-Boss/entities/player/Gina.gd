@@ -1,12 +1,9 @@
 extends KinematicBody2D
 class_name Player
-
-signal hit()
-signal dead()
-
+signal open_item_popup()
+signal close_item_popup()
 
 onready var state_machine = $StateMachine
-
 
 const FLOOR_NORMAL := Vector2.UP
 const SNAP_DIRECTION := Vector2.DOWN
@@ -27,7 +24,7 @@ var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGTH
 var move_direction_x:int = 0
 var move_direction_y:int = 0
 var stop_on_slope:bool = true
-
+var bag:Array = []
 
 func _ready():
 	state_machine.set_parent(self)
@@ -49,6 +46,19 @@ func _apply_movement():
 
 func notify_hit(amount):
 	state_machine.notify_hit(amount)
-
+	
 func _remove():
 	pass
+	
+func item_detected(item):
+	emit_signal("open_item_popup", item)
+
+	
+func item_not_detected():
+	emit_signal("close_item_popup")
+
+func _on_TakePopup_item_taken(item):
+	bag.append(item)
+	item.hide()
+	#Acá lo que queremos no es ocultarlo ni removerlo, es tener la referencia 
+	#al tipo de objeto para poder instanciarlo cuando querramos lanzarlo

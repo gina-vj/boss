@@ -1,10 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://entities/item/Item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/item/Icon1.png" type="Texture" id=2]
 
-[node name="Item" instance=ExtResource( 1 )]
+[sub_resource type="CapsuleShape2D" id=1]
+
+[node name="Vacuna3" type="KinematicBody2D"]
 position = Vector2( 458, 95 )
 
-[node name="body" parent="." index="0"]
+[node name="body" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 7
+shape = SubResource( 1 )
