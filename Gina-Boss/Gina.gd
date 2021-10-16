@@ -32,10 +32,6 @@ var stop_on_slope:bool = true
 func _ready():
 	state_machine.set_parent(self)
 
-
-
-
-
 func _handle_move_input():
 	move_direction_x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
 	move_direction_y= int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
