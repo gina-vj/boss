@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/world/hyptosis_tile-art-batch-1.png" type="Texture" id=1]
 [ext_resource path="res://assets/world/battleground.png" type="Texture" id=2]
@@ -7,7 +7,9 @@
 [ext_resource path="res://assets/world/hyptosis_til-art-batch-2.png" type="Texture" id=5]
 [ext_resource path="res://assets/world/House.png" type="Texture" id=6]
 [ext_resource path="res://entities/player/Gina.tscn" type="PackedScene" id=7]
-[ext_resource path="res://entities/item/Item.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/item/Item1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/item/Item2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/item/Item3.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "hyptosis_tile-art-batch-3.png 0"
@@ -354,12 +356,19 @@ format = 1
 
 [node name="Gina" parent="Environment" instance=ExtResource( 7 )]
 
-[node name="Item" parent="Environment" instance=ExtResource( 8 )]
+[node name="ItemSpawn" type="Node2D" parent="Environment"]
+z_index = 4
+
+[node name="item1" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
+
+[node name="Item2" parent="Environment/ItemSpawn" instance=ExtResource( 9 )]
+
+[node name="Item3" parent="Environment/ItemSpawn" instance=ExtResource( 10 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 2688.56, 452.111 )
+position = Vector2( 2710.56, 488.111 )
 scale = Vector2( 6.79227, 8.4218 )
 texture = ExtResource( 2 )
