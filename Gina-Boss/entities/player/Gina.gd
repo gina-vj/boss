@@ -59,6 +59,6 @@ func item_not_detected():
 
 func _on_TakePopup_item_taken(item):
 	bag.append(item)
-	item.hide()
+	item._remove()
 	#Acá lo que queremos no es ocultarlo ni removerlo, es tener la referencia 
 	#al tipo de objeto para poder instanciarlo cuando querramos lanzarlo
