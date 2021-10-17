@@ -5,7 +5,7 @@ and makes sure every State object had all of these methods.
 """
 extends Node
 
-var parent
+var parent: Node
 
 
 signal finished(next_state_name)
