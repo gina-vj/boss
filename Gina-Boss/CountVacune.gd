@@ -10,7 +10,9 @@ onready var countCyan = $CountCyan
 
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):
-	pass
+	$CountRed.text=str( Bag.count("rojo"))
+	$CountYellow.text= str(Bag.count("amarillo"))
+	$CountCyan.text= str(Bag.count("cyan"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

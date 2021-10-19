@@ -12,4 +12,4 @@ func _ready():
 
 
 func is_type():
-	return "roja"
+	return "rojo"

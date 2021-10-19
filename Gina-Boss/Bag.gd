@@ -12,5 +12,9 @@ func add_item(item):
 	print(items.size())
 
 func count(color):
-	pass
+	var cant=0
+	for item in items:
+		if item.is_type() == color:
+			cant=+1
+	return cant
 	

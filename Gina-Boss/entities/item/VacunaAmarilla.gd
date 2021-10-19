@@ -11,4 +11,4 @@ func _ready():
 
 
 func is_type():
-	return "amarilla"
+	return "amarillo"
