@@ -48,6 +48,5 @@ position = Vector2( 121, 194 )
 layer = -1
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 2776.69, 673.041 )
 scale = Vector2( 6.79227, 8.4218 )
 texture = ExtResource( 2 )

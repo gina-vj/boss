@@ -48,6 +48,7 @@ func _apply_movement():
 	velocity = move_and_slide(velocity)
 
 func notify_hit(amount):
+	print(amount)
 	state_machine.notify_hit(amount)
 
 func _remove():
