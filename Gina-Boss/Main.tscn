@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://entities/environment_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/world/battleground.png" type="Texture" id=2]
@@ -10,14 +10,14 @@
 [ext_resource path="res://entities/item/Item3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://entities/player/TakePopup.gd" type="Script" id=12]
-[ext_resource path="res://assets/item/Icon2.png" type="Texture" id=12]
-[ext_resource path="res://ItemSpawn.gd" type="Script" id=13]
-[ext_resource path="res://assets/item/Icon3.png" type="Texture" id=14]
-[ext_resource path="res://assets/item/Icon1.png" type="Texture" id=15]
-[ext_resource path="res://CountVacune.gd" type="Script" id=16]
-[ext_resource path="res://entities/item/VacunaRoja.gd" type="Script" id=17]
-[ext_resource path="res://entities/item/VacunaCyan.gd" type="Script" id=18]
-[ext_resource path="res://entities/item/VacunaAmarilla.gd" type="Script" id=19]
+[ext_resource path="res://assets/item/Icon2.png" type="Texture" id=13]
+[ext_resource path="res://ItemSpawn.gd" type="Script" id=14]
+[ext_resource path="res://assets/item/Icon3.png" type="Texture" id=15]
+[ext_resource path="res://assets/item/Icon1.png" type="Texture" id=16]
+[ext_resource path="res://CountVacune.gd" type="Script" id=17]
+[ext_resource path="res://entities/item/VacunaRoja.gd" type="Script" id=18]
+[ext_resource path="res://entities/item/VacunaCyan.gd" type="Script" id=19]
+[ext_resource path="res://entities/item/VacunaAmarilla.gd" type="Script" id=20]
 
 [node name="Main" type="Node2D"]
 position = Vector2( 1.68176, -1.68179 )
@@ -88,18 +88,18 @@ position = Vector2( 121, 400 )
 position = Vector2( 700, 700 )
 
 [node name="ItemSpawn" type="Node" parent="Environment"]
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 
 [node name="Vacuna1" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
 position = Vector2( 868.996, 562.128 )
-script = ExtResource( 17 )
+script = ExtResource( 18 )
 
 [node name="Vacuna2" parent="Environment/ItemSpawn" instance=ExtResource( 9 )]
 position = Vector2( 155.865, 122.568 )
 script = ExtResource( 19 )
 
 [node name="Vacuna3" parent="Environment/ItemSpawn" instance=ExtResource( 10 )]
-script = ExtResource( 18 )
+script = ExtResource( 20 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -111,7 +111,7 @@ z_index = -2
 texture = ExtResource( 2 )
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-script = ExtResource( 16 )
+script = ExtResource( 17 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
 margin_left = 327.5
@@ -124,15 +124,15 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer2"]
 position = Vector2( 354.858, 560.037 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 
 [node name="Sprite2" type="Sprite" parent="CanvasLayer2"]
 position = Vector2( 472.583, 558.355 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 
 [node name="Sprite3" type="Sprite" parent="CanvasLayer2"]
 position = Vector2( 581.9, 560.037 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="CountRed" type="Label" parent="CanvasLayer2"]
 margin_left = 375.039
@@ -166,6 +166,7 @@ text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="close_item_popup" from="Environment/Gina" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_Gina_close_item_popup"]
 [connection signal="open_item_popup" from="Environment/Gina" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_Gina_open_item_popup"]
 [connection signal="item_taken" from="Environment/Gina/CanvasLayer/TakePopup" to="Environment/Gina" method="_on_TakePopup_item_taken"]
