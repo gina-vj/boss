@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://entities/environment_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/world/battleground.png" type="Texture" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://entities/item/Item2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://entities/item/Item3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=11]
-[ext_resource path="res://entities/player/TakePopup.gd" type="Script" id=11]
+[ext_resource path="res://entities/player/TakePopup.gd" type="Script" id=12]
 
 [node name="Main" type="Node2D"]
 
@@ -43,7 +43,7 @@ margin_left = 348.192
 margin_top = 201.557
 margin_right = 548.192
 margin_bottom = 271.557
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
