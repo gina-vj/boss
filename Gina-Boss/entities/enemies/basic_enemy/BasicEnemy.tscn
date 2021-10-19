@@ -15,7 +15,7 @@ radius = 20.0705
 height = 16.1886
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 510.426
+radius = 271.505
 
 [node name="BasicEnemy" type="KinematicBody2D"]
 collision_layer = 4
