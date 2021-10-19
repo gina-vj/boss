@@ -7,8 +7,8 @@
 [ext_resource path="res://assets/gina/Idle__000.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 34.1129
-height = 71.9478
+radius = 20.5818
+height = 39.4862
 
 [node name="Gina" type="KinematicBody2D"]
 position = Vector2( 462, 380 )
