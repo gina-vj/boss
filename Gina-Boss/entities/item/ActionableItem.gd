@@ -1,5 +1,5 @@
 extends KinematicBody2D
-class_name Vacuna
+class_name ActionableItem
 
 onready var detection_area = $DetectionArea
 
