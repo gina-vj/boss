@@ -10,8 +10,17 @@
 [ext_resource path="res://entities/item/Item3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://entities/player/TakePopup.gd" type="Script" id=12]
+[ext_resource path="res://assets/item/Icon2.png" type="Texture" id=12]
+[ext_resource path="res://ItemSpawn.gd" type="Script" id=13]
+[ext_resource path="res://assets/item/Icon3.png" type="Texture" id=14]
+[ext_resource path="res://assets/item/Icon1.png" type="Texture" id=15]
+[ext_resource path="res://CountVacune.gd" type="Script" id=16]
+[ext_resource path="res://entities/item/VacunaRoja.gd" type="Script" id=17]
+[ext_resource path="res://entities/item/VacunaCyan.gd" type="Script" id=18]
+[ext_resource path="res://entities/item/VacunaAmarilla.gd" type="Script" id=19]
 
 [node name="Main" type="Node2D"]
+position = Vector2( 1.68176, -1.68179 )
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -31,6 +40,7 @@ tile_data = PoolIntArray( -8454268, 6, 0, -8454267, 6, 0, -8454266, 6, 0, -84542
 ] instance=ExtResource( 7 )]
 
 [node name="Camara" type="Camera2D" parent="Environment/Gina"]
+position = Vector2( -26.3315, -80.8456 )
 current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Environment/Gina"]
@@ -78,14 +88,18 @@ position = Vector2( 121, 400 )
 position = Vector2( 700, 700 )
 
 [node name="ItemSpawn" type="Node" parent="Environment"]
+script = ExtResource( 13 )
 
 [node name="Vacuna1" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
 position = Vector2( 868.996, 562.128 )
+script = ExtResource( 17 )
 
 [node name="Vacuna2" parent="Environment/ItemSpawn" instance=ExtResource( 9 )]
+position = Vector2( 155.865, 122.568 )
+script = ExtResource( 19 )
 
 [node name="Vacuna3" parent="Environment/ItemSpawn" instance=ExtResource( 10 )]
-visible = false
+script = ExtResource( 18 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -93,8 +107,65 @@ layer = -1
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
 position = Vector2( 2676.09, 646.323 )
 scale = Vector2( 6.79227, 8.4218 )
+z_index = -2
 texture = ExtResource( 2 )
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+script = ExtResource( 16 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+margin_left = 327.5
+margin_top = 534.492
+margin_right = 671.5
+margin_bottom = 586.492
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer2"]
+position = Vector2( 354.858, 560.037 )
+texture = ExtResource( 15 )
+
+[node name="Sprite2" type="Sprite" parent="CanvasLayer2"]
+position = Vector2( 472.583, 558.355 )
+texture = ExtResource( 12 )
+
+[node name="Sprite3" type="Sprite" parent="CanvasLayer2"]
+position = Vector2( 581.9, 560.037 )
+texture = ExtResource( 14 )
+
+[node name="CountRed" type="Label" parent="CanvasLayer2"]
+margin_left = 375.039
+margin_top = 556.673
+margin_right = 415.039
+margin_bottom = 570.673
+custom_colors/font_color = Color( 0.0352941, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountYellow" type="Label" parent="CanvasLayer2"]
+margin_left = 494.447
+margin_top = 556.673
+margin_right = 534.447
+margin_bottom = 570.673
+custom_colors/font_color = Color( 0.0352941, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountCyan" type="Label" parent="CanvasLayer2"]
+margin_left = 612.172
+margin_top = 558.355
+margin_right = 652.172
+margin_bottom = 572.355
+custom_colors/font_color = Color( 0.0352941, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="close_item_popup" from="Environment/Gina" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_Gina_close_item_popup"]
 [connection signal="open_item_popup" from="Environment/Gina" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_Gina_open_item_popup"]
 [connection signal="item_taken" from="Environment/Gina/CanvasLayer/TakePopup" to="Environment/Gina" method="_on_TakePopup_item_taken"]
