@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://entities/environment_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/world/battleground.png" type="Texture" id=2]
 [ext_resource path="res://entities/LevelNavigation.gd" type="Script" id=3]
 [ext_resource path="res://EnemySpawn.gd" type="Script" id=4]
-[ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.gd" type="Script" id=5]
 [ext_resource path="res://entities/player/Gina.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/item/Item1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/item/Item2.tscn" type="PackedScene" id=9]
@@ -49,11 +48,8 @@ element_scene = ExtResource( 11 )
 [node name="BasicEnemy" parent="Environment/EnemySpawn" instance=ExtResource( 11 )]
 position = Vector2( 121, 400 )
 
-[node name="BasicEnemy2" type="KinematicBody2D" parent="Environment/EnemySpawn" instance=ExtResource( 11 )]
+[node name="BasicEnemy2" parent="Environment/EnemySpawn" instance=ExtResource( 11 )]
 position = Vector2( 700, 700 )
-collision_layer = 4
-collision_mask = 5
-script = ExtResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
