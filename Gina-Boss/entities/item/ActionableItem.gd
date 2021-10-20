@@ -22,7 +22,7 @@ func _on_DetectionArea_body_entered(body):
 	
 func _on_DetectionArea_body_exited(body):
 	if body.has_method("item_not_detected"):
-		body.item_not_detected(self)
+		body.item_not_detected()
 
 func is_type():
 	pass
