@@ -3,15 +3,17 @@ extends Node2D
 onready var lifetime_timer = $LifetimeTimer
 onready var hitbox = $Hitbox
 
-export (float) var VELOCITY:float = 800.0
+export (float) var VELOCITY:float = 300.0
 export (int) var damage = 1
 
 var direction:Vector2
+var heal_points
 
 func initialize(container, spawn_position:Vector2, direction:Vector2):
 	container.add_child(self)
 	self.direction = direction
 	global_position = spawn_position
+	self.heal_points = 1
 	lifetime_timer.connect("timeout", self, "_on_lifetime_timer_timeout")
 	lifetime_timer.start()
 
@@ -30,7 +32,7 @@ func _remove():
 
 func _on_Hitbox_body_entered(body):
 	if body.has_method("notify_hit"):
-		body.notify_hit(-damage)
+		body.notify_hit(self)
 	hitbox.collision_layer = 0
 	hitbox.collision_mask = 0
 	lifetime_timer.stop()

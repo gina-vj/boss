@@ -6,7 +6,7 @@
 [ext_resource path="res://entities/player/Gina.gd" type="Script" id=4]
 [ext_resource path="res://assets/gina/Idle__000.png" type="Texture" id=5]
 [ext_resource path="res://entities/player/Shooter.gd" type="Script" id=6]
-[ext_resource path="res://entities/item/Item3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/item/Throwable.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.5818

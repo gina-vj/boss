@@ -7,8 +7,8 @@
 [ext_resource path="res://Main.gd" type="Script" id=5]
 [ext_resource path="res://entities/item/Throwable.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/player/Gina.tscn" type="PackedScene" id=7]
-[ext_resource path="res://entities/item/Item1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://entities/item/Item2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/item/Component1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/item/Component2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://entities/player/TakePopup.gd" type="Script" id=12]
 [ext_resource path="res://assets/item/Icon2.png" type="Texture" id=13]
@@ -89,11 +89,11 @@ position = Vector2( 700, 700 )
 
 [node name="ItemSpawn" type="Node" parent="Environment"]
 
-[node name="Vacuna1" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
+[node name="Component1" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
 position = Vector2( 868.996, 562.128 )
 script = ExtResource( 18 )
 
-[node name="Vacuna2" parent="Environment/ItemSpawn" instance=ExtResource( 9 )]
+[node name="Component2" parent="Environment/ItemSpawn" instance=ExtResource( 9 )]
 position = Vector2( 155.865, 122.568 )
 script = ExtResource( 19 )
 
