@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://entities/environment_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/world/battleground.png" type="Texture" id=2]
 [ext_resource path="res://entities/LevelNavigation.gd" type="Script" id=3]
 [ext_resource path="res://EnemySpawn.gd" type="Script" id=4]
+[ext_resource path="res://Main.gd" type="Script" id=5]
 [ext_resource path="res://entities/player/Gina.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/item/Item1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/item/Item2.tscn" type="PackedScene" id=9]
@@ -11,7 +12,7 @@
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://entities/player/TakePopup.gd" type="Script" id=12]
 [ext_resource path="res://assets/item/Icon2.png" type="Texture" id=13]
-[ext_resource path="res://ItemSpawn.gd" type="Script" id=14]
+[ext_resource path="res://entities/item/ItemSpawn.gd" type="Script" id=14]
 [ext_resource path="res://assets/item/Icon3.png" type="Texture" id=15]
 [ext_resource path="res://assets/item/Icon1.png" type="Texture" id=16]
 [ext_resource path="res://CountVacune.gd" type="Script" id=17]
@@ -21,6 +22,7 @@
 
 [node name="Main" type="Node2D"]
 position = Vector2( 1.68176, -1.68179 )
+script = ExtResource( 5 )
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -110,10 +112,10 @@ scale = Vector2( 6.79227, 8.4218 )
 z_index = -2
 texture = ExtResource( 2 )
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasCounter" type="CanvasLayer" parent="."]
 script = ExtResource( 17 )
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+[node name="ColorRect" type="ColorRect" parent="CanvasCounter"]
 margin_left = 327.5
 margin_top = 534.492
 margin_right = 671.5
@@ -122,19 +124,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer2"]
+[node name="Sprite" type="Sprite" parent="CanvasCounter"]
 position = Vector2( 354.858, 560.037 )
 texture = ExtResource( 16 )
 
-[node name="Sprite2" type="Sprite" parent="CanvasLayer2"]
+[node name="Sprite2" type="Sprite" parent="CanvasCounter"]
 position = Vector2( 472.583, 558.355 )
 texture = ExtResource( 13 )
 
-[node name="Sprite3" type="Sprite" parent="CanvasLayer2"]
+[node name="Sprite3" type="Sprite" parent="CanvasCounter"]
 position = Vector2( 581.9, 560.037 )
 texture = ExtResource( 15 )
 
-[node name="CountRed" type="Label" parent="CanvasLayer2"]
+[node name="CountRed" type="Label" parent="CanvasCounter"]
 margin_left = 375.039
 margin_top = 556.673
 margin_right = 415.039
@@ -145,7 +147,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CountYellow" type="Label" parent="CanvasLayer2"]
+[node name="CountYellow" type="Label" parent="CanvasCounter"]
 margin_left = 494.447
 margin_top = 556.673
 margin_right = 534.447
@@ -156,7 +158,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CountCyan" type="Label" parent="CanvasLayer2"]
+[node name="CountCyan" type="Label" parent="CanvasCounter"]
 margin_left = 612.172
 margin_top = 558.355
 margin_right = 652.172

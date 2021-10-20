@@ -8,6 +8,7 @@ func handle_input(event:InputEvent):
 func update(delta:float):
 	parent._handle_deacceleration()
 	parent._apply_movement()
+	parent._handle_shooter_actions()
 
 func _is_moved(event):
 	var is_moved = event.is_action_pressed("move_left") || event.is_action_pressed("move_right") || event.is_action_pressed("move_up") || event.is_action_pressed("move_down")

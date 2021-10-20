@@ -4,6 +4,7 @@ signal open_item_popup()
 signal close_item_popup()
 
 onready var state_machine = $StateMachine
+onready var shooter = $Shooter
 
 const FLOOR_NORMAL := Vector2.UP
 const SNAP_DIRECTION := Vector2.DOWN
@@ -17,7 +18,7 @@ export (int) var jump_speed = 1000
 export (float) var FRICTION_WEIGHT:float = 0.2
 export (int) var gravity = 30
 
-var projectile_container
+var item_throwable_container
 
 var velocity:Vector2 = Vector2.ZERO
 var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGTH
@@ -26,6 +27,10 @@ var move_direction_y:int = 0
 var stop_on_slope:bool = true
 var bag:Array = []
 
+func initialize(item_throwable_container):
+	self.item_throwable_container = item_throwable_container
+	shooter.item_throwable_container = item_throwable_container
+	
 func _ready():
 	state_machine.set_parent(self)
 
@@ -53,13 +58,23 @@ func _remove():
 	
 func item_detected(item):
 	emit_signal("open_item_popup", item)
-
 	
 func item_not_detected():
 	emit_signal("close_item_popup")
 
 func _on_TakePopup_item_taken(item):
+	print(item)
+	print(item.get_name())
 	bag.append(item)
 	item._remove()
 	#Acá lo que queremos no es ocultarlo ni removerlo, es tener la referencia 
 	#al tipo de objeto para poder instanciarlo cuando querramos lanzarlo
+
+
+func _handle_shooter_actions():
+	if Input.is_action_just_pressed("shoot"):
+		print("disparaa")
+		if item_throwable_container == null:
+			item_throwable_container = get_parent()
+			shooter.item_throwable_container = item_throwable_container
+		shooter.shoot()

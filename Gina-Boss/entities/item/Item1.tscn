@@ -8,7 +8,7 @@
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 13.4294
 
-[node name="Vacuna1" type="KinematicBody2D"]
+[node name="Component1" type="KinematicBody2D"]
 position = Vector2( 163, 119 )
 script = ExtResource( 3 )
 
