@@ -1,4 +1,7 @@
 extends ActionableItem
 
 func is_type():
-	return "cyan"
+	return "amarillo"
+
+func is_throwable():
+	return false

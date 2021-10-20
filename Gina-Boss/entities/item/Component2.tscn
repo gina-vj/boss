@@ -4,6 +4,7 @@
 [ext_resource path="res://entities/item/Component1.tscn" type="PackedScene" id=2]
 
 [node name="Component2" instance=ExtResource( 2 )]
+position = Vector2( 180, 180 )
 
 [node name="body" parent="." index="0"]
 texture = ExtResource( 1 )

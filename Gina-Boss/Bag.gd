@@ -1,15 +1,9 @@
 extends Node2D
 
-
 var items=[]
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 func add_item(item):
 	items.append(item)
-	print(items.size())
 
 func count(color):
 	var cant=0
@@ -17,4 +11,11 @@ func count(color):
 		if item.is_type() == color:
 			cant=+1
 	return cant
+
+func has_throwable():
+	var isThrowable = false
+	for item in items:
+		print(item.get_name())
+		isThrowable = isThrowable or item.is_throwable()
 	
+	return isThrowable

@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://entities/environment_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/world/battleground.png" type="Texture" id=2]
 [ext_resource path="res://entities/LevelNavigation.gd" type="Script" id=3]
 [ext_resource path="res://EnemySpawn.gd" type="Script" id=4]
 [ext_resource path="res://Main.gd" type="Script" id=5]
-[ext_resource path="res://entities/item/Throwable.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/item/ItemThrowable1.gd" type="Script" id=6]
 [ext_resource path="res://entities/player/Gina.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/item/Component1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/item/Component2.tscn" type="PackedScene" id=9]
@@ -17,6 +17,7 @@
 [ext_resource path="res://CountVacune.gd" type="Script" id=17]
 [ext_resource path="res://entities/item/VacunaRoja.gd" type="Script" id=18]
 [ext_resource path="res://entities/item/VacunaCyan.gd" type="Script" id=19]
+[ext_resource path="res://entities/item/ItemThrowa.tscn" type="PackedScene" id=20]
 
 [node name="Main" type="Node2D"]
 position = Vector2( 1.68176, -1.68179 )
@@ -94,16 +95,18 @@ position = Vector2( 868.996, 562.128 )
 script = ExtResource( 18 )
 
 [node name="Component2" parent="Environment/ItemSpawn" instance=ExtResource( 9 )]
-position = Vector2( 155.865, 122.568 )
+position = Vector2( 578.326, -130.909 )
 script = ExtResource( 19 )
 
-[node name="ItemThrowable" parent="Environment/ItemSpawn" instance=ExtResource( 6 )]
+[node name="ItemThrowable1" parent="Environment/ItemSpawn" instance=ExtResource( 20 )]
+position = Vector2( 1063.3, -21.519 )
+script = ExtResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 2676.09, 646.323 )
+position = Vector2( 2501.48, 570.128 )
 scale = Vector2( 6.79227, 8.4218 )
 z_index = -2
 texture = ExtResource( 2 )

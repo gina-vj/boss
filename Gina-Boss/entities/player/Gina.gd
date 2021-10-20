@@ -25,7 +25,6 @@ var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGTH
 var move_direction_x:int = 0
 var move_direction_y:int = 0
 var stop_on_slope:bool = true
-var bag:Array = []
 
 func initialize(item_throwable_container):
 	self.item_throwable_container = item_throwable_container
@@ -50,7 +49,6 @@ func _apply_movement():
 	velocity = move_and_slide(velocity)
 
 func notify_hit(amount):
-	print(amount)
 	state_machine.notify_hit(amount)
 	
 func _remove():
@@ -63,16 +61,15 @@ func item_not_detected():
 	emit_signal("close_item_popup")
 
 func _on_TakePopup_item_taken(item):
-	print(item)
-	print(item.get_name())
-	bag.append(item)
+	# Esta es una manera rapida pero pobre de saber que agarramos el item 
+	# que puede ser lanzado
+	
 	item._remove()
 	#Acá lo que queremos no es ocultarlo ni removerlo, es tener la referencia 
 	#al tipo de objeto para poder instanciarlo cuando querramos lanzarlo
 
-
 func _handle_shooter_actions():
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and Bag.has_throwable():
 		print("disparaa")
 		if item_throwable_container == null:
 			item_throwable_container = get_parent()
