@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=14 format=2]
+[gd_resource type="TileSet" load_steps=15 format=2]
 
 [ext_resource path="res://assets/world/hyptosis_tile-art-batch-1.png" type="Texture" id=1]
 [ext_resource path="res://assets/world/hyptosis_tile-art-batch-3.png" type="Texture" id=2]
@@ -30,6 +30,10 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 32, 0, 32 )
+
+[sub_resource type="NavigationPolygon" id=9]
+vertices = PoolVector2Array( 64, 128, 0, 128, 0, 0, 64, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [resource]
 2/name = "House.png 2"
@@ -181,6 +185,7 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 32, 0, 32 )
 9/tile_mode = 0
 9/occluder_offset = Vector2( 0, 0 )
 9/navigation_offset = Vector2( 0, 0 )
+9/navigation = SubResource( 9 )
 9/shape_offset = Vector2( 0, 0 )
 9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 9/shape_one_way = false
