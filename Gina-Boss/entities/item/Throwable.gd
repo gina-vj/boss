@@ -23,6 +23,7 @@ func _physics_process(delta:float):
 func _on_lifetime_timer_timeout():
 	hitbox.collision_layer = 0
 	hitbox.collision_mask = 0
+	
 	call_deferred("_remove")
 
 func _remove():

@@ -58,14 +58,14 @@ script = ExtResource( 5 )
 script = ExtResource( 6 )
 
 [node name="ContagionTimer" type="Timer" parent="StateMachine/Chase"]
-wait_time = 0.3
+wait_time = 0.5
 autostart = true
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
 
 [node name="ContagionTimer" type="Timer" parent="StateMachine/Attack"]
-wait_time = 0.3
+wait_time = 0.5
 autostart = true
 
 [node name="Impacted" type="Node" parent="StateMachine"]

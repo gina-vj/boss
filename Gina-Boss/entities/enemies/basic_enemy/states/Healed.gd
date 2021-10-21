@@ -1,9 +1,10 @@
 extends "res://entities/enemies/basic_enemy/states/AbstractBasicEnemyState.gd"
 
 func enter():
-
+	parent.healed()
 	if level_navigation != null:
 		parent.path = generate_random_path()
+
 
 func update(delta):
 	if (parent.path.size() > 0):

@@ -1,5 +1,7 @@
 extends "res://entities/enemies/basic_enemy/states/AbstractBasicEnemyState.gd"
 
+onready var timer = $ContagionTimer
+
 func update(delta):
 	if (parent.can_see_target() && level_navigation != null):
 		var path: Array = level_navigation.get_simple_path(
@@ -14,6 +16,7 @@ func update(delta):
 		
 
 func exit():
+	timer.stop()
 	parent.path = []
 
 
