@@ -31,15 +31,21 @@ func hurt_player_with_contagion_zone():
 func notify_body_entered(body):
 	parent.target = body
 
+
 func notify_body_exited(body):
 	parent.target = null
 	if parent.can_see_target():
 		emit_signal("finished", "idle")
 
 func notify_impact(projectile):
-	# al recibir el proyectil por parametro podemos usarlo para "hacer cosas"
-	# dependiendo de que proyectil es
 	if parent.is_still_ill():
 		emit_signal("finished", "impacted")
 	else:
 		emit_signal("finished", "healed")
+		
+func notify_cura(body):
+	pass
+
+
+func item_detected(item):
+	pass

@@ -39,6 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Bag="*res://Bag.gd"
+PlayerData="*res://PlayerData.gd"
 
 [input]
 

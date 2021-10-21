@@ -48,8 +48,11 @@ func notify_hit(projectile):
 	state_machine.notify_hit(projectile)
 
 func _on_DetectionArea_body_entered(body):
-	state_machine.notify_body_entered(body)
+		state_machine.notify_body_entered(body)
 
 
 func _on_DetectionArea_body_exited(body):
 	state_machine.notify_body_exited(body)
+
+func _on_DetectionCura_body_entered(body):
+	state_machine.notify_body_entered_cura(body)

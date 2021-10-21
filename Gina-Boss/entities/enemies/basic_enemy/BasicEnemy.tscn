@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemies/basic_enemy.png" type="Texture" id=2]
@@ -17,6 +17,9 @@ height = 16.1886
 [sub_resource type="CircleShape2D" id=2]
 radius = 271.505
 
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 19.7348
+
 [node name="BasicEnemy" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 5
@@ -27,9 +30,11 @@ scale = Vector2( 0.399782, 0.577266 )
 texture = ExtResource( 2 )
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -76,9 +81,16 @@ script = ExtResource( 9 )
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 3
 
+[node name="DetectionCura" type="Area2D" parent="."]
+
+[node name="CollisionCura" type="CollisionShape2D" parent="DetectionCura"]
+position = Vector2( -0.187294, 0.374577 )
+shape = SubResource( 3 )
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]
 [connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_IdleTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/ContagionTimer" to="StateMachine/Chase" method="_on_ContagionTimmer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/ContagionTimer" to="StateMachine/Attack" method="_on_ContagionTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Impacted/RecoveryTimer" to="StateMachine/Impacted" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="DetectionCura" to="." method="_on_DetectionCura_body_entered"]

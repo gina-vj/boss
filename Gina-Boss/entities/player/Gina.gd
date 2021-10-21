@@ -32,6 +32,7 @@ func initialize(item_throwable_container):
 	
 func _ready():
 	state_machine.set_parent(self)
+	PlayerData.call_deferred("set_max_health", max_health)
 
 func _handle_move_input():
 	move_direction_x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
@@ -52,7 +53,8 @@ func notify_hit(amount):
 	state_machine.notify_hit(amount)
 	
 func _remove():
-	pass
+	hide()
+	collision_layer = 0
 	
 func item_detected(item):
 	emit_signal("open_item_popup", item)
@@ -75,3 +77,4 @@ func _handle_shooter_actions():
 			item_throwable_container = get_parent()
 			shooter.item_throwable_container = item_throwable_container
 		shooter.shoot()
+

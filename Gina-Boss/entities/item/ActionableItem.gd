@@ -16,9 +16,11 @@ func _remove():
 	collision_mask = 0
 
 func _on_DetectionArea_body_entered(body):
+
 	if body.has_method("item_detected"):
 		body.item_detected(self)
 	
 func _on_DetectionArea_body_exited(body):
+
 	if body.has_method("item_not_detected"):
 		body.item_not_detected()

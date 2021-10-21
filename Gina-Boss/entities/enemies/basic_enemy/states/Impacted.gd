@@ -6,6 +6,7 @@ func enter():
 	parent.path = []
 	timer.start()
 
+
 func _on_Timer_timeout():
 	if parent.can_see_target():
 		emit_signal("finished", "chase")

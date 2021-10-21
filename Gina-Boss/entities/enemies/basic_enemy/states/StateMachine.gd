@@ -20,4 +20,6 @@ func notify_body_exited(body):
 
 func notify_impact(projectile):
 	current_state.notify_impact(projectile)
-		
+
+func notify_body_entered_cura(cura):
+	current_state.notify_cura(cura)
