@@ -21,6 +21,7 @@ export (int) var gravity = 30
 var item_throwable_container
 
 var velocity:Vector2 = Vector2.ZERO
+var direction:Vector2 = Vector2.UP
 var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGTH
 var move_direction_x:int = 0
 var move_direction_y:int = 0
@@ -41,6 +42,8 @@ func _handle_move_input():
 		velocity.x = clamp(velocity.x + (move_direction_x * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT)
 	if move_direction_y != 0:
 		velocity.y = clamp(velocity.y + (move_direction_y * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT)
+	if velocity != Vector2.ZERO:
+		direction = velocity.normalized()
 
 func _handle_deacceleration():
 	velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
@@ -76,5 +79,5 @@ func _handle_shooter_actions():
 		if item_throwable_container == null:
 			item_throwable_container = get_parent()
 			shooter.item_throwable_container = item_throwable_container
-		shooter.shoot(velocity.normalized())
+		shooter.shoot(direction)
 
