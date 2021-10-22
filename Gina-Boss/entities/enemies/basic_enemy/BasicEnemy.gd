@@ -7,6 +7,7 @@ export(int) var contagion_zone_damage: int = 1
 
 onready var raycast = $RayCast2D
 onready var detection_area = $DetectionArea
+onready var contagion_area = $ContationArea
 onready var state_machine = $StateMachine
 onready var body = $Body
 
@@ -15,6 +16,7 @@ const MINIMUM_DISTANCE_TO_TARGET = 30
 var path: Array = []
 var target_position: Vector2 = Vector2.ZERO
 var target:Player = null
+var contagion_target:Player = null
 var velocity: Vector2 = Vector2.ZERO
 var healed_texture = preload("res://assets/enemies/healed_basic_enemy.png")
 
@@ -51,6 +53,7 @@ func notify_hit(projectile):
 
 func healed():
 	body.texture = healed_texture
+	contagion_area.visible = false
 	
 
 func _on_DetectionArea_body_entered(body):
@@ -62,3 +65,11 @@ func _on_DetectionArea_body_exited(body):
 
 func _on_DetectionCura_body_entered(body):
 	state_machine.notify_body_entered_cura(body)
+
+
+func _on_ContationArea_body_entered(body):
+	state_machine.body_entered_contagion_area(body)
+
+
+func _on_ContationArea_body_exited(body):
+	state_machine.body_exited_contagion_area(body)

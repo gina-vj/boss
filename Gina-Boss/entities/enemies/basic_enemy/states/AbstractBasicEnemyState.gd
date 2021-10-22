@@ -25,8 +25,14 @@ func generate_random_path():
 	)
 
 func hurt_player_with_contagion_zone():
-	if parent.target != null:
-		parent.target.notify_hit(parent.contagion_zone_damage)
+	if parent.contagion_target != null:
+		parent.contagion_target.notify_hit(parent.contagion_zone_damage)
+
+func body_entered_contagion_area(body):
+	parent.contagion_target = body
+	
+func body_exited_contagion_area(body):
+	parent.contagion_target = null
 
 func notify_body_entered(body):
 	parent.target = body
