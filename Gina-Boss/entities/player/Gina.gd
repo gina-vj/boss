@@ -5,6 +5,8 @@ signal close_item_popup()
 
 onready var state_machine = $StateMachine
 onready var shooter = $Shooter
+onready var animation_player:AnimationPlayer = $AnimationPlayer
+onready var body:Sprite = $Body
 
 const FLOOR_NORMAL := Vector2.UP
 const SNAP_DIRECTION := Vector2.DOWN
@@ -64,6 +66,10 @@ func item_detected(item):
 	
 func item_not_detected():
 	emit_signal("close_item_popup")
+
+func _play_animation(anim_name:String):
+	if animation_player.has_animation(anim_name):
+		animation_player.play(anim_name)
 
 func _on_TakePopup_item_taken(item):
 	# Esta es una manera rapida pero pobre de saber que agarramos el item 
