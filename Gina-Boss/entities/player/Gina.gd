@@ -59,20 +59,6 @@ func _remove():
 	hide()
 	collision_layer = 0
 	
-func item_detected(item):
-	emit_signal("open_item_popup", item)
-	
-func item_not_detected():
-	emit_signal("close_item_popup")
-
-func _on_TakePopup_item_taken(item):
-	# Esta es una manera rapida pero pobre de saber que agarramos el item 
-	# que puede ser lanzado
-	
-	item._remove()
-	#Acá lo que queremos no es ocultarlo ni removerlo, es tener la referencia 
-	#al tipo de objeto para poder instanciarlo cuando querramos lanzarlo
-
 func _handle_shooter_actions():
 	if Input.is_action_just_pressed("shoot") and Bag.has_throwable():
 		print("disparaa")

@@ -18,10 +18,10 @@ height = 16.1886
 [sub_resource type="CircleShape2D" id=2]
 radius = 410.659
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 128.536
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 19.7348
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 19.7348
 
 [node name="BasicEnemy" type="KinematicBody2D"]
@@ -97,7 +97,7 @@ visible = false
 
 [node name="CollisionCura" type="CollisionShape2D" parent="DetectionCura"]
 position = Vector2( -0.187294, 0.374577 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 3

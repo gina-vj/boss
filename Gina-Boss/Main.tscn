@@ -171,7 +171,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="close_item_popup" from="Environment/Gina" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_Gina_close_item_popup"]
-[connection signal="open_item_popup" from="Environment/Gina" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_Gina_open_item_popup"]
 [connection signal="item_taken" from="Environment/Gina/CanvasLayer/TakePopup" to="Environment/Gina" method="_on_TakePopup_item_taken"]
 [connection signal="pressed" from="Environment/Gina/CanvasLayer/TakePopup/ToolButton" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_ToolButton_pressed"]
