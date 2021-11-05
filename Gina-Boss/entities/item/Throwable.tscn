@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://entities/item/Throwable.gd" type="Script" id=1]
-[ext_resource path="res://assets/item/Icon19.png" type="Texture" id=2]
+[ext_resource path="res://assets/item/vacuna-verde.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.25
@@ -13,6 +13,8 @@ script = ExtResource( 1 )
 VELOCITY = 500.0
 
 [node name="Body" type="Sprite" parent="."]
+position = Vector2( -0.198429, 0.198417 )
+scale = Vector2( 0.34, 0.34 )
 texture = ExtResource( 2 )
 
 [node name="LifetimeTimer" type="Timer" parent="."]

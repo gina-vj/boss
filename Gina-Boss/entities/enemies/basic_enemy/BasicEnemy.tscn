@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.gd" type="Script" id=1]
-[ext_resource path="res://assets/enemies/basic_enemy.png" type="Texture" id=2]
+[ext_resource path="res://assets/enemies/enemy-release.png" type="Texture" id=2]
 [ext_resource path="res://entities/enemies/basic_enemy/states/Idle.gd" type="Script" id=3]
 [ext_resource path="res://entities/enemies/basic_enemy/states/StateMachine.gd" type="Script" id=4]
 [ext_resource path="res://entities/enemies/basic_enemy/states/Wander.gd" type="Script" id=5]
@@ -11,18 +11,235 @@
 [ext_resource path="res://entities/enemies/basic_enemy/states/Healed.gd" type="Script" id=9]
 [ext_resource path="res://assets/enemies/contagion_area 2.png" type="Texture" id=10]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 20.0705
-height = 16.1886
-
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=11]
 radius = 410.659
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=2]
 radius = 128.536
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 19.7348
+height = 39.7764
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 20.0705
+height = 42.0639
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle_down"
+length = 0.1
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "idle_down_healted"
+length = 0.1
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 19 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle_lateral"
+length = 0.1
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "idle_lateral_healted"
+length = 0.1
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 16 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "idle_up"
+length = 0.1
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "idle_up_healted"
+length = 0.1
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 13 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "walk_down"
+length = 0.6
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.205, 0.41 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "walk_down_healted"
+length = 0.6
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.205, 0.41 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 18, 19, 20 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "walk_lateral"
+length = 0.6
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.205, 0.41 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 4, 3 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "walk_lateral_healted"
+length = 0.6
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.205, 0.41 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 17, 16, 15 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "walk_up"
+length = 0.6
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.205, 0.41 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "walk_up_healted"
+length = 0.6
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.205, 0.41 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14 ]
+}
 
 [node name="BasicEnemy" type="KinematicBody2D"]
 collision_layer = 4
@@ -65,27 +282,20 @@ one_shot = true
 [node name="Healed" type="Node" parent="StateMachine"]
 script = ExtResource( 9 )
 
-[node name="Body" type="Sprite" parent="."]
-scale = Vector2( 0.399782, 0.577266 )
-texture = ExtResource( 2 )
-
-[node name="CollisionBody" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2( 0, -0.645401 )
-shape = SubResource( 2 )
+shape = SubResource( 11 )
 
 [node name="ContationArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContationArea"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="ContationArea"]
 position = Vector2( 0.34896, 2.44301 )
@@ -93,14 +303,39 @@ scale = Vector2( 2.54258, 2.52862 )
 texture = ExtResource( 10 )
 
 [node name="DetectionCura" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionCura" type="CollisionShape2D" parent="DetectionCura"]
-position = Vector2( -0.187294, 0.374577 )
+position = Vector2( -0.452156, 2.49351 )
 shape = SubResource( 3 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 3
+
+[node name="Body" type="Sprite" parent="."]
+position = Vector2( -0.930577, -4.90645 )
+scale = Vector2( 0.36, 0.36 )
+texture = ExtResource( 2 )
+hframes = 3
+vframes = 8
+frame = 7
+
+[node name="CollisionBody" type="CollisionShape2D" parent="."]
+position = Vector2( -1.32434, 2.1189 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle_down = SubResource( 5 )
+anims/idle_down_healted = SubResource( 13 )
+anims/idle_lateral = SubResource( 6 )
+anims/idle_lateral_healted = SubResource( 14 )
+anims/idle_up = SubResource( 7 )
+anims/idle_up_healted = SubResource( 12 )
+anims/walk_down = SubResource( 8 )
+anims/walk_down_healted = SubResource( 17 )
+anims/walk_lateral = SubResource( 9 )
+anims/walk_lateral_healted = SubResource( 15 )
+anims/walk_up = SubResource( 10 )
+anims/walk_up_healted = SubResource( 16 )
 
 [connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_IdleTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/ContagionTimer" to="StateMachine/Chase" method="_on_ContagionTimmer_timeout"]

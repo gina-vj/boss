@@ -9,11 +9,11 @@
 [ext_resource path="res://entities/player/Gina.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/item/Component1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/item/Component2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/item/antidoto-rojo.png" type="Texture" id=10]
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=11]
 [ext_resource path="res://entities/player/TakePopup.gd" type="Script" id=12]
-[ext_resource path="res://assets/item/Icon2.png" type="Texture" id=13]
-[ext_resource path="res://assets/item/Icon3.png" type="Texture" id=15]
-[ext_resource path="res://assets/item/Icon1.png" type="Texture" id=16]
+[ext_resource path="res://assets/item/antidoto.png" type="Texture" id=13]
+[ext_resource path="res://assets/item/vacuna-verde.png" type="Texture" id=14]
 [ext_resource path="res://CountVacune.gd" type="Script" id=17]
 [ext_resource path="res://entities/item/VacunaRoja.gd" type="Script" id=18]
 [ext_resource path="res://entities/item/VacunaCyan.gd" type="Script" id=19]
@@ -128,15 +128,18 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="CanvasCounter"]
 position = Vector2( 354.858, 560.037 )
-texture = ExtResource( 16 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 10 )
 
 [node name="Sprite2" type="Sprite" parent="CanvasCounter"]
-position = Vector2( 472.583, 558.355 )
+position = Vector2( 473.527, 560.243 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 13 )
 
 [node name="Sprite3" type="Sprite" parent="CanvasCounter"]
 position = Vector2( 581.9, 560.037 )
-texture = ExtResource( 15 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 14 )
 
 [node name="CountRed" type="Label" parent="CanvasCounter"]
 margin_left = 375.039

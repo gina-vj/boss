@@ -9,7 +9,8 @@ onready var raycast = $RayCast2D
 onready var detection_area = $DetectionArea
 onready var contagion_area = $ContationArea
 onready var state_machine = $StateMachine
-onready var body = $Body
+onready var animation_player:AnimationPlayer = $AnimationPlayer
+onready var body:Sprite = $Body
 
 const MINIMUM_DISTANCE_TO_TARGET = 30
 
@@ -73,3 +74,7 @@ func _on_ContationArea_body_entered(body):
 
 func _on_ContationArea_body_exited(body):
 	state_machine.body_exited_contagion_area(body)
+
+func _play_animation(anim_name:String):
+	if animation_player.has_animation(anim_name):
+		animation_player.play(anim_name)
