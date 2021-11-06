@@ -93,8 +93,20 @@ texture = ExtResource( 22 )
 "alcohol",
 ] instance=ExtResource( 20 )]
 script = ExtResource( 6 )
+duration = 3
 
 [node name="Sprite" type="Sprite" parent="Environment/ItemSpawn/Alcohol"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 9 )
+
+[node name="Alcohol2" parent="Environment/ItemSpawn" groups=[
+"alcohol",
+] instance=ExtResource( 20 )]
+position = Vector2( 733.629, 142.2 )
+script = ExtResource( 6 )
+duration = 5
+
+[node name="Sprite" type="Sprite" parent="Environment/ItemSpawn/Alcohol2"]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 9 )
 
@@ -111,10 +123,10 @@ texture = ExtResource( 2 )
 script = ExtResource( 17 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasCounter"]
-margin_left = 327.5
-margin_top = 534.492
-margin_right = 671.5
-margin_bottom = 586.492
+margin_left = 328.0
+margin_top = 536.0
+margin_right = 719.0
+margin_bottom = 587.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -129,20 +141,8 @@ position = Vector2( 473.527, 560.243 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 13 )
 
-[node name="Sprite3" type="Button" parent="CanvasCounter"]
-anchor_right = 0.013
-margin_left = 561.0
-margin_top = 542.0
-margin_right = 575.0
-margin_bottom = 575.0
-shortcut_in_tooltip = false
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="CanvasCounter/Sprite3"]
-position = Vector2( 15, 17 )
+[node name="Sprite4" type="Sprite" parent="CanvasCounter"]
+position = Vector2( 576, 559 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 9 )
 
@@ -168,10 +168,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CountCyan" type="Label" parent="CanvasCounter"]
+[node name="CountAlcohol" type="Label" parent="CanvasCounter"]
 margin_left = 612.172
 margin_top = 558.355
 margin_right = 652.172
+margin_bottom = 572.355
+custom_colors/font_color = Color( 0.0352941, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountBarbijo" type="Label" parent="CanvasCounter"]
+margin_left = 697.309
+margin_top = 558.355
+margin_right = 737.309
 margin_bottom = 572.355
 custom_colors/font_color = Color( 0.0352941, 0, 0, 1 )
 text = "0"
@@ -190,3 +201,8 @@ script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite3" type="Sprite" parent="CanvasCounter"]
+position = Vector2( 664.509, 558.355 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 22 )

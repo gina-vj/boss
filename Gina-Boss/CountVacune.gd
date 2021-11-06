@@ -1,13 +1,13 @@
 extends CanvasLayer
 
-onready var countRed = $CountRed
-onready var countYellow = $CountYellow
-onready var countCyan = $CountCyan
+
+
 
 func _physics_process(delta):
 	$CountRed.text=str( Bag.count("rojo"))
 	$CountYellow.text= str(Bag.count("amarillo"))
-	$CountCyan.text= str(Bag.count("verde"))
+	$CountAlcohol.text= str(Bag.cant_alcohol())
+	$CountBarbijo.text= str(Bag.cantBarbijos)
 
 
 #Acá es donde estaría bueno que te vaya diciendo que te faltan componentes 

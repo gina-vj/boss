@@ -2,10 +2,16 @@ extends Node2D
 
 var items=[]
 var cantBarbijos=0
-var cantAlcohol=0
-func add_item(item):
-	items.append(item)
+var alcohol=[]
+var duration_alcohol=0
 
+func add_item(item):
+	if item.is_in_group("barbijo"):
+		cantBarbijos+=1
+	if item.is_in_group("alcohol"):
+		alcohol.append(item)
+	if item.is_in_group("item"):
+		items.append(item)
 func count(color):
 	var cant=0
 	for item in items:
@@ -14,9 +20,12 @@ func count(color):
 	return cant
 
 func has_throwable():
-	var isThrowable = false
-	for item in items:
-		print(item.get_name())
-		isThrowable = isThrowable or item.is_throwable()
+	return alcohol.size()>0
 	
-	return isThrowable
+
+func alcohol_used():
+	duration_alcohol=alcohol.pop_back().get_duration()
+func get_duration_alcohol():
+	return duration_alcohol
+func cant_alcohol():
+	return alcohol.size()

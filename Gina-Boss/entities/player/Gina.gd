@@ -18,7 +18,7 @@ export (float) var H_SPEED_LIMIT:float = 400.0
 export (int) var jump_speed = 1000
 export (float) var FRICTION_WEIGHT:float = 0.2
 export (int) var gravity = 30
-
+var can_shoot=false
 var item_throwable_container
 
 var velocity:Vector2 = Vector2.ZERO
@@ -65,11 +65,17 @@ func _play_animation(anim_name:String):
 	if animation_player.has_animation(anim_name):
 		animation_player.play(anim_name)
 
-
+func _can_shoot():
+	return can_shoot
 
 func _handle_shooter_actions():
-	if Input.is_action_just_pressed("shoot") and Bag.has_throwable():
-
+	if Input.is_action_just_pressed("shoot") and (_can_shoot()==false and Bag.has_throwable()):
+		
+		can_shoot=true
+		Bag.alcohol_used()
+		$Shooter/Timer.start(Bag.get_duration_alcohol())
+	
+	if Input.is_action_just_pressed("shoot") and can_shoot :
 		print("disparaa")
 		if item_throwable_container == null:
 			item_throwable_container = get_parent()
@@ -78,5 +84,9 @@ func _handle_shooter_actions():
 
 
 
+
 func _on_Timer_timeout():
-	pass # Replace with function body.
+	print("termine")
+	can_shoot=false
+	$Shooter/Timer.stop()
+
