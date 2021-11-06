@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://entities/environment_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/world/battleground.png" type="Texture" id=2]
@@ -7,11 +7,9 @@
 [ext_resource path="res://Main.gd" type="Script" id=5]
 [ext_resource path="res://entities/item/ItemThrowable1.gd" type="Script" id=6]
 [ext_resource path="res://entities/player/Gina.tscn" type="PackedScene" id=7]
-[ext_resource path="res://entities/item/Component1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://entities/item/Component2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/item/Component.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/item/antidoto-rojo.png" type="Texture" id=10]
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=11]
-[ext_resource path="res://entities/player/TakePopup.gd" type="Script" id=12]
 [ext_resource path="res://assets/item/antidoto.png" type="Texture" id=13]
 [ext_resource path="res://assets/item/vacuna-verde.png" type="Texture" id=14]
 [ext_resource path="res://CountVacune.gd" type="Script" id=17]
@@ -44,43 +42,10 @@ tile_data = PoolIntArray( -8454268, 6, 0, -8454267, 6, 0, -8454266, 6, 0, -84542
 position = Vector2( -26.3315, -80.8456 )
 current = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Environment/Gina"]
-offset = Vector2( 0, 32 )
-transform = Transform2D( 1, 0, 0, 1, 0, 32 )
-
-[node name="TakePopup" type="Popup" parent="Environment/Gina/CanvasLayer"]
-show_behind_parent = true
-margin_left = 348.192
-margin_top = 201.557
-margin_right = 548.192
-margin_bottom = 271.557
-script = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="Label" parent="Environment/Gina/CanvasLayer/TakePopup"]
-margin_right = 183.0
-margin_bottom = 40.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "¿Querés agarrar este objeto?"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ToolButton" type="ToolButton" parent="Environment/Gina/CanvasLayer/TakePopup"]
-margin_left = 56.0
-margin_top = 16.0
-margin_right = 106.0
-margin_bottom = 38.0
-text = "Si"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="EnemySpawn" type="Node" parent="Environment"]
 script = ExtResource( 4 )
 element_scene = ExtResource( 11 )
+spawn_element = false
 
 [node name="BasicEnemy" parent="Environment/EnemySpawn" instance=ExtResource( 11 )]
 position = Vector2( 121, 400 )
@@ -94,12 +59,20 @@ position = Vector2( 300, -2500 )
 [node name="ItemSpawn" type="Node" parent="Environment"]
 
 [node name="Component1" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
-position = Vector2( 868.996, 562.128 )
+position = Vector2( 946.996, 503.128 )
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 18 )
 
-[node name="Component2" parent="Environment/ItemSpawn" instance=ExtResource( 9 )]
-position = Vector2( 578.326, -130.909 )
+[node name="Sprite" type="Sprite" parent="Environment/ItemSpawn/Component1"]
+texture = ExtResource( 10 )
+
+[node name="Component2" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
+position = Vector2( 868.996, 562.128 )
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 19 )
+
+[node name="body" type="Sprite" parent="Environment/ItemSpawn/Component2"]
+texture = ExtResource( 13 )
 
 [node name="ItemThrowable1" parent="Environment/ItemSpawn" instance=ExtResource( 20 )]
 position = Vector2( 1063.3, -21.519 )
@@ -109,7 +82,7 @@ script = ExtResource( 6 )
 layer = -1
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 2501.48, 570.128 )
+position = Vector2( 2501.48, 562.128 )
 scale = Vector2( 6.79227, 8.4218 )
 z_index = -2
 texture = ExtResource( 2 )
@@ -173,8 +146,3 @@ text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[connection signal="close_item_popup" from="Environment/Gina" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_Gina_close_item_popup"]
-[connection signal="open_item_popup" from="Environment/Gina" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_Gina_open_item_popup"]
-[connection signal="item_taken" from="Environment/Gina/CanvasLayer/TakePopup" to="Environment/Gina" method="_on_TakePopup_item_taken"]
-[connection signal="pressed" from="Environment/Gina/CanvasLayer/TakePopup/ToolButton" to="Environment/Gina/CanvasLayer/TakePopup" method="_on_ToolButton_pressed"]
