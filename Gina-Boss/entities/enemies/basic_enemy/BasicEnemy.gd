@@ -13,13 +13,13 @@ onready var animation_player:AnimationPlayer = $AnimationPlayer
 onready var body:Sprite = $Body
 
 const MINIMUM_DISTANCE_TO_TARGET = 30
-
+var away=1
 var path: Array = []
 var target_position: Vector2 = Vector2.ZERO
 var target:Player = null
 var contagion_target:Player = null
 var velocity: Vector2 = Vector2.ZERO
-var healed_texture = preload("res://assets/enemies/healed_basic_enemy.png")
+
 
 func _ready():
 	state_machine.set_parent(self)
@@ -31,7 +31,7 @@ func navigate():
 			path.pop_front()
 			velocity = Vector2.ZERO
 		else:
-			velocity = global_position.direction_to(target_position) * SPEED
+			velocity = away*global_position.direction_to(target_position) * SPEED
 	else:
 		velocity = Vector2.ZERO
 
@@ -53,8 +53,11 @@ func notify_hit(projectile):
 	state_machine.notify_impact(projectile)
 
 func healed():
-	body.texture = healed_texture
-	contagion_area.visible = false
+	away=-1
+	body.set_modulate(Color(0,1,0))
+func infected():
+	away=1
+	body.set_modulate(Color(1,1,1))
 	
 
 func _on_DetectionArea_body_entered(body):
@@ -78,3 +81,4 @@ func _on_ContationArea_body_exited(body):
 func _play_animation(anim_name:String):
 	if animation_player.has_animation(anim_name):
 		animation_player.play(anim_name)
+

@@ -2,6 +2,7 @@ extends "res://entities/enemies/basic_enemy/states/AbstractBasicEnemyState.gd"
 
 func enter():
 	parent.healed()
+	parent.away()
 	if level_navigation != null:
 		parent.path = generate_random_path()
 

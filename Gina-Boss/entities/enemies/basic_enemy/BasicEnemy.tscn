@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemies/enemy-release.png" type="Texture" id=2]
@@ -11,21 +11,17 @@
 [ext_resource path="res://entities/enemies/basic_enemy/states/Healed.gd" type="Script" id=9]
 [ext_resource path="res://assets/enemies/contagion_area 2.png" type="Texture" id=10]
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=1]
 radius = 410.659
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 128.536
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 19.7348
-height = 39.7764
-
-[sub_resource type="CapsuleShape2D" id=4]
 radius = 20.0705
 height = 42.0639
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "idle_down"
 length = 0.1
 loop = true
@@ -43,7 +39,7 @@ tracks/0/keys = {
 "values": [ 7 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=5]
 resource_name = "idle_down_healted"
 length = 0.1
 loop = true
@@ -79,7 +75,7 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=7]
 resource_name = "idle_lateral_healted"
 length = 0.1
 loop = true
@@ -97,8 +93,7 @@ tracks/0/keys = {
 "values": [ 16 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "idle_up"
+[sub_resource type="Animation" id=8]
 length = 0.1
 loop = true
 step = 0.041
@@ -115,7 +110,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=9]
 resource_name = "idle_up_healted"
 length = 0.1
 loop = true
@@ -133,8 +128,7 @@ tracks/0/keys = {
 "values": [ 13 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "walk_down"
+[sub_resource type="Animation" id=10]
 length = 0.6
 loop = true
 step = 0.041
@@ -151,7 +145,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 8 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=11]
 resource_name = "walk_down_healted"
 length = 0.6
 loop = true
@@ -169,8 +163,7 @@ tracks/0/keys = {
 "values": [ 18, 19, 20 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "walk_lateral"
+[sub_resource type="Animation" id=12]
 length = 0.6
 loop = true
 step = 0.041
@@ -187,7 +180,7 @@ tracks/0/keys = {
 "values": [ 5, 4, 3 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=13]
 resource_name = "walk_lateral_healted"
 length = 0.6
 loop = true
@@ -205,8 +198,7 @@ tracks/0/keys = {
 "values": [ 17, 16, 15 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "walk_up"
+[sub_resource type="Animation" id=14]
 length = 0.6
 loop = true
 step = 0.041
@@ -223,7 +215,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=15]
 resource_name = "walk_up_healted"
 length = 0.6
 loop = true
@@ -288,7 +280,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2( 0, -0.645401 )
-shape = SubResource( 11 )
+shape = SubResource( 1 )
 
 [node name="ContationArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -302,16 +294,11 @@ position = Vector2( 0.34896, 2.44301 )
 scale = Vector2( 2.54258, 2.52862 )
 texture = ExtResource( 10 )
 
-[node name="DetectionCura" type="Area2D" parent="."]
-
-[node name="CollisionCura" type="CollisionShape2D" parent="DetectionCura"]
-position = Vector2( -0.452156, 2.49351 )
-shape = SubResource( 3 )
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 3
 
 [node name="Body" type="Sprite" parent="."]
+modulate = Color( 0.917969, 0.867767, 0.867767, 1 )
 position = Vector2( -0.930577, -4.90645 )
 scale = Vector2( 0.36, 0.36 )
 texture = ExtResource( 2 )
@@ -321,21 +308,21 @@ frame = 7
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 position = Vector2( -1.32434, 2.1189 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle_down = SubResource( 5 )
-anims/idle_down_healted = SubResource( 13 )
+anims/idle_down = SubResource( 4 )
+anims/idle_down_healted = SubResource( 5 )
 anims/idle_lateral = SubResource( 6 )
-anims/idle_lateral_healted = SubResource( 14 )
-anims/idle_up = SubResource( 7 )
-anims/idle_up_healted = SubResource( 12 )
-anims/walk_down = SubResource( 8 )
-anims/walk_down_healted = SubResource( 17 )
-anims/walk_lateral = SubResource( 9 )
-anims/walk_lateral_healted = SubResource( 15 )
-anims/walk_up = SubResource( 10 )
-anims/walk_up_healted = SubResource( 16 )
+anims/idle_lateral_healted = SubResource( 7 )
+anims/idle_up = SubResource( 8 )
+anims/idle_up_healted = SubResource( 9 )
+anims/walk_down = SubResource( 10 )
+anims/walk_down_healted = SubResource( 11 )
+anims/walk_lateral = SubResource( 12 )
+anims/walk_lateral_healted = SubResource( 13 )
+anims/walk_up = SubResource( 14 )
+anims/walk_up_healted = SubResource( 15 )
 
 [connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_IdleTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/ContagionTimer" to="StateMachine/Chase" method="_on_ContagionTimmer_timeout"]
@@ -345,4 +332,3 @@ anims/walk_up_healted = SubResource( 16 )
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]
 [connection signal="body_entered" from="ContationArea" to="." method="_on_ContationArea_body_entered"]
 [connection signal="body_exited" from="ContationArea" to="." method="_on_ContationArea_body_exited"]
-[connection signal="body_entered" from="DetectionCura" to="." method="_on_DetectionCura_body_entered"]

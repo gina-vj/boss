@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://entities/environment_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/world/battleground.png" type="Texture" id=2]
@@ -11,7 +11,11 @@
 [ext_resource path="res://assets/item/botella-de-alcohol.png" type="Texture" id=9]
 [ext_resource path="res://assets/item/antidoto-rojo.png" type="Texture" id=10]
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://ProgressBar.gd" type="Script" id=12]
 [ext_resource path="res://assets/item/antidoto.png" type="Texture" id=13]
+[ext_resource path="res://assets/item/salud/borde_barra.png" type="Texture" id=14]
+[ext_resource path="res://assets/item/salud/fondo_barra.png" type="Texture" id=15]
+[ext_resource path="res://assets/item/salud/progreso_barra.png" type="Texture" id=16]
 [ext_resource path="res://CountVacune.gd" type="Script" id=17]
 [ext_resource path="res://entities/item/VacunaRoja.gd" type="Script" id=18]
 [ext_resource path="res://entities/item/VacunaCyan.gd" type="Script" id=19]
@@ -45,7 +49,6 @@ current = true
 [node name="EnemySpawn" type="Node" parent="Environment"]
 script = ExtResource( 4 )
 element_scene = ExtResource( 11 )
-spawn_element = false
 
 [node name="BasicEnemy" parent="Environment/EnemySpawn" instance=ExtResource( 11 )]
 position = Vector2( 121, 400 )
@@ -159,6 +162,18 @@ margin_right = 652.172
 margin_bottom = 572.355
 custom_colors/font_color = Color( 0.0352941, 0, 0, 1 )
 text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="TextureProgress" parent="CanvasCounter"]
+margin_right = 4.0
+margin_bottom = 14.0
+max_value = 20.0
+texture_under = ExtResource( 15 )
+texture_over = ExtResource( 14 )
+texture_progress = ExtResource( 16 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

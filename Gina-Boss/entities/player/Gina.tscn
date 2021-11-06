@@ -190,8 +190,8 @@ shape = SubResource( 1 )
 position = Vector2( -4.69191, -1.47955 )
 scale = Vector2( 0.40759, 0.408289 )
 texture = ExtResource( 5 )
-vframes = 18
 hframes = 4
+vframes = 18
 frame = 11
 
 [node name="Shooter" type="Sprite" parent="."]
