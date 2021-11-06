@@ -1,7 +1,8 @@
 extends Node2D
 
 var items=[]
-
+var cantBarbijos=0
+var cantAlcohol=0
 func add_item(item):
 	items.append(item)
 

@@ -3,7 +3,7 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 13.4294
 
-[node name="Component" type="Node2D"]
+[node name="ItemAgarrable" type="Node2D"]
 position = Vector2( 163, 119 )
 
 [node name="DetectionArea" type="Area2D" parent="."]

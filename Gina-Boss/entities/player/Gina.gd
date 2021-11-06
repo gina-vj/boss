@@ -69,9 +69,14 @@ func _play_animation(anim_name:String):
 
 func _handle_shooter_actions():
 	if Input.is_action_just_pressed("shoot") and Bag.has_throwable():
+
 		print("disparaa")
 		if item_throwable_container == null:
 			item_throwable_container = get_parent()
 			shooter.item_throwable_container = item_throwable_container
 		shooter.shoot(direction)
 
+
+
+func _on_Timer_timeout():
+	pass # Replace with function body.

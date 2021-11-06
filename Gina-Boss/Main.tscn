@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://entities/environment_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/world/battleground.png" type="Texture" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Main.gd" type="Script" id=5]
 [ext_resource path="res://entities/item/ItemThrowable1.gd" type="Script" id=6]
 [ext_resource path="res://entities/player/Gina.tscn" type="PackedScene" id=7]
-[ext_resource path="res://entities/item/Component.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/item/Componente.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/item/botella-de-alcohol.png" type="Texture" id=9]
 [ext_resource path="res://assets/item/antidoto-rojo.png" type="Texture" id=10]
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=11]
@@ -19,7 +19,9 @@
 [ext_resource path="res://CountVacune.gd" type="Script" id=17]
 [ext_resource path="res://entities/item/VacunaRoja.gd" type="Script" id=18]
 [ext_resource path="res://entities/item/VacunaCyan.gd" type="Script" id=19]
-[ext_resource path="res://entities/item/ItemThrowa.tscn" type="PackedScene" id=20]
+[ext_resource path="res://entities/item/Alcohol.tscn" type="PackedScene" id=20]
+[ext_resource path="res://entities/item/barbijo.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/item/barbijo.png" type="Texture" id=22]
 
 [node name="Main" type="Node2D"]
 position = Vector2( 1.68176, -1.68179 )
@@ -61,28 +63,39 @@ position = Vector2( 300, -2500 )
 
 [node name="ItemSpawn" type="Node" parent="Environment"]
 
-[node name="Component1" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
-position = Vector2( 946.996, 503.128 )
-scale = Vector2( 0.5, 0.5 )
-script = ExtResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="Environment/ItemSpawn/Component1"]
-texture = ExtResource( 10 )
-
-[node name="Component2" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
-position = Vector2( 868.996, 562.128 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Componente2" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
+position = Vector2( 326, 238 )
 script = ExtResource( 19 )
 
-[node name="body" type="Sprite" parent="Environment/ItemSpawn/Component2"]
+[node name="Sprite" type="Sprite" parent="Environment/ItemSpawn/Componente2"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="Componente" parent="Environment/ItemSpawn" instance=ExtResource( 8 )]
+position = Vector2( 591.2, 66.0834 )
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="Environment/ItemSpawn/Componente"]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 13 )
 
-[node name="ItemThrowable1" parent="Environment/ItemSpawn" instance=ExtResource( 20 )]
-position = Vector2( 1063.3, -21.519 )
-scale = Vector2( 0.3, 0.3 )
+[node name="barbijo" parent="Environment/ItemSpawn" groups=[
+"component",
+] instance=ExtResource( 21 )]
+position = Vector2( 1124.15, 289.116 )
 script = ExtResource( 6 )
 
-[node name="Sprite" type="Sprite" parent="Environment/ItemSpawn/ItemThrowable1"]
+[node name="Sprite" type="Sprite" parent="Environment/ItemSpawn/barbijo"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 22 )
+
+[node name="Alcohol" parent="Environment/ItemSpawn" groups=[
+"alcohol",
+] instance=ExtResource( 20 )]
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Environment/ItemSpawn/Alcohol"]
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 9 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
