@@ -41,8 +41,8 @@ tile_data = PoolIntArray( -393202, 5, 0, -393201, 5, 0, -393200, 5, 0, -393199, 
 scale = Vector2( 0.8, 0.8 )
 
 [node name="Camara" type="Camera2D" parent="Environment/Gina"]
-position = Vector2( -26.3315, -80.8456 )
 current = true
+zoom = Vector2( 0.8, 0.8 )
 
 [node name="EnemySpawn" type="Node" parent="Environment"]
 script = ExtResource( 4 )
@@ -188,7 +188,6 @@ __meta__ = {
 }
 
 [node name="ProgressBar" type="TextureProgress" parent="CanvasCounter"]
-visible = false
 margin_right = 4.0
 margin_bottom = 14.0
 max_value = 20.0
@@ -209,11 +208,14 @@ texture = ExtResource( 22 )
 layer = -2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-margin_left = -720.0
-margin_top = -456.0
-margin_right = 728.0
-margin_bottom = 344.0
+anchor_left = -0.687
+anchor_top = -0.613
+anchor_right = 1.141
+anchor_bottom = 1.213
+margin_left = -32.512
+margin_top = -16.2
+margin_right = 23.616
+margin_bottom = 24.2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
