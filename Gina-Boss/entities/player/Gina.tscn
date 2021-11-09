@@ -192,7 +192,7 @@ scale = Vector2( 0.40759, 0.408289 )
 texture = ExtResource( 5 )
 hframes = 4
 vframes = 18
-frame = 11
+frame = 8
 
 [node name="Shooter" type="Sprite" parent="."]
 script = ExtResource( 6 )

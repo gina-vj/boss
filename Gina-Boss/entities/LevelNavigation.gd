@@ -1,3 +1,3 @@
 extends Navigation2D
 
-onready var tile_map: TileMap = $TileMap
+onready var tile_map: TileMap = $Floor

@@ -55,6 +55,7 @@ func notify_hit(projectile):
 func healed():
 	away=-1
 	body.set_modulate(Color(0,1,0))
+
 func infected():
 	away=1
 	body.set_modulate(Color(1,1,1))
