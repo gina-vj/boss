@@ -1,41 +1,18 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/assets-prueba/computer_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/assets-prueba/lasers_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/env/AnimatedComponent.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 24.0
-height = 0.0
+radius = 9.68201
+height = 31.9289
 
 [sub_resource type="Animation" id=1]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 2 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1 ]
-}
 
 [sub_resource type="Animation" id=2]
 resource_name = "blink"
+length = 0.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -44,27 +21,30 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 0, 1 ]
 }
 
-[node name="Computer" type="StaticBody2D"]
+[node name="Lasers" type="StaticBody2D"]
 position = Vector2( 182.318, -78.3182 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0953979, -1.32922 )
 z_index = 1
 shape = SubResource( 3 )
 
-[node name="Computer" type="Sprite" parent="."]
-scale = Vector2( 2.99999, 2.99999 )
+[node name="LasersBody" type="Sprite" parent="."]
+scale = Vector2( 1.71213, 1.71213 )
 texture = ExtResource( 1 )
 hframes = 2
-frame = 1
+vframes = 5
+region_enabled = true
+region_rect = Rect2( 0, 5, 30, 145 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Computer")
+root_node = NodePath("../LasersBody")
 anims/RESET = SubResource( 1 )
 anims/blink = SubResource( 2 )
