@@ -12,22 +12,19 @@ func _on_Timer_timeout():
 	emit_signal("finished", "chase")
 
 
-
-
-
 func enter():
 	timer.start(5)
 	parent.healed()
 	
 	if level_navigation != null:
-		parent.path = generate_random_path()
+		parent.path = generate_path()
 
 
 func update(delta):
 	if (parent.path.size() > 0):
 		parent.navigate()
 	else:
-		parent.path = generate_random_path()
+		parent.path = generate_path()
 		parent.navigate()
 
 func notify_body_entered(body):

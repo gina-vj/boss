@@ -4,6 +4,8 @@ class_name BasicEnemy
 export(int) var SPEED: int = 100
 export(int) var illness: int = 20
 export(int) var contagion_zone_damage: int = 1
+export(Vector2) var patroll_to = null
+export(Vector2) var patroll_from = null
 
 onready var raycast = $RayCast2D
 onready var detection_area = $DetectionArea

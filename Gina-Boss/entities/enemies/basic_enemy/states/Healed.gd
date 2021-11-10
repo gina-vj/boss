@@ -4,14 +4,14 @@ func enter():
 	parent.healed()
 	parent.away()
 	if level_navigation != null:
-		parent.path = generate_random_path()
+		parent.path = generate_path()
 
 
 func update(delta):
 	if (parent.path.size() > 0):
 		parent.navigate()
 	else:
-		parent.path = generate_random_path()
+		parent.path = generate_path()
 		parent.navigate()
 
 func notify_body_entered(body):

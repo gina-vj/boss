@@ -51,9 +51,13 @@ element_scene = ExtResource( 11 )
 
 [node name="BasicEnemy" parent="Environment/EnemySpawn" instance=ExtResource( 11 )]
 position = Vector2( 1344, -320 )
+patroll_to = Vector2( 1344, -320 )
+patroll_from = Vector2( 1344, -30 )
 
 [node name="BasicEnemy2" parent="Environment/EnemySpawn" instance=ExtResource( 11 )]
 position = Vector2( 1416, 544 )
+patroll_to = Vector2( 1416, 380 )
+patroll_from = Vector2( 1416, 769 )
 
 [node name="BasicEnemy3" parent="Environment/EnemySpawn" instance=ExtResource( 11 )]
 position = Vector2( 2952, 120 )
