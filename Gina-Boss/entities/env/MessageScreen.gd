@@ -19,7 +19,7 @@ func set_message(value):
 
 func set_show(value):
 	if value:
-		tween.interpolate_property(message_container, "percent_visible", 0.0, 1.0, message.length() * 0.05)
+		tween.interpolate_property(message_container, "percent_visible", 0.0, 1.0, message.length() * 0.01)
 		tween.start()
 
 	visible = value

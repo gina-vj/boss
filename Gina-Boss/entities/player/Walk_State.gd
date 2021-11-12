@@ -16,5 +16,12 @@ func update(delta):
 	parent._handle_move_input()
 	parent._apply_movement()
 	parent._handle_shooter_actions()
-	if parent.move_direction_x == 0 && parent.move_direction_y == 0  :
+	if parent.velocity == Vector2.ZERO  :
 		emit_signal("finished", "idle")
+
+func handle_input(event:InputEvent):
+	if _is_dash(event):
+		emit_signal("finished", "dash")
+
+func _is_dash(event):
+	return event.is_action_pressed("dash")

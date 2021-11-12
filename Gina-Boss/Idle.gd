@@ -14,7 +14,9 @@ func enter():
 
 
 func handle_input(event:InputEvent):
-	if _is_moved(event) :
+	if _is_dash(event):
+		emit_signal("finished", "dash")
+	if _is_moving(event) :
 		emit_signal("finished", "walk")
 	
 func update(delta:float):
@@ -22,6 +24,13 @@ func update(delta:float):
 	parent._apply_movement()
 	parent._handle_shooter_actions()
 
-func _is_moved(event):
-	var is_moved = event.is_action_pressed("move_left") || event.is_action_pressed("move_right") || event.is_action_pressed("move_up") || event.is_action_pressed("move_down")
-	return is_moved
+func _is_dash(event):
+	return event.is_action_pressed("dash")
+
+func _is_moving(event: InputEvent):
+	return (
+		event.is_action_pressed("move_left") || 
+		event.is_action_pressed("move_right") || 
+		event.is_action_pressed("move_up") || 
+		event.is_action_pressed("move_down")
+	)

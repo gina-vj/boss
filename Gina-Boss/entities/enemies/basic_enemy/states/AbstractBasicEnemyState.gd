@@ -48,9 +48,9 @@ func notify_body_entered(body):
 
 
 func notify_body_exited(body):
-	parent.target = null
 	if parent.can_see_target():
 		emit_signal("finished", "idle")
+	parent.target = null
 
 func notify_impact(projectile):
 	if projectile.is_in_group("alcohol"):

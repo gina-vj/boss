@@ -13,14 +13,12 @@ const SNAP_LENGTH := 32.0
 const SLOPE_THRESHOLD := deg2rad(60)
 
 export (int) var max_health = 20
-export (float) var ACCELERATION:float = 30.0
-export (float) var H_SPEED_LIMIT:float = 400.0
-export (int) var jump_speed = 1000
+export (float) var ACCELERATION:float = 10.0
+export (float) var SPEED_LIMIT:float = 170.0
 export (float) var FRICTION_WEIGHT:float = 0.2
-export (int) var gravity = 30
+
 var can_shoot=false
 var item_throwable_container
-
 var velocity:Vector2 = Vector2.ZERO
 var direction:Vector2 = Vector2.UP
 var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGTH
@@ -37,14 +35,18 @@ func _ready():
 	PlayerData.call_deferred("set_max_health", max_health)
 
 func _handle_move_input():
-	move_direction_x = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))
-	move_direction_y= int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
-	if move_direction_x != 0:
-		velocity.x = clamp(velocity.x + (move_direction_x * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT)
-	if move_direction_y != 0:
-		velocity.y = clamp(velocity.y + (move_direction_y * ACCELERATION), -H_SPEED_LIMIT, H_SPEED_LIMIT)
-	if velocity != Vector2.ZERO:
-		direction = velocity.normalized()
+	velocity = Vector2()
+	if Input.is_action_pressed("move_right"):
+		velocity.x += 1
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("move_down"):
+		velocity.y += 1
+	if Input.is_action_pressed("move_up"):
+		velocity.y -= 1
+	velocity = velocity.normalized() * SPEED_LIMIT
+
+	direction = velocity.normalized()
 
 func _handle_deacceleration():
 	velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0

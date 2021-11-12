@@ -1,7 +1,7 @@
 extends KinematicBody2D
 class_name BasicEnemy
 
-export(int) var SPEED: int = 100
+export(int) var SPEED: int = 150
 export(int) var illness: int = 20
 export(int) var contagion_zone_damage: int = 1
 export(Vector2) var patroll_to = null
