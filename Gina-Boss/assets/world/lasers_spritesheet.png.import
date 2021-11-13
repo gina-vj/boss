@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lasers_spritesheet.png-1a62644fbaf815af49bfa907fbbdbb58.stex"
+path="res://.import/lasers_spritesheet.png-6ffa71efb99a87279ec2639b09219173.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets-prueba/lasers_spritesheet.png"
-dest_files=[ "res://.import/lasers_spritesheet.png-1a62644fbaf815af49bfa907fbbdbb58.stex" ]
+source_file="res://assets/world/lasers_spritesheet.png"
+dest_files=[ "res://.import/lasers_spritesheet.png-6ffa71efb99a87279ec2639b09219173.stex" ]
 
 [params]
 
