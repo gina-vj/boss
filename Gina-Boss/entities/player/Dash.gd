@@ -21,7 +21,7 @@ func update(delta):
 	.update(delta)
 	parent.velocity = parent.velocity * 2
 	parent._apply_movement()
-	parent.can_use_barbijo()
+
 
 
 func exit():

@@ -218,7 +218,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=14]
-length = 0.05
+length = 0.2
 loop = true
 step = 0.041
 tracks/0/type = "value"
@@ -228,7 +228,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( -0.041 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 21 ]
@@ -245,7 +245,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( -0.082 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 17 ]
@@ -262,7 +262,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( -0.123 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 1 ]
@@ -295,7 +295,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.164, 0.328 ),
+"times": PoolRealArray( 0, 0.205, 0.41 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 16, 17, 18 ]
@@ -355,7 +355,7 @@ scale = Vector2( 0.40759, 0.408289 )
 texture = ExtResource( 5 )
 vframes = 18
 hframes = 4
-frame = 21
+frame = 11
 
 [node name="Shooter" type="Sprite" parent="."]
 script = ExtResource( 6 )

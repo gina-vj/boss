@@ -4,7 +4,8 @@ class_name Player
 
 onready var state_machine = $StateMachine
 onready var shooter = $Shooter
-onready var animation_player:AnimationPlayer = $AnimationPlayer
+onready var animation_player:AnimationPlayer=$AnimationPlayer
+
 onready var body:Sprite = $Body
 
 const FLOOR_NORMAL := Vector2.UP
@@ -16,7 +17,7 @@ export (int) var max_health = 20
 export (float) var ACCELERATION:float = 10.0
 export (float) var SPEED_LIMIT:float = 170.0
 export (float) var FRICTION_WEIGHT:float = 0.2
-
+var using_barbijo=false
 var can_shoot=false
 var item_throwable_container
 var velocity:Vector2 = Vector2.ZERO
@@ -32,6 +33,7 @@ func initialize(item_throwable_container):
 	
 func _ready():
 	state_machine.set_parent(self)
+	
 	PlayerData.call_deferred("set_max_health", max_health)
 
 func _handle_move_input():
@@ -83,8 +85,12 @@ func _handle_shooter_actions():
 			item_throwable_container = get_parent()
 			shooter.item_throwable_container = item_throwable_container
 		shooter.shoot(direction)
+
+
 func can_use_barbijo():
-	if Bag.has_barbijo() and !Bag.has_costume():
+	if Bag.has_barbijo() and !Bag.has_costume() and !using_barbijo:
+		animation_player.stop()
+		using_barbijo=true
 		_set_animation($AnimationBarbijo)
 		Bag.use_barbijo()
 
@@ -92,7 +98,6 @@ func _set_animation(animation):
 	animation_player=animation
 
 func _on_Timer_timeout():
-	print("termine")
 	can_shoot=false
 	$Shooter/Timer.stop()
 
