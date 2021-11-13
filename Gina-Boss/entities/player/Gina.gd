@@ -83,9 +83,13 @@ func _handle_shooter_actions():
 			item_throwable_container = get_parent()
 			shooter.item_throwable_container = item_throwable_container
 		shooter.shoot(direction)
+func can_use_barbijo():
+	if Bag.has_barbijo() and !Bag.has_costume():
+		_set_animation($AnimationBarbijo)
+		Bag.use_barbijo()
 
-
-
+func _set_animation(animation):
+	animation_player=animation
 
 func _on_Timer_timeout():
 	print("termine")

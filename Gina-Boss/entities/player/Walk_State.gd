@@ -13,6 +13,7 @@ func enter():
 		parent._play_animation("walk_down")
 
 func update(delta):
+	parent.can_use_barbijo()
 	parent._handle_move_input()
 	parent._apply_movement()
 	parent._handle_shooter_actions()

@@ -20,6 +20,7 @@ func handle_input(event:InputEvent):
 		emit_signal("finished", "walk")
 	
 func update(delta:float):
+	parent.can_use_barbijo()
 	parent._handle_deacceleration()
 	parent._apply_movement()
 	parent._handle_shooter_actions()
