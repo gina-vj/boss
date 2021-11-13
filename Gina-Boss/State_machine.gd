@@ -11,7 +11,8 @@ func _ready():
 
 
 func notify_hit(amount):
-	PlayerData.current_health -= min(amount, PlayerData.max_health)
-	print(PlayerData.current_health)
-	if PlayerData.current_health == 0:
-		_change_state("dead")
+	if(!get_parent().using_barbijo):
+		PlayerData.current_health -= min(amount, PlayerData.max_health)
+		print(PlayerData.current_health)
+		if PlayerData.current_health == 0:
+			_change_state("dead")

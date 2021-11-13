@@ -14,7 +14,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 295.983
 
-[sub_resource type="CapsuleShape2D" id=16]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 69.8935
 height = 106.824
 
@@ -290,7 +290,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContationArea"]
 rotation = 1.5708
-shape = SubResource( 16 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="ContationArea"]
 scale = Vector2( 2.54258, 1.4784 )
@@ -304,8 +304,8 @@ modulate = Color( 0.917969, 0.867767, 0.867767, 1 )
 position = Vector2( 0.210494, -47.1264 )
 scale = Vector2( 0.36, 0.36 )
 texture = ExtResource( 2 )
-hframes = 3
 vframes = 8
+hframes = 3
 frame = 7
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
@@ -325,7 +325,6 @@ anims/walk_lateral = SubResource( 12 )
 anims/walk_lateral_healted = SubResource( 13 )
 anims/walk_up = SubResource( 14 )
 anims/walk_up_healted = SubResource( 15 )
-
 [connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_IdleTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/ContagionTimer" to="StateMachine/Chase" method="_on_ContagionTimmer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/ContagionTimer" to="StateMachine/Attack" method="_on_ContagionTimer_timeout"]

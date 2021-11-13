@@ -190,7 +190,7 @@ texture = ExtResource( 13 )
 [node name="barbijo" parent="Environment/ItemSpawn" groups=[
 "component",
 ] instance=ExtResource( 21 )]
-position = Vector2( 443.991, 6.66772 )
+position = Vector2( 1020.99, 156.574 )
 script = ExtResource( 24 )
 
 [node name="Alcohol" parent="Environment/ItemSpawn" groups=[

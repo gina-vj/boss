@@ -5,7 +5,6 @@ class_name Player
 onready var state_machine = $StateMachine
 onready var shooter = $Shooter
 onready var animation_player:AnimationPlayer=$AnimationPlayer
-
 onready var body:Sprite = $Body
 
 const FLOOR_NORMAL := Vector2.UP
@@ -33,7 +32,6 @@ func initialize(item_throwable_container):
 	
 func _ready():
 	state_machine.set_parent(self)
-	
 	PlayerData.call_deferred("set_max_health", max_health)
 
 func _handle_move_input():
