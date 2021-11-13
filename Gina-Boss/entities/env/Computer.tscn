@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/assets-prueba/computer_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/world/computer_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/env/Computer.gd" type="Script" id=2]
 [ext_resource path="res://entities/env/MessageScreen.tscn" type="PackedScene" id=3]
 
