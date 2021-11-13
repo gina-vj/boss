@@ -9,6 +9,7 @@ func initialize(container, my_position):
 
 func _remove():
 	Bag.add_item(self)
+	detection_area.remove_and_skip()
 	hide() 
 	
 func _on_DetectionArea_body_entered(body):

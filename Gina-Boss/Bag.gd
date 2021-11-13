@@ -5,6 +5,7 @@ var barbijos=[]
 var alcohol=[]
 var duration_alcohol=0
 var duration_barbijo=0
+var max_duration_barbijo=0
 
 func add_item(item):
 	if item.is_in_group("barbijo"):
@@ -21,6 +22,7 @@ func count(color):
 	return cant
 func use_barbijo():
 	duration_barbijo=barbijos.pop_back().get_duration()
+	max_duration_barbijo=duration_barbijo
 func has_throwable():
 	return alcohol.size()>0
 func has_barbijo():
