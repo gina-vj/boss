@@ -88,14 +88,17 @@ func _handle_shooter_actions():
 
 func can_use_barbijo():
 	if Bag.has_barbijo() and !Bag.has_costume() and !using_barbijo:
-		animation_player.stop()
 		using_barbijo=true
-		_set_animation($AnimationBarbijo)
+		_set_animation($AnimationBarbijo,animation_player)
 		Bag.use_barbijo()
 		protection.set_duration(Bag.duration_barbijo)
 
-func _set_animation(animation):
-	animation_player=animation
+func _set_animation(animationNew,animation_old):
+	var name_animation_current=animation_old.current_animation
+	animation_player.stop()
+	animation_player=animationNew
+	animation_player.play(name_animation_current)
+	
 
 func _on_Timer_timeout():
 	can_shoot=false
@@ -105,6 +108,6 @@ func _on_Timer_timeout():
 
 func _on_TimerProtection_timeout():
 	animation_player.stop()
-	_set_animation($AnimationPlayer)
+	_set_animation($AnimationPlayer,animation_player)
 	using_barbijo=false
 	$Protection/TimerProtection.stop()
