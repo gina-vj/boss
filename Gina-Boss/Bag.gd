@@ -30,6 +30,8 @@ func alcohol_used():
 	duration_alcohol=alcohol.pop_back().get_duration()
 func get_duration_alcohol():
 	return duration_alcohol
+func get_duration_barbijo():
+	return duration_barbijo
 func cant_alcohol():
 	return alcohol.size()
 func has_costume():

@@ -6,6 +6,7 @@ onready var state_machine = $StateMachine
 onready var shooter = $Shooter
 onready var animation_player:AnimationPlayer=$AnimationPlayer
 onready var body:Sprite = $Body
+onready var protection:Node2D=$Protection
 
 const FLOOR_NORMAL := Vector2.UP
 const SNAP_DIRECTION := Vector2.DOWN
@@ -91,6 +92,7 @@ func can_use_barbijo():
 		using_barbijo=true
 		_set_animation($AnimationBarbijo)
 		Bag.use_barbijo()
+		protection.set_duration(Bag.duration_barbijo)
 
 func _set_animation(animation):
 	animation_player=animation
@@ -99,3 +101,10 @@ func _on_Timer_timeout():
 	can_shoot=false
 	$Shooter/Timer.stop()
 
+
+
+func _on_TimerProtection_timeout():
+	animation_player.stop()
+	_set_animation($AnimationPlayer)
+	using_barbijo=false
+	$Protection/TimerProtection.stop()

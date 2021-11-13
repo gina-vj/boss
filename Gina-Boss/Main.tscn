@@ -192,6 +192,7 @@ texture = ExtResource( 13 )
 ] instance=ExtResource( 21 )]
 position = Vector2( 1020.99, 156.574 )
 script = ExtResource( 24 )
+duration = 4
 
 [node name="Alcohol" parent="Environment/ItemSpawn" groups=[
 "alcohol",

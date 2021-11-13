@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://State_machine.gd" type="Script" id=1]
 [ext_resource path="res://Idle.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://entities/item/Throwable.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/player/DeadState.gd" type="Script" id=8]
 [ext_resource path="res://entities/player/Dash.gd" type="Script" id=9]
+[ext_resource path="res://entities/player/protection.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.2057
@@ -386,6 +387,12 @@ anims/idle_up = SubResource( 16 )
 anims/walk_down = SubResource( 17 )
 anims/walk_lateral = SubResource( 18 )
 anims/walk_up = SubResource( 19 )
+
+[node name="Protection" type="Sprite" parent="."]
+script = ExtResource( 10 )
+
+[node name="TimerProtection" type="Timer" parent="Protection"]
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_on_DashTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashRecuperationTimer" to="StateMachine/Dash" method="_on_DashRecuperationTimer_timeout"]
 [connection signal="timeout" from="Shooter/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Protection/TimerProtection" to="." method="_on_TimerProtection_timeout"]
