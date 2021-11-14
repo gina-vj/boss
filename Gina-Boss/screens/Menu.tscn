@@ -199,13 +199,13 @@ __meta__ = {
 }
 
 [node name="BoxContainer" type="HBoxContainer" parent="MenuConfig/MainMenu2"]
-margin_right = 995.0
+margin_right = 994.0
 margin_bottom = 54.0
 custom_constants/separation = 25
 alignment = 1
 
 [node name="Video" type="Button" parent="MenuConfig/MainMenu2/BoxContainer"]
-margin_right = 315.0
+margin_right = 314.0
 margin_bottom = 54.0
 focus_neighbour_left = NodePath("../../../..")
 focus_neighbour_right = NodePath("../Audio")
@@ -215,8 +215,8 @@ custom_fonts/font = SubResource( 6 )
 text = "Video"
 
 [node name="Audio" type="Button" parent="MenuConfig/MainMenu2/BoxContainer"]
-margin_left = 340.0
-margin_right = 655.0
+margin_left = 339.0
+margin_right = 654.0
 margin_bottom = 54.0
 focus_neighbour_left = NodePath("../VideoBtn")
 focus_neighbour_right = NodePath("../ControlsBtn")
@@ -226,8 +226,8 @@ custom_fonts/font = SubResource( 7 )
 text = "Audio"
 
 [node name="Controles" type="Button" parent="MenuConfig/MainMenu2/BoxContainer"]
-margin_left = 680.0
-margin_right = 995.0
+margin_left = 679.0
+margin_right = 994.0
 margin_bottom = 54.0
 focus_neighbour_left = NodePath("../AudioBtn")
 focus_neighbour_right = NodePath("../VideoBtn")
@@ -238,11 +238,11 @@ text = "Controls"
 
 [node name="MainConfiguracion" type="VBoxContainer" parent="MenuConfig/MainMenu2"]
 margin_top = 79.0
-margin_right = 995.0
+margin_right = 994.0
 margin_bottom = 369.0
 
 [node name="ConfiguracionVideo" type="GridContainer" parent="MenuConfig/MainMenu2/MainConfiguracion"]
-margin_right = 995.0
+margin_right = 994.0
 margin_bottom = 179.0
 rect_min_size = Vector2( 640, 0 )
 custom_constants/vseparation = 25
@@ -254,15 +254,15 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionVideo"]
 margin_top = 4.0
-margin_right = 795.0
+margin_right = 794.0
 margin_bottom = 39.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 9 )
 text = "Vsync"
 
 [node name="CheckButton" type="CheckButton" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionVideo"]
-margin_left = 923.0
-margin_right = 995.0
+margin_left = 922.0
+margin_right = 994.0
 margin_bottom = 43.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -272,16 +272,16 @@ __meta__ = {
 
 [node name="Label2" type="Label" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionVideo"]
 margin_top = 72.0
-margin_right = 795.0
+margin_right = 794.0
 margin_bottom = 107.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 10 )
 text = "Pantalla completa"
 
 [node name="CheckBox" type="CheckBox" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionVideo"]
-margin_left = 935.0
+margin_left = 934.0
 margin_top = 68.0
-margin_right = 995.0
+margin_right = 994.0
 margin_bottom = 111.0
 size_flags_horizontal = 8
 text = "on"
@@ -292,16 +292,16 @@ __meta__ = {
 
 [node name="Label3" type="Label" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionVideo"]
 margin_top = 140.0
-margin_right = 795.0
+margin_right = 794.0
 margin_bottom = 175.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 11 )
 text = "Resolucion"
 
 [node name="OptionButton" type="OptionButton" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionVideo"]
-margin_left = 820.0
+margin_left = 819.0
 margin_top = 136.0
-margin_right = 995.0
+margin_right = 994.0
 margin_bottom = 179.0
 size_flags_horizontal = 8
 text = "1920 * 1080"
@@ -310,7 +310,7 @@ selected = 0
 
 [node name="ConfiguracionAudio" type="GridContainer" parent="MenuConfig/MainMenu2/MainConfiguracion"]
 margin_top = 183.0
-margin_right = 995.0
+margin_right = 994.0
 margin_bottom = 286.0
 theme = ExtResource( 1 )
 custom_constants/vseparation = 25
@@ -322,15 +322,15 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionAudio"]
 margin_top = 4.0
-margin_right = 898.0
+margin_right = 897.0
 margin_bottom = 39.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 12 )
 text = "Audio"
 
 [node name="CheckButton" type="CheckButton" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionAudio"]
-margin_left = 923.0
-margin_right = 995.0
+margin_left = 922.0
+margin_right = 994.0
 margin_bottom = 43.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -338,22 +338,22 @@ __meta__ = {
 
 [node name="Label4" type="Label" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionAudio"]
 margin_top = 68.0
-margin_right = 898.0
+margin_right = 897.0
 margin_bottom = 103.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 13 )
 text = "Volumen"
 
 [node name="HSlider" type="HSlider" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionAudio"]
-margin_left = 923.0
+margin_left = 922.0
 margin_top = 68.0
-margin_right = 995.0
+margin_right = 994.0
 margin_bottom = 103.0
 size_flags_vertical = 1
 
 [node name="ConfiguracionControles" type="GridContainer" parent="MenuConfig/MainMenu2/MainConfiguracion"]
 margin_top = 290.0
-margin_right = 995.0
+margin_right = 994.0
 margin_bottom = 290.0
 rect_min_size = Vector2( 640, 0 )
 custom_constants/vseparation = 25

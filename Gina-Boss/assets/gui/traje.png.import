@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/borde_barra - copia.png-b0860e4c6534f45b53e6ec0350cbb3c8.stex"
+path="res://.import/traje.png-8e1cc240f4587a40deb412b595a07cb3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item/salud/borde_barra - copia.png"
-dest_files=[ "res://.import/borde_barra - copia.png-b0860e4c6534f45b53e6ec0350cbb3c8.stex" ]
+source_file="res://assets/gui/traje.png"
+dest_files=[ "res://.import/traje.png-8e1cc240f4587a40deb412b595a07cb3.stex" ]
 
 [params]
 

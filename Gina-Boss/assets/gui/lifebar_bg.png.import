@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/progreso_barra.png-c41df3a34ff8e85dff09caceb4c83549.stex"
+path="res://.import/lifebar_bg.png-29be932ec414d67a023b6a1d4e35b0fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item/salud/progreso_barra.png"
-dest_files=[ "res://.import/progreso_barra.png-c41df3a34ff8e85dff09caceb4c83549.stex" ]
+source_file="res://assets/gui/lifebar_bg.png"
+dest_files=[ "res://.import/lifebar_bg.png-29be932ec414d67a023b6a1d4e35b0fb.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

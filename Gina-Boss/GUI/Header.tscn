@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://GUI/LifeBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GUI/ProtectionBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/gui/label_HP_bg.png" type="Texture" id=3]
+
+[node name="Header" type="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 57.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeaderContainer" type="HBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 97.0
+
+[node name="Bars" type="VBoxContainer" parent="HeaderContainer"]
+margin_right = 500.0
+margin_bottom = 97.0
+alignment = 1
+
+[node name="LifeBar" parent="HeaderContainer/Bars" instance=ExtResource( 1 )]
+
+[node name="ProtectionBar" parent="HeaderContainer/Bars" instance=ExtResource( 2 )]
+margin_top = 57.0
+margin_bottom = 97.0
+
+[node name="VaccineComponents" type="VBoxContainer" parent="HeaderContainer"]
+margin_left = 504.0
+margin_right = 504.0
+margin_bottom = 97.0
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HeaderContainer/VaccineComponents"]
+margin_top = 48.0
+margin_bottom = 48.0
+texture = ExtResource( 3 )

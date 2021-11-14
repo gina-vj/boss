@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fondo_barra_barbijo.png-477d952048f9e7deec743268684818be.stex"
+path="res://.import/borde_barra - copia.png-0a23ba3c2b1c9d5e78d073121b9a8296.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item/salud/fondo_barra_barbijo.png"
-dest_files=[ "res://.import/fondo_barra_barbijo.png-477d952048f9e7deec743268684818be.stex" ]
+source_file="res://assets/gui/salud/borde_barra - copia.png"
+dest_files=[ "res://.import/borde_barra - copia.png-0a23ba3c2b1c9d5e78d073121b9a8296.stex" ]
 
 [params]
 
