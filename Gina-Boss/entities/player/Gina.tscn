@@ -168,10 +168,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=11]
-<<<<<<< HEAD
-=======
-resource_name = "dead_down"
->>>>>>> fae5a72 (ui de items hardodeadaQ)
 length = 0.05
 step = 0.041
 tracks/0/type = "value"
