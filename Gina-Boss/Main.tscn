@@ -202,12 +202,14 @@ duration = 4
 ] instance=ExtResource( 20 )]
 position = Vector2( 2240, 640 )
 script = ExtResource( 6 )
+point = 4
 
 [node name="Alcohol2" parent="Environment/ItemSpawn" groups=[
 "alcohol",
 ] instance=ExtResource( 20 )]
 position = Vector2( 1128, -360 )
 script = ExtResource( 6 )
+point = 4
 
 [node name="Lasers" parent="Environment" instance=ExtResource( 2 )]
 position = Vector2( 5126.32, 633.682 )

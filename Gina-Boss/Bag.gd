@@ -48,7 +48,7 @@ func attack_element_use():
 	selected_attack_element.point-=1
 
 func get_point_attack_element():
-	return selected_attack_element.point
+	return selected_attack_element!=null and selected_attack_element.point
 func get_duration_barbijo():
 	return duration_barbijo
 func cant_alcohol():
