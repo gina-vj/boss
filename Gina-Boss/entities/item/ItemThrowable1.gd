@@ -1,10 +1,10 @@
 extends ActionableItem
 
-export (int) var duration
+export (int) var point
 	
 func is_throwable():
 	return true
 
-func get_duration():
-	return duration
+func get_point():
+	return point
 

@@ -72,13 +72,10 @@ func _can_shoot():
 	return can_shoot
 
 func _handle_shooter_actions():
-	if Input.is_action_just_pressed("shoot") and (_can_shoot()==false and Bag.has_throwable()):
-		
-		can_shoot=true
-		Bag.alcohol_used()
-		$Shooter/Timer.start(Bag.get_duration_alcohol())
-	
-	if Input.is_action_just_pressed("shoot") and can_shoot :
+	Bag.set_attack_elements("Alcohol")
+	if Input.is_action_just_pressed("shoot")  :
+		Bag.set_attack_elements("Alcohol")
+		Bag.attack_element_use()
 		print("disparaa")
 		if item_throwable_container == null:
 			item_throwable_container = get_parent()
