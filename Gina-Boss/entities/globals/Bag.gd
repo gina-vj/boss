@@ -14,9 +14,15 @@ var face_masks = 0
 var suits = 0
 var experimental_vaccines = 0
 var alcohol = 0
-func get_quantity_selected_attack_item():
+
+
+
+
+
+
+func quantity_item(type):
 	var quantity=0
-	match selected_attack_element:
+	match type:
 		FaceMask.type:
 			quantity=face_masks 
 		Alcohol.type:
@@ -36,8 +42,8 @@ func add_item(type, quantity):
 			experimental_vaccines += quantity
 		Suit.type:
 			suits += quantity
-func attack_element_use():
-	match selected_attack_element:
+func attack_element_use(type):
+	match type:
 		FaceMask.type:
 			face_masks -= 1
 		Alcohol.type:

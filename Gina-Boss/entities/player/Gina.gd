@@ -74,11 +74,9 @@ func _can_shoot():
 	return can_shoot
 
 func _handle_shooter_actions():
-	#Por ahora cuando esta por disparar selecciona automaticamente el alcohol
-	Bag.set_attack_elements("ALCOHOL")
-
-	if Input.is_action_just_pressed("shoot") and  Bag.get_quantity_selected_attack_item()>0  :
-		Bag.attack_element_use()
+	
+	if Input.is_action_just_pressed("shoot_alcohol") and Bag.quantity_item("ALCOHOL") >0 :
+		Bag.attack_element_use("ALCOHOL")
 		print("disparaa")
 		if item_throwable_container == null:
 			item_throwable_container = get_parent()
