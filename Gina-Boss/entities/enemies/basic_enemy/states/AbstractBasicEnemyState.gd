@@ -53,17 +53,5 @@ func notify_body_exited(_body):
 		emit_signal("finished", "idle")
 	parent.target = null
 
-func notify_impact(projectile):
-	if projectile.is_in_group("alcohol"):
-		emit_signal("finished", "impacted")
-	if parent.is_still_ill():
-		emit_signal("finished", "impacted")
-	else:
-		emit_signal("finished", "healed")
-		
-func notify_cura(_body):
-	pass
-
-
 func item_detected(_item):
 	pass

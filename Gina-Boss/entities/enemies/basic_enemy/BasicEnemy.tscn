@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemies/enemy-release.png" type="Texture" id=2]
@@ -7,8 +7,6 @@
 [ext_resource path="res://entities/enemies/basic_enemy/states/Wander.gd" type="Script" id=5]
 [ext_resource path="res://entities/enemies/basic_enemy/states/Chase.gd" type="Script" id=6]
 [ext_resource path="res://entities/enemies/basic_enemy/states/Attack.gd" type="Script" id=7]
-[ext_resource path="res://entities/enemies/basic_enemy/states/Impacted.gd" type="Script" id=8]
-[ext_resource path="res://entities/enemies/basic_enemy/states/Healed.gd" type="Script" id=9]
 [ext_resource path="res://assets/enemies/contagion_area 2.png" type="Texture" id=10]
 [ext_resource path="res://entities/enemies/basic_enemy/states/RunAway.gd" type="Script" id=11]
 
@@ -273,16 +271,6 @@ script = ExtResource( 7 )
 wait_time = 0.5
 autostart = true
 
-[node name="Impacted" type="Node" parent="StateMachine"]
-script = ExtResource( 8 )
-
-[node name="RecoveryTimer" type="Timer" parent="StateMachine/Impacted"]
-wait_time = 0.5
-one_shot = true
-
-[node name="Healed" type="Node" parent="StateMachine"]
-script = ExtResource( 9 )
-
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
@@ -295,7 +283,7 @@ shape = SubResource( 1 )
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ContationArea"]
+[node name="Detector" type="CollisionShape2D" parent="ContationArea"]
 rotation = 1.5708
 shape = SubResource( 2 )
 
@@ -333,12 +321,14 @@ anims/walk_lateral_healted = SubResource( 13 )
 anims/walk_up = SubResource( 14 )
 anims/walk_up_healted = SubResource( 15 )
 
+[node name="DisinfectionTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_IdleTimer_timeout"]
 [connection signal="timeout" from="StateMachine/RunAway/Timer" to="StateMachine/RunAway" method="_on_Timer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/ContagionTimer" to="StateMachine/Chase" method="_on_ContagionTimmer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/ContagionTimer" to="StateMachine/Attack" method="_on_ContagionTimer_timeout"]
-[connection signal="timeout" from="StateMachine/Impacted/RecoveryTimer" to="StateMachine/Impacted" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]
 [connection signal="body_entered" from="ContationArea" to="." method="_on_ContationArea_body_entered"]
 [connection signal="body_exited" from="ContationArea" to="." method="_on_ContationArea_body_exited"]
+[connection signal="timeout" from="DisinfectionTimer" to="." method="_on_DisinfectionTimer_timeout"]

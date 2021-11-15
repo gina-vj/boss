@@ -74,6 +74,10 @@ func _handle_attack(event: InputEvent):
 		shooter.rotation = ((get_global_mouse_position() - shooter.global_position).normalized()).angle()
 		shooter.shoot(Bag.take_experimental_vaccine(), item_throwable_container)
 
+	if event.is_action_pressed("attack_right") and Bag.available_alcohol():
+		shooter.rotation = ((get_global_mouse_position() - shooter.global_position).normalized()).angle()
+		shooter.shoot(Bag.take_alcohol(), item_throwable_container)
+		
 func _handle_protection():
 	if !PlayerData.using_area_protection() && Bag.available_face_masks():
 		PlayerData.use_area_protection(Bag.take_face_mask())

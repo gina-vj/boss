@@ -3,8 +3,8 @@ class_name ExperimentalVaccine
 
 const type: String = "EXPERIMENTAL_VACCINE"
 const velocity:int = 500
-const duration:int = 1
-const innoculation_duration = 10
+const duration:float = 0.3
+const innoculation_duration = 3
 
 var texture_path setget ,get_texture
 

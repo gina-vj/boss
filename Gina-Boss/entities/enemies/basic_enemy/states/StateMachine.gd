@@ -6,8 +6,6 @@ func _ready():
 		"wander": $Wander,
 		"chase": $Chase,
 		"attack": $Attack,
-		"impacted": $Impacted,
-		"healed": $Healed,
 		"run_away": $RunAway
 	}
 
@@ -26,8 +24,3 @@ func body_exited_contagion_area(body):
 func run_away():
 	_change_state("run_away")
 
-func notify_impact(projectile):
-	current_state.notify_impact(projectile)
-
-func notify_body_entered_cura(cura):
-	current_state.notify_cura(cura)
