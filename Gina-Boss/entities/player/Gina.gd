@@ -23,7 +23,6 @@ var area_protection = null
 
 func initialize(item_throwable_container):
 	self.item_throwable_container = item_throwable_container
-	shooter.item_throwable_container = item_throwable_container
 	
 func _ready():
 	state_machine.set_parent(self)
@@ -70,23 +69,14 @@ func animation_player():
 		animation_face_mask_player.stop()
 		return animation_base_player
 	
-func _can_shoot():
-	return can_shoot
-
-func _handle_shooter_actions():
-	
-	if Input.is_action_just_pressed("shoot_alcohol") and Bag.quantity_item("ALCOHOL") >0 :
-		Bag.attack_element_use("ALCOHOL")
-		print("disparaa")
-		if item_throwable_container == null:
-			item_throwable_container = get_parent()
-			shooter.item_throwable_container = item_throwable_container
-		shooter.shoot(direction)
+func _handle_attack(event: InputEvent):
+	if event.is_action_pressed("attack_left") and Bag.available_experimental_vaccines():
+		shooter.rotation = ((get_global_mouse_position() - shooter.global_position).normalized()).angle()
+		shooter.shoot(Bag.take_experimental_vaccine(), item_throwable_container)
 
 func _handle_protection():
 	if !PlayerData.using_area_protection() && Bag.available_face_masks():
 		PlayerData.use_area_protection(Bag.take_face_mask())
-		
 
 func still_alive():
 	return PlayerData.still_alive()

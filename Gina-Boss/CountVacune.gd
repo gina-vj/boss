@@ -3,7 +3,7 @@ extends CanvasLayer
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 	#$CountRed.text=str( Bag.count("rojo"))
 	#$CountYellow.text= str(Bag.count("amarillo"))

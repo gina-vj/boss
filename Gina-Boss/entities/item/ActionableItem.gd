@@ -12,7 +12,7 @@ func _remove():
 	detection_area.remove_and_skip()
 	hide() 
 	
-func _on_DetectionArea_body_entered(body):
+func _on_DetectionArea_body_entered(_body):
 	_remove()
 	
 	

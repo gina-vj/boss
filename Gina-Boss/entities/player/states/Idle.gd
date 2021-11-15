@@ -14,6 +14,7 @@ func enter():
 
 
 func handle_input(event:InputEvent):
+	parent._handle_attack(event)
 	if _is_dash(event):
 		emit_signal("finished", "dash")
 	if _is_moving(event) :
@@ -23,7 +24,6 @@ func update(delta:float):
 	parent._handle_protection()
 	parent._handle_deacceleration()
 	parent._apply_movement()
-	parent._handle_shooter_actions()
 
 func _is_dash(event):
 	return event.is_action_pressed("dash")

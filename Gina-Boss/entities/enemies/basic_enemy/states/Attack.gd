@@ -5,7 +5,7 @@ onready var timer = $ContagionTimer
 func enter():
 	parent.path = []
 
-func update(delta):
+func update(_delta):
 	if parent.can_see_target() && parent.distance_to_target() <= parent.MINIMUM_DISTANCE_TO_TARGET:
 		# aca podemos agregar logica de ataque onda estornudar o algo asi
 		pass

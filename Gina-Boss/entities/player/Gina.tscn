@@ -354,11 +354,13 @@ hframes = 4
 vframes = 18
 frame = 9
 
-[node name="Shooter" type="Sprite" parent="."]
+[node name="Shooter" type="Node2D" parent="."]
+position = Vector2( 16, 16 )
 script = ExtResource( 6 )
 item_throwable_scene = ExtResource( 7 )
 
 [node name="ShooterTip" type="Position2D" parent="Shooter"]
+position = Vector2( 8, 0 )
 
 [node name="Timer" type="Timer" parent="Shooter"]
 

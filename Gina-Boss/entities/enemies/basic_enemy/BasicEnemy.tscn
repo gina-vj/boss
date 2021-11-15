@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemies/enemy-release.png" type="Texture" id=2]
@@ -10,9 +10,10 @@
 [ext_resource path="res://entities/enemies/basic_enemy/states/Impacted.gd" type="Script" id=8]
 [ext_resource path="res://entities/enemies/basic_enemy/states/Healed.gd" type="Script" id=9]
 [ext_resource path="res://assets/enemies/contagion_area 2.png" type="Texture" id=10]
+[ext_resource path="res://entities/enemies/basic_enemy/states/RunAway.gd" type="Script" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 295.983
+radius = 450.416
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 69.8935
@@ -252,6 +253,12 @@ one_shot = true
 [node name="Wander" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
 
+[node name="RunAway" type="Node" parent="StateMachine"]
+script = ExtResource( 11 )
+
+[node name="Timer" type="Timer" parent="StateMachine/RunAway"]
+one_shot = true
+
 [node name="Chase" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
 
@@ -304,8 +311,8 @@ modulate = Color( 0.917969, 0.867767, 0.867767, 1 )
 position = Vector2( 0.210494, -47.1264 )
 scale = Vector2( 0.36, 0.36 )
 texture = ExtResource( 2 )
-vframes = 8
 hframes = 3
+vframes = 8
 frame = 7
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
@@ -325,7 +332,9 @@ anims/walk_lateral = SubResource( 12 )
 anims/walk_lateral_healted = SubResource( 13 )
 anims/walk_up = SubResource( 14 )
 anims/walk_up_healted = SubResource( 15 )
+
 [connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_IdleTimer_timeout"]
+[connection signal="timeout" from="StateMachine/RunAway/Timer" to="StateMachine/RunAway" method="_on_Timer_timeout"]
 [connection signal="timeout" from="StateMachine/Chase/ContagionTimer" to="StateMachine/Chase" method="_on_ContagionTimmer_timeout"]
 [connection signal="timeout" from="StateMachine/Attack/ContagionTimer" to="StateMachine/Attack" method="_on_ContagionTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Impacted/RecoveryTimer" to="StateMachine/Impacted" method="_on_Timer_timeout"]

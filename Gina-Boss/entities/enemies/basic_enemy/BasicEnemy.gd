@@ -21,7 +21,7 @@ var target_position: Vector2 = Vector2.ZERO
 var target:Player = null
 var contagion_target:Player = null
 var velocity: Vector2 = Vector2.ZERO
-
+var current_projectile = null
 
 func _ready():
 	state_machine.set_parent(self)
@@ -51,17 +51,11 @@ func is_still_ill():
 	return illness > 0
 
 func notify_hit(projectile):
-	illness -= projectile.heal_points
-	state_machine.notify_impact(projectile)
+	current_projectile = projectile
+	projectile.hit(self)
 
-func healed():
-	away=-1
-	body.set_modulate(Color(0,1,0))
-
-func infected():
-	away=1
-	body.set_modulate(Color(1,1,1))
-	
+func run_away(time):
+	state_machine.run_away()	
 
 func _on_DetectionArea_body_entered(body):
 	state_machine.notify_body_entered(body)

@@ -20,19 +20,19 @@ func enter():
 		parent.path = generate_path()
 
 
-func update(delta):
+func update(_delta):
 	if (parent.path.size() > 0):
 		parent.navigate()
 	else:
 		parent.path = generate_path()
 		parent.navigate()
 
-func notify_body_entered(body):
+func notify_body_entered(_body):
 	pass
 
-func notify_body_exited(body):
+func notify_body_exited(_body):
 	pass
 
-func notify_impact(projectile):
+func notify_impact(_projectile):
 	pass
 		

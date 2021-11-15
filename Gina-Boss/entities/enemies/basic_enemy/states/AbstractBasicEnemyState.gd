@@ -7,7 +7,7 @@ func _ready():
 	var tree = get_tree()
 	level_navigation = tree.get_nodes_in_group("LevelNavigation")[0]
 
-func update(delta):
+func update(_delta):
 	if parent.can_see_target():
 		emit_signal("finished", "chase")
 
@@ -41,29 +41,29 @@ func body_entered_contagion_area(body):
 	parent.contagion_target = body
 	
 	
-func body_exited_contagion_area(body):
+func body_exited_contagion_area(_body):
 	parent.contagion_target = null
 
 func notify_body_entered(body):
 	parent.target = body
 
 
-func notify_body_exited(body):
+func notify_body_exited(_body):
 	if parent.can_see_target():
 		emit_signal("finished", "idle")
 	parent.target = null
 
 func notify_impact(projectile):
 	if projectile.is_in_group("alcohol"):
-				emit_signal("finished", "impacted")
+		emit_signal("finished", "impacted")
 	if parent.is_still_ill():
 		emit_signal("finished", "impacted")
 	else:
 		emit_signal("finished", "healed")
 		
-func notify_cura(body):
+func notify_cura(_body):
 	pass
 
 
-func item_detected(item):
+func item_detected(_item):
 	pass

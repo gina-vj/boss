@@ -22,6 +22,6 @@ func index_to_type():
 	][item_type_index]
 
 
-func _on_DetectionArea_body_entered(body):
+func _on_DetectionArea_body_entered(_body):
 	Bag.add_item(type, item_quantity)
 	queue_free()

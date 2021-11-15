@@ -8,8 +8,6 @@ func _ready():
 		"dead": $Dead,
 	}
 
-
-
 func notify_hit(amount):
 	var player = get_parent()
 	player.receive_damage(amount)

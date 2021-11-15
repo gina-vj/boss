@@ -59,5 +59,12 @@ func take_face_mask():
 	face_masks -= 1
 	return FaceMask.new()
 
+func available_experimental_vaccines():
+	return experimental_vaccines > 0
+
+func take_experimental_vaccine():
+	experimental_vaccines -= 1
+	return ExperimentalVaccine.new()
+
 func set_attack_elements(name_element):
 	selected_attack_element=name_element
