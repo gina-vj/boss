@@ -8,7 +8,7 @@ func initialize(container, my_position):
 	global_position = my_position
 
 func _remove():
-	Bag.add_item(self)
+	#Bag.add_item(self)
 	detection_area.remove_and_skip()
 	hide() 
 	

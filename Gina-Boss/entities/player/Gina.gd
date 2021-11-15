@@ -4,28 +4,22 @@ class_name Player
 
 onready var state_machine = $StateMachine
 onready var shooter = $Shooter
-onready var animation_player:AnimationPlayer=$AnimationPlayer
 onready var body:Sprite = $Body
-onready var protection:Node2D=$Protection
-
-const FLOOR_NORMAL := Vector2.UP
-const SNAP_DIRECTION := Vector2.DOWN
-const SNAP_LENGTH := 32.0
-const SLOPE_THRESHOLD := deg2rad(60)
+onready var animation_base_player:AnimationPlayer=$AnimationBase
+onready var animation_face_mask_player:AnimationPlayer=$AnimationFaceMask
 
 export (int) var max_health = 20
 export (float) var ACCELERATION:float = 10.0
 export (float) var SPEED_LIMIT:float = 170.0
 export (float) var FRICTION_WEIGHT:float = 0.2
+
 var using_barbijo=false
 var can_shoot=false
 var item_throwable_container
 var velocity:Vector2 = Vector2.ZERO
 var direction:Vector2 = Vector2.UP
-var snap_vector:Vector2 = SNAP_DIRECTION * SNAP_LENGTH
-var move_direction_x:int = 0
-var move_direction_y:int = 0
-var stop_on_slope:bool = true
+
+var area_protection = null
 
 func initialize(item_throwable_container):
 	self.item_throwable_container = item_throwable_container
@@ -46,7 +40,6 @@ func _handle_move_input():
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 	velocity = velocity.normalized() * SPEED_LIMIT
-
 	direction = velocity.normalized()
 
 func _handle_deacceleration():
@@ -63,11 +56,20 @@ func _remove():
 	hide()
 	collision_layer = 0
 	
+func receive_damage(amount):
+	PlayerData.receive_area_damage(amount)
 
 func _play_animation(anim_name:String):
-	if animation_player.has_animation(anim_name):
-		animation_player.play(anim_name)
+	animation_player().play(anim_name)
 
+func animation_player():
+	if PlayerData.using_area_protection():
+		animation_base_player.stop()
+		return animation_face_mask_player
+	else:
+		animation_face_mask_player.stop()
+		return animation_base_player
+	
 func _can_shoot():
 	return can_shoot
 
@@ -84,29 +86,10 @@ func _handle_shooter_actions():
 			shooter.item_throwable_container = item_throwable_container
 		shooter.shoot(direction)
 
+func _handle_protection():
+	if !PlayerData.using_area_protection() && Bag.available_face_masks():
+		PlayerData.use_area_protection(Bag.take_face_mask())
+		
 
-func can_use_barbijo():
-	if Bag.has_barbijo() and !Bag.has_costume() and !using_barbijo:
-		using_barbijo=true
-		_set_animation($AnimationBarbijo,animation_player)
-		Bag.use_barbijo()
-		protection.set_duration(Bag.duration_barbijo)
-
-func _set_animation(animationNew,animation_old):
-	var name_animation_current=animation_old.current_animation
-	animation_player.stop()
-	animation_player=animationNew
-	animation_player.play(name_animation_current)
-	
-
-func _on_Timer_timeout():
-	can_shoot=false
-	$Shooter/Timer.stop()
-
-
-
-func _on_TimerProtection_timeout():
-	animation_player.stop()
-	_set_animation($AnimationPlayer,animation_player)
-	using_barbijo=false
-	$Protection/TimerProtection.stop()
+func still_alive():
+	return PlayerData.still_alive()

@@ -11,10 +11,7 @@ func _ready():
 
 
 func notify_hit(amount):
-	if(!get_parent().using_barbijo):
-		PlayerData.current_health -= min(amount, PlayerData.max_health)
-		print(PlayerData.current_health)
-		if PlayerData.current_health == 0:
-			_change_state("dead")
-	else:
-		get_parent().protection.lose_duration()
+	var player = get_parent()
+	player.receive_damage(amount)
+	if(!player.still_alive()):
+		_change_state("dead")

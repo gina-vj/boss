@@ -14,26 +14,62 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/item/ActionableItem.gd"
 }, {
+"base": "Node",
+"class": "Alcohol",
+"language": "GDScript",
+"path": "res://entities/item/types/Alcohol.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "BasicEnemy",
 "language": "GDScript",
 "path": "res://entities/enemies/basic_enemy/BasicEnemy.gd"
+}, {
+"base": "Node",
+"class": "ExperimentalVaccine",
+"language": "GDScript",
+"path": "res://entities/item/types/ExperimentalVaccine.gd"
+}, {
+"base": "Reference",
+"class": "FaceMask",
+"language": "GDScript",
+"path": "res://entities/item/types/FaceMask.gd"
+}, {
+"base": "Node2D",
+"class": "Item",
+"language": "GDScript",
+"path": "res://entities/item/Item.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://entities/player/Gina.gd"
 }, {
+"base": "Node",
+"class": "PlayerBag",
+"language": "GDScript",
+"path": "res://entities/globals/Bag.gd"
+}, {
 "base": "Node2D",
 "class": "ProyectileAlcohol",
 "language": "GDScript",
 "path": "res://proyectileAlcohol.gd"
+}, {
+"base": "Node",
+"class": "Suit",
+"language": "GDScript",
+"path": "res://entities/item/types/Suit.gd"
 } ]
 _global_script_class_icons={
 "ActionableItem": "",
+"Alcohol": "",
 "BasicEnemy": "",
+"ExperimentalVaccine": "",
+"FaceMask": "",
+"Item": "",
 "Player": "",
-"ProyectileAlcohol": ""
+"PlayerBag": "",
+"ProyectileAlcohol": "",
+"Suit": ""
 }
 
 [application]
@@ -44,8 +80,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Bag="*res://Bag.gd"
-PlayerData="*res://PlayerData.gd"
+Bag="*res://entities/globals/Bag.gd"
+PlayerData="*res://entities/globals/PlayerData.gd"
 
 [input]
 

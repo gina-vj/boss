@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
+[ext_resource path="res://GUI/Alcohol.gd" type="Script" id=1]
 [ext_resource path="res://assets/gui/barbijo.png" type="Texture" id=2]
 [ext_resource path="res://assets/gui/mouse.png" type="Texture" id=3]
 [ext_resource path="res://assets/assets-prueba/dash_bar_spritesheet.png" type="Texture" id=4]
@@ -8,6 +9,9 @@
 [ext_resource path="res://assets/item/vacuna-roja-ui.png" type="Texture" id=7]
 [ext_resource path="res://assets/gui/alcohol.png" type="Texture" id=8]
 [ext_resource path="res://assets/assets-prueba/computer_popup_spritesheet.png" type="Texture" id=9]
+[ext_resource path="res://GUI/ExperimentalVaccines.gd" type="Script" id=10]
+[ext_resource path="res://GUI/FaceMask.gd" type="Script" id=11]
+[ext_resource path="res://GUI/Suit.gd" type="Script" id=12]
 
 [node name="Footer" type="MarginContainer"]
 anchor_left = 1.0
@@ -16,40 +20,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -216.0
 margin_top = -40.0
-margin_right = 32.0
-margin_bottom = 154.0
+margin_right = 88.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 300, 255 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 248.0
-margin_bottom = 194.0
+margin_right = 304.0
+margin_bottom = 255.0
 
 [node name="DashContainer" type="NinePatchRect" parent="VBoxContainer"]
-margin_right = 248.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 100, 60 )
+margin_right = 304.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 9 )
 region_rect = Rect2( 192.013, 0, 191.987, 63 )
 
 [node name="Dash" type="Sprite" parent="VBoxContainer/DashContainer"]
-position = Vector2( 122.5, 24 )
-scale = Vector2( 4.5625, 3.5 )
+position = Vector2( 152, 40 )
+scale = Vector2( 5.72917, 5.75 )
 texture = ExtResource( 4 )
 hframes = 3
 frame = 2
 
 [node name="Sprite" type="Sprite" parent="VBoxContainer/DashContainer"]
-position = Vector2( 128, 48 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 152, 80 )
+scale = Vector2( 2.75, 2.75 )
 texture = ExtResource( 6 )
 
 [node name="ItemsContainer" type="NinePatchRect" parent="VBoxContainer"]
-margin_top = 64.0
-margin_right = 248.0
-margin_bottom = 184.0
-rect_min_size = Vector2( 160, 120 )
+margin_top = 104.0
+margin_right = 304.0
+margin_bottom = 254.0
+rect_min_size = Vector2( 200, 150 )
 texture = ExtResource( 9 )
 region_rect = Rect2( 192.013, 0, 191.987, 63 )
 
@@ -58,10 +63,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -100.0
-margin_top = -44.0
-margin_right = 100.0
-margin_bottom = 44.0
+margin_left = -111.0
+margin_top = -46.0
+margin_right = 111.0
+margin_bottom = 46.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,6 +74,7 @@ __meta__ = {
 [node name="ExperimentalVaccines" type="VBoxContainer" parent="VBoxContainer/ItemsContainer/Items"]
 margin_right = 50.0
 margin_bottom = 92.0
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -95,13 +101,6 @@ margin_top = 72.0
 margin_right = 50.0
 margin_bottom = 92.0
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="VBoxContainer/ItemsContainer/Items/ExperimentalVaccines/CenterContainer"]
-margin_left = 16.0
-margin_right = 33.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 17, 20 )
-texture = ExtResource( 3 )
-
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/ItemsContainer/Items/ExperimentalVaccines/CenterContainer"]
 margin_left = 16.0
 margin_right = 33.0
@@ -114,6 +113,7 @@ expand = true
 margin_left = 54.0
 margin_right = 104.0
 margin_bottom = 92.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -153,6 +153,7 @@ flip_h = true
 margin_left = 108.0
 margin_right = 158.0
 margin_bottom = 92.0
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -178,6 +179,7 @@ texture = ExtResource( 2 )
 margin_left = 162.0
 margin_right = 212.0
 margin_bottom = 92.0
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -1,4 +1,4 @@
-extends "res://entities/player/Walk_State.gd"
+extends "res://entities/player/states/Walk_State.gd"
 
 onready var timer = $DashTimer
 onready var recuperation_timer = $DashRecuperationTimer
@@ -21,7 +21,7 @@ func update(delta):
 	.update(delta)
 	parent.velocity = parent.velocity * 2
 	parent._apply_movement()
-	parent.can_use_barbijo()
+	parent._handle_protection()
 
 
 func exit():

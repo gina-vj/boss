@@ -43,7 +43,6 @@ func body_entered_contagion_area(body):
 	
 func body_exited_contagion_area(body):
 	parent.contagion_target = null
-	body.protection.is_exited_contagion_area()
 
 func notify_body_entered(body):
 	parent.target = body
