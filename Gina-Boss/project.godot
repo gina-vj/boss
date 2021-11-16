@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
-"class": "ActionableItem",
-"language": "GDScript",
-"path": "res://entities/item/ActionableItem.gd"
-}, {
 "base": "Node",
 "class": "Alcohol",
 "language": "GDScript",
@@ -65,7 +60,6 @@ _global_script_classes=[ {
 "path": "res://entities/item/Throwable.gd"
 } ]
 _global_script_class_icons={
-"ActionableItem": "",
 "Alcohol": "",
 "BasicEnemy": "",
 "ExperimentalVaccine": "",

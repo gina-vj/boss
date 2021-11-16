@@ -19,13 +19,13 @@ func exit():
 	return
 
 
-func handle_input(event:InputEvent):
+func handle_input(_event:InputEvent):
 	return
 
 
-func update(delta:float):
+func update(_delta:float):
 	return
 
 
-func _on_animation_finished(anim_name:String):
+func _on_animation_finished(_anim_name:String):
 	return

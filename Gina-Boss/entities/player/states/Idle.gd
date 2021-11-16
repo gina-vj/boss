@@ -20,7 +20,7 @@ func handle_input(event:InputEvent):
 	if _is_moving(event) :
 		emit_signal("finished", "walk")
 	
-func update(delta:float):
+func update(_delta:float):
 	parent._handle_protection()
 	parent._handle_deacceleration()
 	parent._apply_movement()

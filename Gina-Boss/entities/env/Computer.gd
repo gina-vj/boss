@@ -18,9 +18,9 @@ func _ready():
 	message_screen.message = index_to_message()
 
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	message_screen.show = true	
 
 
-func _on_Area2D_body_exited(body):
+func _on_Area2D_body_exited(_body):
 	message_screen.show = false

@@ -12,7 +12,7 @@ func enter():
 	if(Input.is_action_just_pressed("move_down")):
 		parent._play_animation("walk_down")
 
-func update(delta):
+func update(_delta):
 	parent._handle_move_input()
 	parent._handle_protection()
 	parent._apply_movement()

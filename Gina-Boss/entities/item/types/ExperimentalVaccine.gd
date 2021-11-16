@@ -12,4 +12,4 @@ func get_texture():
 	return load("res://assets/item/vacuna-roja.png")
 
 func hit(enemy):
-	enemy.run_away(innoculation_duration)
+	enemy.run_away()

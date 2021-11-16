@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://entities/item/itemAgarrable.tscn" type="PackedScene" id=1]
-
-[node name="Componente" groups=[
-"componente",
-] instance=ExtResource( 1 )]

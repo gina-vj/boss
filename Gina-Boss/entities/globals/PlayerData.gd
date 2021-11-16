@@ -2,10 +2,22 @@ extends Node
 
 signal max_health_updated(amount, current_health)
 signal health_updated(amount, max_health)
+signal first_component_found()
+signal second_component_found()
+signal third_component_found()
 
 var max_health:int
 var current_health:int setget set_current_health
 var area_protection = null
+
+func first_component_found():
+	emit_signal("first_component_found")
+
+func second_component_found():
+	emit_signal("second_component_found")
+
+func third_component_found():
+	emit_signal("third_component_found")
 
 func set_max_health(amount:int)->void:
 	max_health = amount

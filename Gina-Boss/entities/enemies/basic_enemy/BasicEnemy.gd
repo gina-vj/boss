@@ -52,7 +52,7 @@ func notify_hit(projectile):
 	current_projectile = projectile
 	projectile.hit(self)
 
-func run_away(time):
+func run_away():
 	state_machine.run_away()	
 
 func desinfect_area(time):

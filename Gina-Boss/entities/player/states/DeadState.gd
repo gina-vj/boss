@@ -6,6 +6,6 @@ func enter():
 	parent._play_animation("dead_down")
 
 
-func update(delta):
+func update(_delta):
 	parent._handle_deacceleration()
 	parent._apply_movement()
