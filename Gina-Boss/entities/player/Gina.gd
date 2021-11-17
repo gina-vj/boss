@@ -110,8 +110,8 @@ func navigate():
 		velocity = Vector2.ZERO
 
 func generate_path(level_navigation: Navigation2D):
-	#Punto aleatorio para que vuelva a la sala de salida
-	var init_level_navigation_position = Vector2(-100,0) 
+	#Punto aleatorio para que vuelva donde encontró el primer barbijo dentro del navigation level
+	var init_level_navigation_position = Vector2(300,0) 
 	
 	if(patroll_to != null and global_position.distance_to(patroll_to) <= MINIMUM_DISTANCE_TO_PATROLL_POINT):
 		patroll_to = patroll_from
