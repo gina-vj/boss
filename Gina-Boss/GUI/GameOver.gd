@@ -1,8 +1,9 @@
 extends Node
 
-onready var background = $Background
-onready var message = $Message
-onready var tween = $Tween
+onready var background:ColorRect = $Background
+onready var tween:Tween = $Tween
+onready var finished:Control = $Finished
+onready var dead:Control = $Dead
 
 func _ready():
 	PlayerData.connect("game_over", self, "game_over")
@@ -10,17 +11,27 @@ func _ready():
 
 	background.color.a = 0
 	background.visible = false
-	message.visible = false
+	finished.visible = false
+	dead.visible = false
 
 func game_over():
-	message.text = "Salvaste a la humanidad"
+	finished.visible = true
+	get_tree().paused = true
 	show_game_over_screen()
 
 func player_dead():
-	message.text = "Perdiste, la humanidad esta condenada"
+	dead.visible = true
+	show_game_over_screen()
 
 func show_game_over_screen():
-	message.show()
 	background.show()
-	tween.interpolate_property(background, "color", background.color, Color.black, 1)
+	tween.interpolate_property(background, "color", background.color, Color.black / 1.3, 1)
 	tween.start()
+
+func go_to_main_menu():
+	get_tree().paused = false
+	get_tree().change_scene("res://screens/Menu.tscn")
+	
+func restart_game():
+	get_tree().paused = false
+	get_tree().reload_current_scene()

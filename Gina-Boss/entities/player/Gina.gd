@@ -5,6 +5,7 @@ class_name Player
 onready var state_machine = $StateMachine
 onready var shooter = $Shooter
 onready var body:Sprite = $Body
+onready var collision_shape = $CollisionShape2D
 onready var animation_base_player:AnimationPlayer=$AnimationBase
 onready var animation_face_mask_player:AnimationPlayer=$AnimationFaceMask
 
@@ -84,3 +85,10 @@ func _handle_protection():
 
 func still_alive():
 	return PlayerData.still_alive()
+
+func die():
+	_play_animation("dead_down")
+	collision_shape.disabled = true
+	set_collision_layer_bit(4, false)
+	collision_shape.disabled = false
+	
