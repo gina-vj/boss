@@ -25,7 +25,8 @@ func player_dead():
 
 func show_game_over_screen():
 	background.show()
-	tween.interpolate_property(background, "color", background.color, Color.black / 1.3, 1)
+	var transparent_black_overlay = Color( 0, 0, 0, 0.6 )
+	tween.interpolate_property(background, "color", background.color,  transparent_black_overlay / 1.3, 1)
 	tween.start()
 
 func go_to_main_menu():
