@@ -44,11 +44,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entities/globals/Bag.gd"
 }, {
-"base": "Node2D",
-"class": "ProyectileAlcohol",
-"language": "GDScript",
-"path": "res://proyectileAlcohol.gd"
-}, {
 "base": "Node",
 "class": "Suit",
 "language": "GDScript",
@@ -67,7 +62,6 @@ _global_script_class_icons={
 "Item": "",
 "Player": "",
 "PlayerBag": "",
-"ProyectileAlcohol": "",
 "Suit": "",
 "Throwable": ""
 }
