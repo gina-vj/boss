@@ -42,3 +42,10 @@ func hide_settings():
 	config_video.hide()
 	config_audio.hide()
 	config_controles.hide()
+
+
+func _on_HSlider_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+
+func _on_CheckButton_toggled(button_pressed):
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), button_pressed)
