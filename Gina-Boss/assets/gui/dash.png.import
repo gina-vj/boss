@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/keyboard_indicators_spritesheet.png-eabed3b59327f8bd1656e7429e7731ef.stex"
+path="res://.import/dash.png-960868d7c2cbf3581caebdcc0e95b11a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets-prueba/keyboard_indicators_spritesheet.png"
-dest_files=[ "res://.import/keyboard_indicators_spritesheet.png-eabed3b59327f8bd1656e7429e7731ef.stex" ]
+source_file="res://assets/gui/dash.png"
+dest_files=[ "res://.import/dash.png-960868d7c2cbf3581caebdcc0e95b11a.stex" ]
 
 [params]
 

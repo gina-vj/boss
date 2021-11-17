@@ -1,10 +1,14 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://screens/menu.theme" type="Theme" id=1]
 [ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/menu/covid.png" type="Texture" id=3]
 [ext_resource path="res://screens/Menu.gd" type="Script" id=4]
 [ext_resource path="res://assets/fonts/Kenney Rocket.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/gui/firevaccine.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/movements.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/firealcohol.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/dash.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -84,15 +88,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Titulo" type="Label" parent="Background"]
-anchor_left = 0.355
-anchor_top = 0.143
-anchor_right = 0.698
-anchor_bottom = 0.352
-margin_left = 0.47998
-margin_top = 0.199997
-margin_right = 0.247986
-margin_bottom = -0.200012
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Background"]
+anchor_left = 0.196
+anchor_top = 0.23
+anchor_right = 0.691
+anchor_bottom = 0.438
+margin_left = 95.4326
+margin_top = -53.5143
+margin_right = 95.5526
+margin_bottom = -53.3143
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Titulo" type="Label" parent="Background/AspectRatioContainer"]
+margin_left = 78.0
+margin_right = 429.0
+margin_bottom = 125.0
 custom_colors/font_color = Color( 0.996078, 0.996078, 0.996078, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "GINA"
@@ -103,10 +115,10 @@ __meta__ = {
 }
 
 [node name="MainMenu" type="VBoxContainer" parent="."]
-anchor_left = 0.427212
-anchor_top = 0.505606
-anchor_right = 0.642212
-anchor_bottom = 0.838606
+anchor_left = 0.413719
+anchor_top = 0.478667
+anchor_right = 0.628719
+anchor_bottom = 0.811667
 margin_left = 0.35199
 margin_top = -0.200012
 margin_right = 220.192
@@ -171,10 +183,10 @@ anchor_left = 0.343
 anchor_top = 0.06
 anchor_right = 0.663
 anchor_bottom = 0.183
-margin_left = -0.367828
-margin_top = -0.266624
-margin_right = -5.01782
-margin_bottom = -0.030632
+margin_left = -2.73343
+margin_top = -29.5278
+margin_right = -2.41339
+margin_bottom = -29.2918
 custom_fonts/font = SubResource( 5 )
 text = "Configuraciones"
 align = 1
@@ -188,10 +200,11 @@ anchor_left = 0.018
 anchor_top = 0.239
 anchor_right = 0.99
 anchor_bottom = 0.899
-margin_left = 0.155035
-margin_top = -0.0809784
-margin_right = -0.173035
-margin_bottom = -0.0809937
+margin_left = 49.1545
+margin_top = -56.0399
+margin_right = 48.8264
+margin_bottom = 134.96
+rect_scale = Vector2( 0.9, 0.9 )
 size_flags_horizontal = 5
 custom_constants/separation = 25
 __meta__ = {
@@ -234,12 +247,12 @@ focus_neighbour_right = NodePath("../VideoBtn")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 8 )
-text = "Controls"
+text = "Controles"
 
 [node name="MainConfiguracion" type="VBoxContainer" parent="MenuConfig/MainMenu2"]
 margin_top = 79.0
 margin_right = 994.0
-margin_bottom = 369.0
+margin_bottom = 784.0
 
 [node name="ConfiguracionVideo" type="GridContainer" parent="MenuConfig/MainMenu2/MainConfiguracion"]
 margin_right = 994.0
@@ -352,16 +365,87 @@ margin_bottom = 103.0
 size_flags_vertical = 1
 
 [node name="ConfiguracionControles" type="GridContainer" parent="MenuConfig/MainMenu2/MainConfiguracion"]
+margin_left = 177.0
 margin_top = 290.0
-margin_right = 994.0
-margin_bottom = 290.0
+margin_right = 817.0
+margin_bottom = 705.0
 rect_min_size = Vector2( 640, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
 custom_constants/vseparation = 25
 custom_constants/hseparation = 25
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionControles"]
+margin_top = 30.0
+margin_right = 158.0
+margin_bottom = 65.0
+size_flags_horizontal = 0
+text = "Movimiento"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="moveControls" type="TextureRect" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionControles"]
+margin_left = 468.0
+margin_right = 640.0
+margin_bottom = 96.0
+size_flags_horizontal = 12
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 7 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionControles"]
+margin_top = 136.0
+margin_right = 235.0
+margin_bottom = 171.0
+text = "Dash"
+
+[node name="dash" type="TextureRect" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionControles"]
+margin_left = 543.0
+margin_top = 121.0
+margin_right = 640.0
+margin_bottom = 187.0
+size_flags_horizontal = 8
+size_flags_stretch_ratio = 0.0
+texture = ExtResource( 9 )
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionControles"]
+margin_top = 239.0
+margin_right = 222.0
+margin_bottom = 274.0
+size_flags_horizontal = 0
+text = "Arrojar vacuna"
+
+[node name="fireVaccine" type="TextureRect" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionControles"]
+margin_left = 560.0
+margin_top = 212.0
+margin_right = 640.0
+margin_bottom = 301.0
+size_flags_horizontal = 12
+texture = ExtResource( 6 )
+
+[node name="Label3" type="Label" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionControles"]
+margin_top = 353.0
+margin_right = 235.0
+margin_bottom = 388.0
+size_flags_horizontal = 8
+text = "Arrojar alcohol"
+
+[node name="fireAlcohol" type="TextureRect" parent="MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionControles"]
+margin_left = 560.0
+margin_top = 326.0
+margin_right = 640.0
+margin_bottom = 415.0
+size_flags_horizontal = 10
+texture = ExtResource( 8 )
 
 [connection signal="pressed" from="MainMenu/Inicio" to="." method="_on_Inicio_pressed"]
 [connection signal="pressed" from="MainMenu/Configuracion" to="." method="_on_Configuracion_pressed"]
