@@ -1,7 +1,7 @@
 extends "res://entities/AbstractState.gd"
 
 onready var timer: Timer = $IdleTimer
-export var max_wait: int = 3
+export var max_wait: int = 2
 export var min_wait: int = 1
 
 func enter():
