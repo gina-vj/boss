@@ -162,7 +162,6 @@ custom_fonts/font = SubResource( 4 )
 text = "Salir"
 
 [node name="MenuConfig" type="Popup" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 5
@@ -461,7 +460,6 @@ texture = ExtResource( 8 )
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 autoplay = true
-bus = "Menu"
 
 [connection signal="pressed" from="MainMenu/Inicio" to="." method="_on_Inicio_pressed"]
 [connection signal="pressed" from="MainMenu/Configuracion" to="." method="_on_Configuracion_pressed"]

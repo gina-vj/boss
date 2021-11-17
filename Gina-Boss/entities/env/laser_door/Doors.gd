@@ -10,7 +10,7 @@ func _ready():
 	PlayerData.connect("second_component_found", self, "second_component_found")
 	PlayerData.connect("third_component_found", self, "third_component_found")
 	
-	first_component_door.open()
+	first_component_door.close()
 	first_component_door.unlock()
 
 	second_component_door.close()
