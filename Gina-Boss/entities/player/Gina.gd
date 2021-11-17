@@ -26,7 +26,7 @@ func initialize(item_throwable_container):
 	
 func _ready():
 	state_machine.set_parent(self)
-	PlayerData.call_deferred("set_max_health", max_health)
+	PlayerData.current_health = max_health
 
 func _handle_move_input():
 	velocity = Vector2()
