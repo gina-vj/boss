@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/inmate_1_spritesheet.png-7f578cafeb51daa98f2d8e6893381f81.stex"
+path="res://.import/noise_combined.png-77ad9745b720254356d52b07e170e7a0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets-prueba/inmate_1_spritesheet.png"
-dest_files=[ "res://.import/inmate_1_spritesheet.png-7f578cafeb51daa98f2d8e6893381f81.stex" ]
+source_file="res://assets/shader/noise_combined.png"
+dest_files=[ "res://.import/noise_combined.png-77ad9745b720254356d52b07e170e7a0.stex" ]
 
 [params]
 

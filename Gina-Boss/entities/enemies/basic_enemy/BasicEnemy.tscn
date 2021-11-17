@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemies/enemy-release.png" type="Texture" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://entities/enemies/basic_enemy/states/Wander.gd" type="Script" id=5]
 [ext_resource path="res://entities/enemies/basic_enemy/states/Chase.gd" type="Script" id=6]
 [ext_resource path="res://entities/enemies/basic_enemy/states/Attack.gd" type="Script" id=7]
-[ext_resource path="res://assets/enemies/contagion_area 2.png" type="Texture" id=10]
+[ext_resource path="res://assets/shader/noise_combined.png" type="Texture" id=8]
+[ext_resource path="res://assets/shader/spotlight_3.png" type="Texture" id=9]
 [ext_resource path="res://entities/enemies/basic_enemy/states/RunAway.gd" type="Script" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -17,12 +18,44 @@ radius = 450.416
 radius = 69.8935
 height = 106.824
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_img;
+uniform float speed = 1.0;
+uniform vec4 smoke_color : hint_color;
+
+void fragment(){
+	vec2 uv1 = vec2(UV.x + TIME*speed, UV.y);
+	vec2 uv2 = vec2(UV.x - TIME*speed, UV.y);
+	vec2 uv3 = vec2(UV.x, UV.y + TIME*speed);
+	
+	
+	float noise_r = texture( noise_img, uv1 ).r;
+	float noise_g = texture( noise_img, uv2 ).g;
+	float noise_b = texture( noise_img, uv3 ).b;
+	
+	vec3 new_color = vec3(noise_r, noise_g, noise_b);
+	
+	float new_alpha = noise_r * noise_g * noise_b;
+	
+	COLOR.rgb = smoke_color.rgb;//texture(TEXTURE, UV).rgb;
+	COLOR.a = clamp(new_alpha * 15.0 * texture(TEXTURE, UV).a, 0.0, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+render_priority = 1
+shader = SubResource( 3 )
+shader_param/speed = 0.012
+shader_param/smoke_color = Color( 2.21875, 3, 0.5, 1 )
+shader_param/noise_img = ExtResource( 8 )
+
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 20.0705
 height = 42.0639
 
-[sub_resource type="Animation" id=4]
-resource_name = "idle_down"
+[sub_resource type="Animation" id=6]
 length = 0.1
 loop = true
 step = 0.041
@@ -39,8 +72,7 @@ tracks/0/keys = {
 "values": [ 7 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "idle_down_healted"
+[sub_resource type="Animation" id=7]
 length = 0.1
 loop = true
 step = 0.041
@@ -57,8 +89,7 @@ tracks/0/keys = {
 "values": [ 19 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "idle_lateral"
+[sub_resource type="Animation" id=8]
 length = 0.1
 loop = true
 step = 0.041
@@ -75,8 +106,7 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "idle_lateral_healted"
+[sub_resource type="Animation" id=9]
 length = 0.1
 loop = true
 step = 0.041
@@ -93,7 +123,7 @@ tracks/0/keys = {
 "values": [ 16 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 length = 0.1
 loop = true
 step = 0.041
@@ -110,8 +140,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "idle_up_healted"
+[sub_resource type="Animation" id=11]
 length = 0.1
 loop = true
 step = 0.041
@@ -128,7 +157,7 @@ tracks/0/keys = {
 "values": [ 13 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=12]
 length = 0.6
 loop = true
 step = 0.041
@@ -145,8 +174,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 8 ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "walk_down_healted"
+[sub_resource type="Animation" id=13]
 length = 0.6
 loop = true
 step = 0.041
@@ -163,7 +191,7 @@ tracks/0/keys = {
 "values": [ 18, 19, 20 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 length = 0.6
 loop = true
 step = 0.041
@@ -180,8 +208,7 @@ tracks/0/keys = {
 "values": [ 5, 4, 3 ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "walk_lateral_healted"
+[sub_resource type="Animation" id=15]
 length = 0.6
 loop = true
 step = 0.041
@@ -198,7 +225,7 @@ tracks/0/keys = {
 "values": [ 17, 16, 15 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=16]
 length = 0.6
 loop = true
 step = 0.041
@@ -215,8 +242,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=15]
-resource_name = "walk_up_healted"
+[sub_resource type="Animation" id=17]
 length = 0.6
 loop = true
 step = 0.041
@@ -287,9 +313,11 @@ collision_mask = 2
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="ContationArea"]
-scale = Vector2( 2.54258, 1.4784 )
-texture = ExtResource( 10 )
+[node name="Fire" type="Sprite" parent="ContationArea"]
+material = SubResource( 4 )
+position = Vector2( 0.309265, -0.0312805 )
+scale = Vector2( 1.21127, 0.520165 )
+texture = ExtResource( 9 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 collision_mask = 3
@@ -305,21 +333,21 @@ frame = 7
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
 position = Vector2( -0.18325, -42.0029 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle_down = SubResource( 4 )
-anims/idle_down_healted = SubResource( 5 )
-anims/idle_lateral = SubResource( 6 )
-anims/idle_lateral_healted = SubResource( 7 )
-anims/idle_up = SubResource( 8 )
-anims/idle_up_healted = SubResource( 9 )
-anims/walk_down = SubResource( 10 )
-anims/walk_down_healted = SubResource( 11 )
-anims/walk_lateral = SubResource( 12 )
-anims/walk_lateral_healted = SubResource( 13 )
-anims/walk_up = SubResource( 14 )
-anims/walk_up_healted = SubResource( 15 )
+anims/idle_down = SubResource( 6 )
+anims/idle_down_healted = SubResource( 7 )
+anims/idle_lateral = SubResource( 8 )
+anims/idle_lateral_healted = SubResource( 9 )
+anims/idle_up = SubResource( 10 )
+anims/idle_up_healted = SubResource( 11 )
+anims/walk_down = SubResource( 12 )
+anims/walk_down_healted = SubResource( 13 )
+anims/walk_lateral = SubResource( 14 )
+anims/walk_lateral_healted = SubResource( 15 )
+anims/walk_up = SubResource( 16 )
+anims/walk_up_healted = SubResource( 17 )
 
 [node name="DisinfectionTimer" type="Timer" parent="."]
 

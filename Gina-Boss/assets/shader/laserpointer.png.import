@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/inmate_1_spritesheet.png-7f578cafeb51daa98f2d8e6893381f81.stex"
+path="res://.import/laserpointer.png-4c8e5953ac1ac4aad832c8199b4122c5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/assets-prueba/inmate_1_spritesheet.png"
-dest_files=[ "res://.import/inmate_1_spritesheet.png-7f578cafeb51daa98f2d8e6893381f81.stex" ]
+source_file="res://assets/shader/laserpointer.png"
+dest_files=[ "res://.import/laserpointer.png-4c8e5953ac1ac4aad832c8199b4122c5.stex" ]
 
 [params]
 
