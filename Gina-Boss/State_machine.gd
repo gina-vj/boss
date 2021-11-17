@@ -6,6 +6,8 @@ func _ready():
 		"walk": $Walk,
 		"dash": $Dash,
 		"dead": $Dead,
+		"idleDead": $IdleDead,
+		"wander": $Wander
 	}
 
 func notify_hit(amount):
