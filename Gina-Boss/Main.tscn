@@ -242,7 +242,7 @@ position = Vector2( -104, 144 )
 item_quantity = 1
 
 [node name="FaceMask2" parent="Environment/Items" instance=ExtResource( 31 )]
-position = Vector2( 360, 32 )
+position = Vector2( 931.333, -314.841 )
 item_quantity = 1
 
 [node name="FaceMask3" parent="Environment/Items" instance=ExtResource( 31 )]
@@ -260,7 +260,7 @@ item_quantity = 2
 [node name="Computers" type="Node" parent="Environment"]
 
 [node name="Computer" parent="Environment/Computers" instance=ExtResource( 1 )]
-position = Vector2( 198.318, -46.3182 )
+position = Vector2( 188.216, -115.911 )
 message_index = 0
 
 [node name="Computer2" parent="Environment/Computers" instance=ExtResource( 1 )]

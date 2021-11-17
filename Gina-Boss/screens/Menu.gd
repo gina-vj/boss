@@ -1,9 +1,9 @@
 extends Control
 
 onready var config_menu = $MenuConfig
-onready var config_video = $MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionVideo
-onready var config_audio = $MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionAudio
-onready var config_controles = $MenuConfig/MainMenu2/MainConfiguracion/ConfiguracionControles
+onready var config_video = $MenuConfig/MainMenuOptions/OptionConfigurations/VideoConfigurations
+onready var config_audio = $MenuConfig/MainMenuOptions/OptionConfigurations/AudioConfigurations
+onready var config_controles = $MenuConfig/MainMenuOptions/OptionConfigurations/KeymapConfigurations
 onready var inicio = $MainMenu/Inicio
 
 func _ready():

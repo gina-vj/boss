@@ -48,11 +48,6 @@ _global_script_classes=[ {
 "class": "Suit",
 "language": "GDScript",
 "path": "res://entities/item/types/Suit.gd"
-}, {
-"base": "Node2D",
-"class": "Throwable",
-"language": "GDScript",
-"path": "res://entities/item/Throwable.gd"
 } ]
 _global_script_class_icons={
 "Alcohol": "",
@@ -62,8 +57,7 @@ _global_script_class_icons={
 "Item": "",
 "Player": "",
 "PlayerBag": "",
-"Suit": "",
-"Throwable": ""
+"Suit": ""
 }
 
 [application]
