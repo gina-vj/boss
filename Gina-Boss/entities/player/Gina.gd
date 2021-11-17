@@ -27,8 +27,8 @@ var path: Array = []
 
 var area_protection = null
 
-func initialize(item_throwable_container):
-	self.item_throwable_container = item_throwable_container
+func initialize(_item_throwable_container):
+	self.item_throwable_container = _item_throwable_container
 	
 func _ready():
 	state_machine.set_parent(self)
