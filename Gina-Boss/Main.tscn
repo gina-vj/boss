@@ -212,15 +212,15 @@ item_quantity = 10
 
 [node name="ExperimentalVaccine2" parent="Environment/Items" instance=ExtResource( 28 )]
 position = Vector2( 4328, 728 )
-item_quantity = 10
+item_quantity = 5
 
 [node name="ExperimentalVaccine4" parent="Environment/Items" instance=ExtResource( 28 )]
 position = Vector2( 2720, 2512 )
-item_quantity = 10
+item_quantity = 3
 
 [node name="ExperimentalVaccine3" parent="Environment/Items" instance=ExtResource( 28 )]
 position = Vector2( 2304, -1800 )
-item_quantity = 10
+item_quantity = 5
 
 [node name="Alcohol3" parent="Environment/Items" instance=ExtResource( 30 )]
 position = Vector2( 8, 144 )
@@ -232,11 +232,11 @@ item_quantity = 10
 
 [node name="Alcohol6" parent="Environment/Items" instance=ExtResource( 30 )]
 position = Vector2( 2624, 2512 )
-item_quantity = 10
+item_quantity = 2
 
 [node name="Alcohol5" parent="Environment/Items" instance=ExtResource( 30 )]
 position = Vector2( 2200, -1808 )
-item_quantity = 10
+item_quantity = 2
 
 [node name="FaceMask" parent="Environment/Items" instance=ExtResource( 31 )]
 position = Vector2( -104, 144 )
@@ -248,11 +248,11 @@ item_quantity = 1
 
 [node name="FaceMask3" parent="Environment/Items" instance=ExtResource( 31 )]
 position = Vector2( 4272, 728 )
-item_quantity = 2
+item_quantity = 1
 
 [node name="FaceMask5" parent="Environment/Items" instance=ExtResource( 31 )]
 position = Vector2( 2608, 2360 )
-item_quantity = 2
+item_quantity = 1
 
 [node name="FaceMask4" parent="Environment/Items" instance=ExtResource( 31 )]
 position = Vector2( 2248, -1816 )
@@ -507,10 +507,10 @@ __meta__ = {
 stream = ExtResource( 20 )
 autoplay = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="PausaCanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 21 )
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Button" type="Button" parent="PausaCanvasLayer"]
 pause_mode = 2
 margin_left = 11.4665
 margin_top = 538.659
@@ -523,17 +523,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MenuButton" type="MenuButton" parent="CanvasLayer"]
+[node name="MenuButton" type="MenuButton" parent="PausaCanvasLayer"]
+visible = false
 margin_left = 183.058
 margin_top = 73.0101
 margin_right = 675.058
 margin_bottom = 463.01
+text = "altoaa"
 icon = ExtResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continuar" type="Button" parent="CanvasLayer/MenuButton"]
+[node name="Continuar" type="Button" parent="PausaCanvasLayer/MenuButton"]
 pause_mode = 2
 anchor_left = 0.31
 anchor_top = 0.5
@@ -548,7 +550,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Restart" type="Button" parent="CanvasLayer/MenuButton"]
+[node name="Restart" type="Button" parent="PausaCanvasLayer/MenuButton"]
 pause_mode = 2
 margin_left = 167.281
 margin_top = 189.625
@@ -566,6 +568,7 @@ script = ExtResource( 32 )
 [connection signal="button_up" from="GUI/GameOver/Finished/Restart" to="GUI/GameOver" method="_on_restart_game_pressed"]
 [connection signal="button_up" from="GUI/GameOver/Dead/Menu" to="GUI/GameOver" method="go_to_main_menu"]
 [connection signal="button_up" from="GUI/GameOver/Dead/Restart" to="GUI/GameOver" method="_on_restart_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_Button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MenuButton/Continuar" to="CanvasLayer" method="_on_Continuar_pressed"]
-[connection signal="pressed" from="CanvasLayer/MenuButton/Restart" to="CanvasLayer" method="_on_Restart_pressed"]
+[connection signal="pausa" from="PausaCanvasLayer" to="GameStatus" method="_on_PausaCanvasLayer_pausa"]
+[connection signal="pressed" from="PausaCanvasLayer/Button" to="PausaCanvasLayer" method="_on_Button_pressed"]
+[connection signal="pressed" from="PausaCanvasLayer/MenuButton/Continuar" to="PausaCanvasLayer" method="_on_Continuar_pressed"]
+[connection signal="pressed" from="PausaCanvasLayer/MenuButton/Restart" to="PausaCanvasLayer" method="_on_Restart_pressed"]

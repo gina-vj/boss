@@ -23,6 +23,7 @@ func update(delta):
 	parent._apply_movement()
 
 func handle_input(event:InputEvent):
+	parent._handle_protection()
 	parent._handle_attack(event)
 
 func exit():
