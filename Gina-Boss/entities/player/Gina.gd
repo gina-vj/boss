@@ -60,8 +60,6 @@ func _apply_movement():
 			play_idle_animation()
 		else:
 			play_moving_animation()
-	else:
-		play_dead_animation()
 
 	velocity = move_and_slide(velocity)
 
@@ -111,15 +109,15 @@ func play_dead_animation():
 	var animation = ""
 	direction_helper.deduce_direction(direction)
 	if direction_helper.looking_up():
-		animation = "dead_up"
+		animation = "infected_walk_up"
 	elif direction_helper.looking_down():
-		animation = "dead_down"
-	elif direction_helper.looking_left:
-		animation = true
-		animation = "dead_lateral"
+		animation = "infected_walk_down"
+	elif direction_helper.looking_left():
+		body.flip_h = true
+		animation = "infected_walk_lateral"
 	elif direction_helper.looking_right():
 		body.flip_h = false
-		animation = "dead_lateral"
+		animation = "infected_walk_lateral"
 
 	animation_player().play(animation)
 
@@ -165,6 +163,9 @@ func navigate():
 			velocity = global_position.direction_to(next_position) * SPEED_WHILE_DEAD
 	else:
 		velocity = Vector2.ZERO
+		
+	direction = velocity.normalized()
+	play_dead_animation()
 
 func generate_path(level_navigation: Navigation2D):
 	#Punto aleatorio para que vuelva donde encontró el primer barbijo dentro del navigation level

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://entities/player/states/State_machine.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/states/Idle.gd" type="Script" id=2]
@@ -13,9 +13,6 @@
 [ext_resource path="res://entities/player/states/Wander.gd" type="Script" id=11]
 [ext_resource path="res://assets/audio/sfx/throw.mp3" type="AudioStream" id=12]
 [ext_resource path="res://assets/audio/sfx/step_gina1.ogg" type="AudioStream" id=13]
-[ext_resource path="res://assets/audio/sfx/step_enemy2.ogg" type="AudioStream" id=14]
-[ext_resource path="res://assets/audio/sfx/step_gina2.ogg" type="AudioStream" id=15]
-[ext_resource path="res://assets/audio/sfx/step_enemy1.ogg" type="AudioStream" id=16]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.2057
@@ -155,35 +152,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 15, 16, 17 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.123, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.328 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 16 ), ExtResource( 14 ) ]
-}
 
 [sub_resource type="Animation" id=22]
 resource_name = "infected_walk_lateral"
@@ -201,35 +169,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 11, 10, 9 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.123, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.287 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 16 ), ExtResource( 14 ) ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -249,35 +188,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 3, 4, 5 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.123, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.328 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 16 ), ExtResource( 14 ) ]
-}
 
 [sub_resource type="Animation" id=9]
 resource_name = "walk_down"
@@ -296,35 +206,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 12, 13, 14 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.123, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.328 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 13 ), ExtResource( 15 ) ]
-}
 
 [sub_resource type="Animation" id=8]
 resource_name = "walk_lateral"
@@ -342,35 +223,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 8, 7, 6 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.35 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 13 ), ExtResource( 15 ) ]
-}
 
 [sub_resource type="Animation" id=10]
 length = 0.6
@@ -387,35 +239,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.123, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.328 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 13 ), ExtResource( 15 ) ]
 }
 
 [sub_resource type="Animation" id=24]
@@ -552,35 +375,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 33, 34, 35 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.164, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.328 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 16 ), ExtResource( 14 ) ]
-}
 
 [sub_resource type="Animation" id=27]
 resource_name = "infected_walk_lateral"
@@ -598,35 +392,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 29, 28, 27 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.164, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.287 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 16 ), ExtResource( 14 ) ]
 }
 
 [sub_resource type="Animation" id=25]
@@ -646,35 +411,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 21, 22, 23 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.164, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.287 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 16 ), ExtResource( 14 ) ]
-}
 
 [sub_resource type="Animation" id=17]
 length = 0.6
@@ -690,35 +426,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 30, 31, 32 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1.03526, 1 ),
-"update": 1,
-"values": [ ExtResource( 13 ), ExtResource( 15 ) ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -737,35 +444,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 26, 25, 24 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.164, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.328 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 13 ), ExtResource( 15 ) ]
-}
 
 [sub_resource type="Animation" id=19]
 length = 0.6
@@ -782,35 +460,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 18, 19, 20 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("PlayerInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.123, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.287 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 13 ), ExtResource( 15 ) ]
 }
 
 [node name="Gina" type="KinematicBody2D"]
