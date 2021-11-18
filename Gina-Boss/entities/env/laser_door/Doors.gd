@@ -9,6 +9,7 @@ func _ready():
 	PlayerData.connect("first_component_found", self, "first_component_found")
 	PlayerData.connect("second_component_found", self, "second_component_found")
 	PlayerData.connect("third_component_found", self, "third_component_found")
+	PlayerData.connect("player_dead", self, "open_all_doors")
 	
 	first_component_door.close()
 	first_component_door.unlock()
@@ -38,4 +39,10 @@ func third_component_found():
 	third_component_door.close()
 	third_component_door.unlock()
 	
+	boss_door.open()
+
+func open_all_doors():
+	first_component_door.open()
+	second_component_door.open()
+	third_component_door.open()
 	boss_door.open()
