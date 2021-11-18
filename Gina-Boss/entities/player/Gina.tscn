@@ -13,6 +13,35 @@
 [ext_resource path="res://entities/player/states/Wander.gd" type="Script" id=11]
 [ext_resource path="res://assets/audio/sfx/throw.mp3" type="AudioStream" id=12]
 [ext_resource path="res://assets/audio/sfx/step_gina1.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/sfx/step_enemy2.ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/audio/sfx/step_gina2.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/audio/sfx/step_enemy1.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/audio/sfx/gina-injured.mp3" type="AudioStream" id=17]
+[ext_resource path="res://assets/audio/sfx/grab.mp3" type="AudioStream" id=18]
+
+[sub_resource type="Shader" id=28]
+code = "shader_type canvas_item;
+uniform vec2 player_position;
+uniform vec4 color : hint_color = vec4(0.305, 0.298, 0.341,1);
+
+uniform float MULTIPLIER = 0.56;
+uniform float SCALE = 0.5;
+uniform float SOFTNESS = 0.45;
+
+void fragment(){
+	float val = distance(vec2(UV.x , UV.y * MULTIPLIER), vec2(player_position.x , player_position.y * MULTIPLIER));
+	val = val / SCALE;
+	float vignette = smoothstep(0.2, SOFTNESS, val);
+	COLOR = vec4(color.rgb , vignette );
+}"
+
+[sub_resource type="ShaderMaterial" id=29]
+shader = SubResource( 28 )
+shader_param/player_position = null
+shader_param/color = Color( 0.0470588, 0.0352941, 0.0901961, 1 )
+shader_param/MULTIPLIER = 0.56
+shader_param/SCALE = 0.5
+shader_param/SOFTNESS = 0.45
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.2057
@@ -467,6 +496,8 @@ collision_layer = 2
 collision_mask = 3
 script = ExtResource( 4 )
 fire_sfx = ExtResource( 12 )
+injured_sfx = ExtResource( 17 )
+grab_item_sfx = ExtResource( 18 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -552,10 +583,12 @@ anims/walk_lateral = SubResource( 18 )
 anims/walk_up = SubResource( 19 )
 
 [node name="PlayerSfx" type="AudioStreamPlayer" parent="."]
+bus = "Sfx"
 
 [node name="PlayerInteraction" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 volume_db = -5.0
+bus = "Sfx"
 
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_on_DashTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashRecuperationTimer" to="StateMachine/Dash" method="_on_DashRecuperationTimer_timeout"]
