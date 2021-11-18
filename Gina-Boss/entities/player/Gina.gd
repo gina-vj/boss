@@ -49,6 +49,7 @@ func _handle_deacceleration():
 	velocity.y = lerp(velocity.y, 0, FRICTION_WEIGHT) if abs(velocity.y) > 1 else 0
 
 func _apply_movement():
+	get_material().set_shader_param("player_position", global_position)
 	if PlayerData.still_alive():
 		if velocity == Vector2.ZERO:
 			play_idle_animation()
