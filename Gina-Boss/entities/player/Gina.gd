@@ -68,7 +68,7 @@ func _play_animation(anim_name:String):
 	animation_player().play(anim_name)
 
 func animation_player():
-	if PlayerData.using_area_protection():
+	if !PlayerData.using_area_protection():
 		animation_base_player.stop()
 		return animation_face_mask_player
 	else:
