@@ -26,6 +26,7 @@ var direction:Vector2 = Vector2.UP
 var patroll_to = null
 var patroll_from = null
 var path: Array = []
+var direction_helper = DirectionHelper.new()
 
 var area_protection = null
 
@@ -37,17 +38,11 @@ func _ready():
 	PlayerData.current_health = max_health
 
 func _handle_move_input():
-	velocity = Vector2()
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-	velocity = velocity.normalized() * SPEED_LIMIT
-	direction = velocity.normalized()
+	direction = Vector2(
+		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	).normalized()
+	velocity = direction * SPEED_LIMIT
 
 func _handle_deacceleration():
 	velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
@@ -66,8 +61,53 @@ func _remove():
 func receive_damage(amount):
 	PlayerData.receive_area_damage(amount)
 
-func _play_animation(anim_name:String):
-	animation_player().play(anim_name)
+func play_idle_animation():
+	var animation = ""
+	direction_helper.deduce_direction(direction)
+	if direction_helper.looking_up():
+		animation = "idle_up"
+	elif direction_helper.looking_down():
+		animation = "idle_down"
+	elif direction_helper.looking_left():
+		body.flip_h = true
+		animation = "idle_lateral"
+	elif direction_helper.looking_right():
+		body.flip_h = false
+		animation = "idle_lateral"
+
+	animation_player().play(animation)
+	
+func play_moving_animation():
+	var animation = ""
+	direction_helper.deduce_direction(direction)
+	if direction_helper.looking_up():
+		animation = "walk_up"
+	elif direction_helper.looking_down():
+		animation = "walk_down"
+	elif direction_helper.looking_left():
+		body.flip_h = true
+		animation = "walk_lateral"
+	elif direction_helper.looking_right():
+		body.flip_h = false
+		animation = "walk_lateral"
+
+	animation_player().play(animation)
+	
+func play_dead_animation():
+	var animation = ""
+	direction_helper.deduce_direction(direction)
+	if direction_helper.looking_up():
+		animation = "dead_up"
+	elif direction_helper.looking_down():
+		animation = "dead_down"
+	elif direction_helper.looking_left:
+		animation = true
+		animation = "dead_lateral"
+	elif direction_helper.looking_right():
+		body.flip_h = false
+		animation = "dead_lateral"
+
+	animation_player().play(animation)
 
 func animation_player():
 	if !PlayerData.using_area_protection():
@@ -96,7 +136,6 @@ func still_alive():
 	return PlayerData.still_alive()
 
 func die():
-	_play_animation("dead_down")
 	collision_shape.disabled = true
 	set_collision_layer_bit(4, false)
 	set_collision_layer_bit(1, false)

@@ -377,7 +377,7 @@ position = Vector2( 8, 0 )
 
 [node name="Timer" type="Timer" parent="Shooter"]
 
-[node name="AnimationFaceMask" type="AnimationPlayer" parent="."]
+[node name="AnimationBase" type="AnimationPlayer" parent="."]
 anims/dead_down = SubResource( 2 )
 anims/dead_lateral = SubResource( 3 )
 anims/dead_up = SubResource( 4 )
@@ -388,7 +388,7 @@ anims/walk_down = SubResource( 8 )
 anims/walk_lateral = SubResource( 9 )
 anims/walk_up = SubResource( 10 )
 
-[node name="AnimationBase" type="AnimationPlayer" parent="."]
+[node name="AnimationFaceMask" type="AnimationPlayer" parent="."]
 anims/dead_down = SubResource( 11 )
 anims/dead_lateral = SubResource( 12 )
 anims/dead_up = SubResource( 13 )

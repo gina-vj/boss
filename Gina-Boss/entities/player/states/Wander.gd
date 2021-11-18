@@ -8,6 +8,7 @@ func _ready():
 	level_navigation = tree.get_nodes_in_group("LevelNavigation")[0]
 	
 func enter():
+	parent.play_dead_animation()
 	if level_navigation != null:
 		parent.generate_path(level_navigation)
 

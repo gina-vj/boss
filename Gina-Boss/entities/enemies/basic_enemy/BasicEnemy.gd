@@ -22,9 +22,7 @@ var target:Player = null
 var contagion_target:Player = null
 var velocity: Vector2 = Vector2.ZERO
 var current_projectile = null
-
-enum Directions { UP, DOWN, LEFT, RIGHT }
-var animation_direction = Directions.DOWN
+var direction_helper = DirectionHelper.new()
 
 func _ready():
 	state_machine.set_parent(self)
@@ -44,26 +42,11 @@ func navigate():
 	velocity = move_and_slide(velocity)
 
 func show_animation(direction):
-	var deduced_direction = deduce_direction(direction)
+	direction_helper.deduce_direction(direction)
 	if direction == Vector2.ZERO:
-		play_idle_animation(animation_direction)
+		play_idle_animation()
 	else:
-		play_moving_animation(deduced_direction)
-		animation_direction = deduced_direction
-		
-func deduce_direction(direction):
-	var angle = rad2deg(direction.angle())
-	if angle < 0:
-		angle = 360 + angle
-
-	if angle <= 45 or angle > 315:
-		return Directions.RIGHT
-	elif angle > 45 and angle <= 135:
-		return Directions.DOWN
-	elif angle > 135 and angle <= 225:
-		return Directions.LEFT
-	elif angle > 225 and angle <= 315:
-		return Directions.UP	
+		play_moving_animation()
 
 func can_see_target():
 	if target == null:
@@ -98,37 +81,36 @@ func _on_ContationArea_body_entered(_body):
 func _on_ContationArea_body_exited(_body):
 	state_machine.body_exited_contagion_area(_body)
 
-func play_idle_animation(direction):
+func play_idle_animation():
 	var animation = ""
-	match direction:
-		Directions.UP:
-			animation = "idle_up"
-		Directions.DOWN:
-			animation = "idle_down"
-		Directions.LEFT:
-			body.flip_h = true
-			animation = "idle_lateral"
-		Directions.RIGHT:
-			body.flip_h = false
-			animation = "idle_lateral"
+	if direction_helper.looking_up():
+		animation = "idle_up"
+	elif direction_helper.looking_down():
+		animation = "idle_down"
+	elif direction_helper.looking_left():
+		body.flip_h = true
+		animation = "idle_lateral"
+	elif direction_helper.looking_right():
+		body.flip_h = false
+		animation = "idle_lateral"
 
 	animation_player.play(animation)
 
-func play_moving_animation(direction):
+func play_moving_animation():
 	var animation = ""
-	match direction:
-		Directions.UP:
-			animation = "walk_up"
-		Directions.DOWN:
-			animation = "walk_down"
-		Directions.LEFT:
-			body.flip_h = true
-			animation = "walk_lateral"
-		Directions.RIGHT:
-			body.flip_h = false
-			animation = "walk_lateral"
-
+	if direction_helper.looking_up():
+		animation = "walk_up"
+	elif direction_helper.looking_down():
+		animation = "walk_down"
+	elif direction_helper.looking_left():
+		body.flip_h = true
+		animation = "walk_lateral"
+	elif direction_helper.looking_right():
+		body.flip_h = false
+		animation = "walk_lateral"
+	
 	animation_player.play(animation)
+
 		
 func _on_DisinfectionTimer_timeout():
 	contagion_area.visible = true
