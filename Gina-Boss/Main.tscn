@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://entities/env/Computer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/env/laser_door/Doors.gd" type="Script" id=2]
@@ -37,6 +37,46 @@
 vertices = PoolVector2Array( 4392, 696, 4392, 760, 3988.62, 760, 3960.68, 758.318, 3960.68, 518.318, 3520, 760, 3872.68, 758.318, 4680, -1160, 4800, -1336, 4800, 584, 4680, -632, 3518.32, 521.682, 3400, 504, 3400, 384, 3520, 72, 3400, 184, 2376, 72, 2496, 184, 3520, 1144, 3400, 1024, 3400, 824, 2376, 1144, 2496, 1024, 2376, 696, 2496, 824, 2374.32, 585.682, 2496, 384, 4424, -1336, 4464, -1160, 4424, -1208, 3398.32, 705.682, 3848, -904, 3968, -1528, 3968, -888, 3848, -824, 2776.68, 2398.32, 2880.68, 2398.32, 2880, 2440, 2776, 2552, 3008, 2552, 2904, 2440, 3008, 2232, 2904, 2120, 3136, 2120, 3032, 2232, 3136, 2440, 3032, 2552, 3264, 2552, 3160, 2440, 3264, 2104, 3160, 1992, 3392, 1992, 3288, 2104, 3392, 2440, 3288, 2552, 3520, 2552, 3416, 2440, 3520, 1976, 3416, 1864, 3648, 1864, 3544, 1976, 3648, 2440, 3544, 2552, 3776, 2552, 3672, 2440, 3776, 1848, 3672, 1736, 3904, 1736, 3800, 1848, 3904, 2440, 3800, 2552, 4032, 2552, 3928, 2440, 4032, 1720, 3928, 1608, 4160, 1608, 4056, 1720, 4160, 2440, 4056, 2552, 4288, 2552, 4184, 2440, 4288, 1592, 4184, 1480, 4416, 1480, 4312, 1592, 4416, 2432, 4312, 2552, 4544, 2552, 4440, 2432, 4544, 1464, 4440, 1352, 4656, 1352, 4568, 1464, 4656, 2440, 4568, 2552, 4800, 2552, 4680, 2440, 4800, 696, 4680, 696, 902.318, 57.6818, 240, 56, 239, -56, 902.318, -54.3182, 1206.32, -6.31821, 1520, 696, 1520, 824, 1302.32, 825.682, 1302.32, 393.682, 1350.32, 393.682, 2328.68, -1657.68, 2560.68, -1657.68, 2560, -952, 2328, -712, 902.318, -374.318, 1190.32, -374.318, 1190.32, -182.318, 1230.32, -182.318, 1230.32, -374.318, 1446.32, -374.318, 1446.32, -6.31821, 1206.32, 73.6818, 902.318, 313.682, 1270.32, 313.682, 1270.32, 249.682, 1446.32, 73.6818, 1302.32, 249.682, 1446.32, 393.682, 1350.32, 313.682, 1510.32, 393.682, 1510.32, 585.682, 2496, 504, 2496, 704, 4680, -520, 3224, -520, 3224, -632, 3552, -632, 3848, -632, 2584, -952, 2584, -1528, 2760, -1528, 2880, -1144, 2760, -1608, 2584, -1608, 2584, -1656, 2824, -1656, 2824, -1912, 3056, -1912, 3056, -1720, 2880, -1608, 3288, -1720, 3288, -2040, 3456, -2040, 3456, -1608, 3160, -904, 3160, -1080, 3848, -1080, 3848, -1416, 2904, -1528, 3520, -1416, 2904, -1144, 3520, -1272, 3136, -1160, 3544, -1272, 3544, -1336, 3824, -1336, 3824, -1160, 3136, -824, 4464, -1096, 4160, -1096, 3992, -1208, 3992, -888, 4160, -712, 3992, -712, 3992, -776, 3968, -776, 4488, -712, 4184, -712, 4184, -1016, 4408, -824, 4488, -1016, 4488, -1080, 4656, -1080, 4656, -904, 4408, -904, 4656, -824, 4656, -632, 5088, 584, 5088, 696, 4680, 584, 1302.32, 313.682, 3872.68, 518.318, 4392, 512, 4392, 584, 3968, -632, 3848, -712, 4488, -632 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 3, 2, 5, 6 ), PoolIntArray( 7, 8, 9, 10 ), PoolIntArray( 11, 12, 13, 14 ), PoolIntArray( 14, 13, 15 ), PoolIntArray( 16, 14, 15, 17 ), PoolIntArray( 5, 18, 19, 20 ), PoolIntArray( 19, 18, 21, 22 ), PoolIntArray( 22, 21, 23, 24 ), PoolIntArray( 25, 16, 17, 26 ), PoolIntArray( 27, 8, 7, 28, 29 ), PoolIntArray( 5, 30, 12, 11, 6 ), PoolIntArray( 31, 32, 33, 34 ), PoolIntArray( 35, 36, 37, 38 ), PoolIntArray( 39, 38, 37, 40 ), PoolIntArray( 41, 39, 40, 42 ), PoolIntArray( 41, 42, 43, 44 ), PoolIntArray( 44, 43, 45, 46 ), PoolIntArray( 47, 46, 45, 48 ), PoolIntArray( 49, 47, 48, 50 ), PoolIntArray( 49, 50, 51, 52 ), PoolIntArray( 52, 51, 53, 54 ), PoolIntArray( 55, 54, 53, 56 ), PoolIntArray( 57, 55, 56, 58 ), PoolIntArray( 57, 58, 59, 60 ), PoolIntArray( 60, 59, 61, 62 ), PoolIntArray( 63, 62, 61, 64 ), PoolIntArray( 65, 63, 64, 66 ), PoolIntArray( 65, 66, 67, 68 ), PoolIntArray( 68, 67, 69, 70 ), PoolIntArray( 71, 70, 69, 72 ), PoolIntArray( 73, 71, 72, 74 ), PoolIntArray( 73, 74, 75, 76 ), PoolIntArray( 76, 75, 77, 78 ), PoolIntArray( 79, 78, 77, 80 ), PoolIntArray( 81, 79, 80, 82 ), PoolIntArray( 81, 82, 83, 84 ), PoolIntArray( 84, 83, 85, 86 ), PoolIntArray( 87, 86, 85, 88 ), PoolIntArray( 89, 87, 88, 90 ), PoolIntArray( 89, 90, 91, 92 ), PoolIntArray( 92, 91, 93, 94 ), PoolIntArray( 95, 94, 93, 96 ), PoolIntArray( 97, 95, 96, 98 ), PoolIntArray( 99, 100, 101, 102, 103 ), PoolIntArray( 104, 105, 106, 107, 108 ), PoolIntArray( 109, 110, 111, 112 ), PoolIntArray( 102, 113, 114, 115 ), PoolIntArray( 116, 117, 118, 119 ), PoolIntArray( 115, 116, 119, 103, 102 ), PoolIntArray( 99, 103, 120, 121 ), PoolIntArray( 122, 121, 120, 123 ), PoolIntArray( 123, 120, 124, 125 ), PoolIntArray( 125, 124, 126, 127 ), PoolIntArray( 126, 128, 129 ), PoolIntArray( 26, 13, 12, 130 ), PoolIntArray( 25, 26, 130 ), PoolIntArray( 25, 130, 131, 23 ), PoolIntArray( 132, 133, 134, 135 ), PoolIntArray( 132, 135, 136 ), PoolIntArray( 137, 138, 139, 140 ), PoolIntArray( 141, 142, 143, 144 ), PoolIntArray( 144, 145, 146, 147, 148 ), PoolIntArray( 149, 150, 151, 152 ), PoolIntArray( 149, 152, 148, 147 ), PoolIntArray( 31, 153, 154, 155 ), PoolIntArray( 32, 31, 155 ), PoolIntArray( 32, 155, 156 ), PoolIntArray( 157, 32, 156, 158 ), PoolIntArray( 159, 157, 158, 160, 161 ), PoolIntArray( 162, 163, 164, 165 ), PoolIntArray( 162, 165, 161, 160 ), PoolIntArray( 159, 161, 166 ), PoolIntArray( 29, 28, 167, 168, 169 ), PoolIntArray( 170, 169, 168, 171 ), PoolIntArray( 171, 172, 173 ), PoolIntArray( 170, 171, 173, 33 ), PoolIntArray( 34, 33, 173, 174 ), PoolIntArray( 175, 176, 177, 178 ), PoolIntArray( 179, 180, 181, 182 ), PoolIntArray( 179, 182, 183, 177 ), PoolIntArray( 178, 184, 185, 175 ), PoolIntArray( 9, 186, 187, 97 ), PoolIntArray( 9, 97, 98, 188 ), PoolIntArray( 127, 189, 125 ), PoolIntArray( 104, 108, 127, 126, 129 ), PoolIntArray( 104, 129, 25, 23 ), PoolIntArray( 24, 23, 131 ), PoolIntArray( 20, 24, 131, 30, 5 ), PoolIntArray( 190, 6, 11 ), PoolIntArray( 190, 11, 191 ), PoolIntArray( 4, 190, 191 ), PoolIntArray( 4, 191, 192 ), PoolIntArray( 0, 4, 192 ), PoolIntArray( 0, 192, 188, 98 ), PoolIntArray( 9, 188, 132 ), PoolIntArray( 10, 9, 132 ), PoolIntArray( 185, 10, 132 ), PoolIntArray( 139, 141, 144, 148, 140 ), PoolIntArray( 34, 174, 193, 194 ), PoolIntArray( 177, 183, 178 ), PoolIntArray( 195, 175, 185, 132 ), PoolIntArray( 137, 140, 159, 166, 112 ), PoolIntArray( 112, 111, 137 ), PoolIntArray( 194, 112, 166, 34 ), PoolIntArray( 136, 194, 193 ), PoolIntArray( 132, 136, 193 ), PoolIntArray( 195, 132, 193 ) ]
 outlines = [ PoolVector2Array( 239, -56, 902.318, -54.3182, 902.318, -374.318, 1190.32, -374.318, 1190.32, -182.318, 1230.32, -182.318, 1230.32, -374.318, 1446.32, -374.318, 1446.32, -6.31821, 1206.32, -6.31821, 1206.32, 73.6818, 1446.32, 73.6818, 1446.32, 393.682, 1510.32, 393.682, 1510.32, 585.682, 2374.32, 585.682, 2376, 72, 3520, 72, 3518.32, 521.682, 4392, 512, 4392, 584, 4680, 584, 4680, -520, 3224, -520, 3224, -632, 3552, -632, 3848, -632, 3848, -712, 2328, -712, 2328.68, -1657.68, 2560.68, -1657.68, 2560, -952, 2584, -952, 2584, -1528, 2760, -1528, 2760, -1608, 2584, -1608, 2584, -1656, 2824, -1656, 2824, -1912, 3056, -1912, 3056, -1720, 3288, -1720, 3288, -2040, 3456, -2040, 3456, -1608, 2880, -1608, 2880, -1144, 2904, -1144, 2904, -1528, 3968, -1528, 3968, -888, 3992, -888, 3992, -1208, 4424, -1208, 4424, -1336, 4800, -1336, 4800, 584, 5088, 584, 5088, 696, 4800, 696, 4800, 2552, 4568, 2552, 4568, 1464, 4544, 1464, 4544, 2552, 4312, 2552, 4312, 1592, 4288, 1592, 4288, 2552, 4056, 2552, 4056, 1720, 4032, 1720, 4032, 2552, 3800, 2552, 3800, 1848, 3776, 1848, 3776, 2552, 3544, 2552, 3544, 1976, 3520, 1976, 3520, 2552, 3288, 2552, 3288, 2104, 3264, 2104, 3264, 2552, 3032, 2552, 3032, 2232, 3008, 2232, 3008, 2552, 2776, 2552, 2776.68, 2398.32, 2880.68, 2398.32, 2880, 2440, 2904, 2440, 2904, 2120, 3136, 2120, 3136, 2440, 3160, 2440, 3160, 1992, 3392, 1992, 3392, 2440, 3416, 2440, 3416, 1864, 3648, 1864, 3648, 2440, 3672, 2440, 3672, 1736, 3904, 1736, 3904, 2440, 3928, 2440, 3928, 1608, 4160, 1608, 4160, 2440, 4184, 2440, 4184, 1480, 4416, 1480, 4416, 2432, 4440, 2432, 4440, 1352, 4656, 1352, 4656, 2440, 4680, 2440, 4680, 696, 4392, 696, 4392, 760, 3988.62, 760, 3520, 760, 3520, 1144, 2376, 1144, 2376, 696, 1520, 696, 1520, 824, 1302.32, 825.682, 1302.32, 393.682, 1350.32, 393.682, 1350.32, 313.682, 1302.32, 313.682, 1302.32, 249.682, 1270.32, 249.682, 1270.32, 313.682, 902.318, 313.682, 902.318, 57.6818, 240, 56 ), PoolVector2Array( 2496, 184, 2496, 384, 3400, 384, 3400, 184 ), PoolVector2Array( 2496, 504, 2496, 704, 3398.32, 705.682, 3400, 504 ), PoolVector2Array( 2496, 824, 3400, 824, 3400, 1024, 2496, 1024 ), PoolVector2Array( 4680, -632, 4656, -632, 4656, -824, 4408, -824, 4408, -904, 4656, -904, 4656, -1080, 4488, -1080, 4488, -1016, 4184, -1016, 4184, -712, 4488, -712, 4488, -632, 3968, -632, 3968, -776, 3992, -776, 3992, -712, 4160, -712, 4160, -1096, 4464, -1096, 4464, -1160, 4680, -1160 ), PoolVector2Array( 3848, -824, 3136, -824, 3136, -1160, 3824, -1160, 3824, -1336, 3544, -1336, 3544, -1272, 3520, -1272, 3520, -1416, 3848, -1416, 3848, -1080, 3160, -1080, 3160, -904, 3848, -904 ), PoolVector2Array( 3872.68, 518.318, 3872.68, 758.318, 3960.68, 758.318, 3960.68, 518.318 ) ]
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+uniform vec2 player_position;
+uniform vec4 color : hint_color = vec4(0.305, 0.298, 0.341,1);
+
+uniform float MULTIPLIER = 0.56;
+uniform float SCALE = 0.5;
+uniform float SOFTNESS = 0.65;
+
+
+float circle(vec2 position, float radius, float feather)
+{
+	return smoothstep(radius, radius + feather, dot(position, position ) * 8.0);
+}
+
+float vigTypeB(vec2 dude){
+	float vignette = circle(dude - vec2(player_position.x,player_position.y ), 0.1, 0.5);
+	return vignette;
+}
+
+float vigTypeA(vec2 dude){
+	float val = distance(vec2(dude.x , dude.y * MULTIPLIER), vec2(player_position.x , player_position.y * MULTIPLIER));
+	val = val / SCALE;
+	float vignette = smoothstep(0.2, SOFTNESS, val);
+	return vignette;
+}
+
+void fragment(){
+	COLOR = vec4(color.rgb , vigTypeA(UV));
+}
+"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/player_position = Vector2( 0.5, 0.5 )
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/MULTIPLIER = 0.56
+shader_param/SCALE = 0.8
+shader_param/SOFTNESS = 0.65
 
 [sub_resource type="DynamicFont" id=2]
 size = 50
@@ -316,6 +356,80 @@ opened = false
 [node name="MisteriousPerson" parent="Environment" instance=ExtResource( 18 )]
 position = Vector2( 6373.02, 576.835 )
 
+[node name="Background" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+autoplay = true
+
+[node name="PausaCanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 21 )
+
+[node name="Button" type="Button" parent="PausaCanvasLayer"]
+pause_mode = 2
+margin_left = 11.4665
+margin_top = 538.659
+margin_right = 535.466
+margin_bottom = 1056.66
+rect_scale = Vector2( 0.1, 0.1 )
+icon = ExtResource( 22 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="MenuButton" parent="PausaCanvasLayer"]
+visible = false
+margin_left = 183.058
+margin_top = 73.0101
+margin_right = 675.058
+margin_bottom = 463.01
+text = "altoaa"
+icon = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continuar" type="Button" parent="PausaCanvasLayer/MenuButton"]
+pause_mode = 2
+anchor_left = 0.31
+anchor_top = 0.5
+anchor_right = 0.31
+anchor_bottom = 0.5
+margin_left = 13.7651
+margin_top = -92.3439
+margin_right = 184.765
+margin_bottom = -39.3439
+text = "Continuar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="PausaCanvasLayer/MenuButton"]
+pause_mode = 2
+margin_left = 167.281
+margin_top = 189.625
+margin_right = 334.281
+margin_bottom = 233.625
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameStatus" type="Node" parent="."]
+script = ExtResource( 32 )
+
 [node name="GUI" type="CanvasLayer" parent="."]
 pause_mode = 2
 
@@ -481,90 +595,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="CanvasLayer" parent="."]
-pause_mode = 2
-layer = -2
-
-[node name="ColorRect" type="ColorRect" parent="Background"]
-anchor_left = -0.687
-anchor_top = -0.613
-anchor_right = 1.141
-anchor_bottom = 1.213
-margin_left = -32.512
-margin_top = -24.2
-margin_right = 23.616
-margin_bottom = 16.2
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 20 )
-autoplay = true
-
-[node name="PausaCanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource( 21 )
-
-[node name="Button" type="Button" parent="PausaCanvasLayer"]
-pause_mode = 2
-margin_left = 11.4665
-margin_top = 538.659
-margin_right = 535.466
-margin_bottom = 1056.66
-rect_scale = Vector2( 0.1, 0.1 )
-icon = ExtResource( 22 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MenuButton" type="MenuButton" parent="PausaCanvasLayer"]
-visible = false
-margin_left = 183.058
-margin_top = 73.0101
-margin_right = 675.058
-margin_bottom = 463.01
-text = "altoaa"
-icon = ExtResource( 24 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Continuar" type="Button" parent="PausaCanvasLayer/MenuButton"]
-pause_mode = 2
-anchor_left = 0.31
-anchor_top = 0.5
-anchor_right = 0.31
-anchor_bottom = 0.5
-margin_left = 13.7651
-margin_top = -92.3439
-margin_right = 184.765
-margin_bottom = -39.3439
-text = "Continuar"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Restart" type="Button" parent="PausaCanvasLayer/MenuButton"]
-pause_mode = 2
-margin_left = 167.281
-margin_top = 189.625
-margin_right = 334.281
-margin_bottom = 233.625
-text = "Restart"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GameStatus" type="Node" parent="."]
-script = ExtResource( 32 )
-
-[connection signal="button_up" from="GUI/GameOver/Finished/Menu" to="GUI/GameOver" method="go_to_main_menu"]
-[connection signal="button_up" from="GUI/GameOver/Finished/Restart" to="GUI/GameOver" method="_on_restart_game_pressed"]
-[connection signal="button_up" from="GUI/GameOver/Dead/Menu" to="GUI/GameOver" method="go_to_main_menu"]
-[connection signal="button_up" from="GUI/GameOver/Dead/Restart" to="GUI/GameOver" method="_on_restart_game_pressed"]
 [connection signal="pausa" from="PausaCanvasLayer" to="GameStatus" method="_on_PausaCanvasLayer_pausa"]
 [connection signal="pressed" from="PausaCanvasLayer/Button" to="PausaCanvasLayer" method="_on_Button_pressed"]
 [connection signal="pressed" from="PausaCanvasLayer/MenuButton/Continuar" to="PausaCanvasLayer" method="_on_Continuar_pressed"]
 [connection signal="pressed" from="PausaCanvasLayer/MenuButton/Restart" to="PausaCanvasLayer" method="_on_Restart_pressed"]
+[connection signal="button_up" from="GUI/GameOver/Finished/Menu" to="GUI/GameOver" method="go_to_main_menu"]
+[connection signal="button_up" from="GUI/GameOver/Finished/Restart" to="GUI/GameOver" method="_on_restart_game_pressed"]
+[connection signal="button_up" from="GUI/GameOver/Dead/Menu" to="GUI/GameOver" method="go_to_main_menu"]
+[connection signal="button_up" from="GUI/GameOver/Dead/Restart" to="GUI/GameOver" method="_on_restart_game_pressed"]
