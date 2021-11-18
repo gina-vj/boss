@@ -52,7 +52,6 @@ func show_animation(direction):
 		animation_direction = deduced_direction
 		
 func deduce_direction(direction):
-	var coso = direction.angle()
 	var angle = rad2deg(direction.angle())
 	if angle < 0:
 		angle = 360 + angle

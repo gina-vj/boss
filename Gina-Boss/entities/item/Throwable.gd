@@ -11,7 +11,7 @@ var throwable
 
 onready var anim = $RotationAnimation
 
-func initialize(container, throwable, spawn_position:Vector2, direction:Vector2):
+func initialize(container, _throwable, spawn_position:Vector2, _direction:Vector2):
 	container.add_child(self)
 	
 	body = $Body
@@ -47,9 +47,9 @@ func _animate_projectile():
 	else:
 		anim.play_backwards("rotate")
 
-func _on_Hitbox_body_entered(body):
-	if body.has_method("notify_hit"):
-		body.notify_hit(throwable)
+func _on_Hitbox_body_entered(_body):
+	if _body.has_method("notify_hit"):
+		_body.notify_hit(throwable)
 	
 	lifetime_timer.stop()
 	
