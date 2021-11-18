@@ -1,78 +1,78 @@
 [gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://screens/menu.theme" type="Theme" id=1]
-[ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/menu/covid.png" type="Texture" id=3]
-[ext_resource path="res://screens/Menu.gd" type="Script" id=4]
-[ext_resource path="res://assets/fonts/Kenney Rocket.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://assets/gui/firevaccine.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/Kenney Rocket.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://menu/menu.theme" type="Theme" id=2]
+[ext_resource path="res://assets/gui/dash.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/firealcohol.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/audio/Menu.mp3" type="AudioStream" id=6]
 [ext_resource path="res://assets/gui/movements.png" type="Texture" id=7]
-[ext_resource path="res://assets/gui/firealcohol.png" type="Texture" id=8]
-[ext_resource path="res://assets/gui/dash.png" type="Texture" id=9]
-[ext_resource path="res://assets/audio/Menu.mp3" type="AudioStream" id=10]
+[ext_resource path="res://menu/Menu.gd" type="Script" id=8]
+[ext_resource path="res://assets/menu/covid.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/firevaccine.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
-font_data = ExtResource( 5 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 95
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 95
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 95
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 64
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 60
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 60
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 60
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 46
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 46
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 45
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 46
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 46
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
-theme = ExtResource( 1 )
-script = ExtResource( 4 )
+theme = ExtResource( 2 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -83,7 +83,7 @@ anchor_bottom = 1.002
 margin_right = -1.02405
 margin_bottom = -1.20007
 rect_pivot_offset = Vector2( 960, 540 )
-texture = ExtResource( 3 )
+texture = ExtResource( 9 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -126,7 +126,7 @@ margin_right = 220.192
 margin_bottom = 200.0
 rect_min_size = Vector2( 400, 400 )
 rect_scale = Vector2( 0.5, 0.5 )
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 custom_constants/separation = 28
 __meta__ = {
 "_edit_use_anchors_": true
@@ -254,9 +254,10 @@ text = "Controles"
 [node name="OptionConfigurations" type="VBoxContainer" parent="MenuConfig/MainMenuOptions"]
 margin_top = 79.0
 margin_right = 994.0
-margin_bottom = 258.0
+margin_bottom = 494.0
 
 [node name="VideoConfigurations" type="GridContainer" parent="MenuConfig/MainMenuOptions/OptionConfigurations"]
+visible = false
 margin_right = 994.0
 margin_bottom = 179.0
 rect_min_size = Vector2( 640, 0 )
@@ -325,11 +326,10 @@ selected = 0
 
 [node name="AudioConfigurations" type="GridContainer" parent="MenuConfig/MainMenuOptions/OptionConfigurations"]
 visible = false
-margin_top = 183.0
 margin_right = 994.0
-margin_bottom = 286.0
+margin_bottom = 103.0
 size_flags_stretch_ratio = 0.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 custom_constants/vseparation = 25
 custom_constants/hseparation = 25
 columns = 2
@@ -371,16 +371,14 @@ margin_bottom = 103.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 size_flags_stretch_ratio = 0.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 min_value = -80.0
 max_value = 0.0
 
 [node name="KeymapConfigurations" type="GridContainer" parent="MenuConfig/MainMenuOptions/OptionConfigurations"]
-visible = false
 margin_left = 177.0
-margin_top = 183.0
 margin_right = 817.0
-margin_bottom = 598.0
+margin_bottom = 415.0
 rect_min_size = Vector2( 640, 0 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -426,7 +424,7 @@ margin_right = 640.0
 margin_bottom = 187.0
 size_flags_horizontal = 8
 size_flags_stretch_ratio = 0.0
-texture = ExtResource( 9 )
+texture = ExtResource( 3 )
 stretch_mode = 6
 
 [node name="Label2" type="Label" parent="MenuConfig/MainMenuOptions/OptionConfigurations/KeymapConfigurations"]
@@ -442,7 +440,7 @@ margin_top = 212.0
 margin_right = 640.0
 margin_bottom = 301.0
 size_flags_horizontal = 12
-texture = ExtResource( 6 )
+texture = ExtResource( 10 )
 
 [node name="Label3" type="Label" parent="MenuConfig/MainMenuOptions/OptionConfigurations/KeymapConfigurations"]
 margin_top = 353.0
@@ -457,10 +455,10 @@ margin_top = 326.0
 margin_right = 640.0
 margin_bottom = 415.0
 size_flags_horizontal = 10
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 6 )
 autoplay = true
 
 [connection signal="pressed" from="MainMenu/Inicio" to="." method="_on_Inicio_pressed"]
