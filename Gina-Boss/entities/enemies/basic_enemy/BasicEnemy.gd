@@ -5,6 +5,7 @@ export(int) var SPEED: int = 150
 export(int) var contagion_zone_damage: int = 1
 export(Vector2) var patroll_to = null
 export(Vector2) var patroll_from = null
+export (AudioStream) var injured_sfx
 
 onready var raycast = $RayCast2D
 onready var detection_area = $DetectionArea
@@ -14,6 +15,7 @@ onready var disinfection_timer = $DisinfectionTimer
 onready var state_machine = $StateMachine
 onready var animation_player:AnimationPlayer = $AnimationPlayer
 onready var body:Sprite = $Body
+onready var enemy_sfx:AudioStreamPlayer=$EnemySfx
 
 const MINIMUM_DISTANCE_TO_TARGET = 30
 var path: Array = []
@@ -59,6 +61,7 @@ func can_see_target():
 func notify_hit(projectile):
 	current_projectile = projectile
 	projectile.hit(self)
+	_injured_sfx()
 
 func run_away():
 	state_machine.run_away()	
@@ -116,4 +119,6 @@ func _on_DisinfectionTimer_timeout():
 	contagion_area.visible = true
 	contagion_area_detector.set_deferred("disabled", false)
 
-
+func _injured_sfx():
+	enemy_sfx.stream = injured_sfx
+	enemy_sfx.play()

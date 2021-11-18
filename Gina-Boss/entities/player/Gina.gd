@@ -16,6 +16,9 @@ export (float) var SPEED_LIMIT:float = 170.0
 export (float) var FRICTION_WEIGHT:float = 0.2
 export (float) var SPEED_WHILE_DEAD:int = 150
 export (AudioStream) var fire_sfx
+export (AudioStream) var injured_sfx
+export (AudioStream) var grab_item_sfx
+
 
 const MINIMUM_DISTANCE_TO_PATROLL_POINT = 30
 var using_barbijo=false
@@ -68,6 +71,7 @@ func _remove():
 	collision_layer = 0
 	
 func receive_damage(amount):
+	_injured_sfx()
 	PlayerData.receive_area_damage(amount)
 
 func play_idle_animation():
@@ -106,15 +110,15 @@ func play_dead_animation():
 	var animation = ""
 	direction_helper.deduce_direction(direction)
 	if direction_helper.looking_up():
-		animation = "dead_up"
+		animation = "infected_walk_up"
 	elif direction_helper.looking_down():
-		animation = "dead_down"
+		animation = "infected_walk_down"
 	elif direction_helper.looking_left:
 		animation = true
-		animation = "dead_lateral"
+		animation = "infected_walk_lateral"
 	elif direction_helper.looking_right():
 		body.flip_h = false
-		animation = "dead_lateral"
+		animation = "infected_walk_lateral"
 
 	animation_player().play(animation)
 
@@ -180,4 +184,13 @@ func generate_path(level_navigation: Navigation2D):
 
 func _fire_sfx():
 	player_sfx.stream = fire_sfx
+	player_sfx.play()
+	
+
+func _injured_sfx():
+	player_sfx.stream = injured_sfx
+	player_sfx.play()
+
+func _grab_item_sfx():
+	player_sfx.stream = grab_item_sfx
 	player_sfx.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://entities/player/states/State_machine.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/states/Idle.gd" type="Script" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://assets/audio/sfx/step_enemy2.ogg" type="AudioStream" id=14]
 [ext_resource path="res://assets/audio/sfx/step_gina2.ogg" type="AudioStream" id=15]
 [ext_resource path="res://assets/audio/sfx/step_enemy1.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/audio/sfx/gina-injured.mp3" type="AudioStream" id=17]
+[ext_resource path="res://assets/audio/sfx/grab.mp3" type="AudioStream" id=18]
 
 [sub_resource type="Shader" id=28]
 code = "shader_type canvas_item;
@@ -843,6 +845,8 @@ collision_layer = 2
 collision_mask = 3
 script = ExtResource( 4 )
 fire_sfx = ExtResource( 12 )
+injured_sfx = ExtResource( 17 )
+grab_item_sfx = ExtResource( 18 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -928,10 +932,12 @@ anims/walk_lateral = SubResource( 18 )
 anims/walk_up = SubResource( 19 )
 
 [node name="PlayerSfx" type="AudioStreamPlayer" parent="."]
+bus = "Sfx"
 
 [node name="PlayerInteraction" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 volume_db = -5.0
+bus = "Sfx"
 
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_on_DashTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashRecuperationTimer" to="StateMachine/Dash" method="_on_DashRecuperationTimer_timeout"]
