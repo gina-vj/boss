@@ -8,7 +8,7 @@ onready var dead:Control = $Dead
 func _ready():
 	PlayerData.connect("game_over", self, "game_over")
 	PlayerData.connect("player_dead", self, "player_dead")
-
+	
 	background.color.a = 0
 	background.visible = false
 	finished.visible = false
@@ -33,6 +33,5 @@ func go_to_main_menu():
 	get_tree().paused = false
 	get_tree().change_scene("res://screens/Menu.tscn")
 	
-func restart_game():
-	get_tree().paused = false
-	get_tree().reload_current_scene()
+func _on_restart_game_pressed():
+	PlayerData.restart()

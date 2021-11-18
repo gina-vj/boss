@@ -6,6 +6,9 @@ var suits = 0
 var experimental_vaccines = 0
 var alcohol = 0
 
+func _ready():
+	PlayerData.connect("restart", self, "_on_restart")
+	
 func add_item(type, quantity):
 	match type:
 		FaceMask.type:
@@ -37,3 +40,9 @@ func available_alcohol():
 func take_alcohol():
 	alcohol -= 1
 	return Alcohol.new()
+	
+func _on_restart():
+	face_masks = 0
+	suits = 0
+	experimental_vaccines = 0
+	alcohol = 0
