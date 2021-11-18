@@ -9,6 +9,8 @@ var velocity:float = 0
 var direction:Vector2
 var throwable
 
+onready var anim = $RotationAnimation
+
 func initialize(container, throwable, spawn_position:Vector2, direction:Vector2):
 	container.add_child(self)
 	
@@ -27,6 +29,7 @@ func initialize(container, throwable, spawn_position:Vector2, direction:Vector2)
 	
 	lifetime_timer.wait_time = throwable.duration
 	lifetime_timer.start()
+	_animate_projectile()
 
 func _physics_process(delta:float):
 	position += direction * velocity * delta
@@ -37,6 +40,12 @@ func _remove():
 
 	get_parent().remove_child(self)
 	queue_free()
+
+func _animate_projectile():
+	if direction.x >= 0:
+		anim.play("rotate")
+	else:
+		anim.play_backwards("rotate")
 
 func _on_Hitbox_body_entered(body):
 	if body.has_method("notify_hit"):

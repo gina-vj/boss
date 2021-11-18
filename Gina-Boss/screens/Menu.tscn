@@ -461,6 +461,7 @@ texture = ExtResource( 8 )
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+volume_db = -8.0
 autoplay = true
 
 [connection signal="pressed" from="MainMenu/Inicio" to="." method="_on_Inicio_pressed"]
