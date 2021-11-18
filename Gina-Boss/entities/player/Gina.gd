@@ -52,14 +52,12 @@ func _handle_deacceleration():
 	velocity.y = lerp(velocity.y, 0, FRICTION_WEIGHT) if abs(velocity.y) > 1 else 0
 
 func _apply_movement():
-	get_material().set_shader_param("player_position", global_position)
+
 	if PlayerData.still_alive():
 		if velocity == Vector2.ZERO:
 			play_idle_animation()
 		else:
 			play_moving_animation()
-	else:
-		play_dead_animation()
 
 	velocity = move_and_slide(velocity)
 
@@ -113,8 +111,8 @@ func play_dead_animation():
 		animation = "infected_walk_up"
 	elif direction_helper.looking_down():
 		animation = "infected_walk_down"
-	elif direction_helper.looking_left:
-		animation = true
+	elif direction_helper.looking_left():
+		body.flip_h = true
 		animation = "infected_walk_lateral"
 	elif direction_helper.looking_right():
 		body.flip_h = false
@@ -164,6 +162,9 @@ func navigate():
 			velocity = global_position.direction_to(next_position) * SPEED_WHILE_DEAD
 	else:
 		velocity = Vector2.ZERO
+		
+	direction = velocity.normalized()
+	play_dead_animation()
 
 func generate_path(level_navigation: Navigation2D):
 	#Punto aleatorio para que vuelva donde encontró el primer barbijo dentro del navigation level
