@@ -5,7 +5,6 @@ func update(_delta):
 	parent._handle_move_input()
 	parent._handle_protection()
 	parent._apply_movement()
-	parent.play_moving_animation()
 	if parent.velocity == Vector2.ZERO  :
 		emit_signal("finished", "idle")
 

@@ -39,8 +39,8 @@ func _ready():
 
 func _handle_move_input():
 	direction = Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+		Input.get_axis("move_left", "move_right"),
+		Input.get_axis("move_up", "move_down")
 	).normalized()
 	velocity = direction * SPEED_LIMIT
 
@@ -49,6 +49,14 @@ func _handle_deacceleration():
 	velocity.y = lerp(velocity.y, 0, FRICTION_WEIGHT) if abs(velocity.y) > 1 else 0
 
 func _apply_movement():
+	if PlayerData.still_alive():
+		if velocity == Vector2.ZERO:
+			play_idle_animation()
+		else:
+			play_moving_animation()
+	else:
+		play_dead_animation()
+
 	velocity = move_and_slide(velocity)
 
 func notify_hit(amount):
