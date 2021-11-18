@@ -1,10 +1,10 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://entities/player/states/State_machine.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/states/Idle.gd" type="Script" id=2]
 [ext_resource path="res://entities/player/states/Walk_State.gd" type="Script" id=3]
 [ext_resource path="res://entities/player/Gina.gd" type="Script" id=4]
-[ext_resource path="res://assets/gina/gina-all-sprites.png" type="Texture" id=5]
+[ext_resource path="res://assets/gina/gina-all.png" type="Texture" id=5]
 [ext_resource path="res://entities/player/Shooter.gd" type="Script" id=6]
 [ext_resource path="res://entities/item/Throwable.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/player/states/DeadState.gd" type="Script" id=8]
@@ -17,10 +17,8 @@
 radius = 20.2057
 height = 39.4862
 
-[sub_resource type="Animation" id=2]
-resource_name = "dead_down"
-length = 0.05
-step = 0.041
+[sub_resource type="Animation" id=20]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
 tracks/0/interp = 1
@@ -30,42 +28,8 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 11 ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "dead_lateral"
-length = 0.05
-step = 0.041
-tracks/0/type = "value"
-tracks/0/path = NodePath("Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
+"update": 0,
 "values": [ 7 ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "dead_up"
-length = 0.05
-step = 0.041
-tracks/0/type = "value"
-tracks/0/path = NodePath("Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 3 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -79,10 +43,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.041 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 9 ]
+"values": [ 13 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -99,7 +63,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 5 ]
+"values": [ 7 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -119,9 +83,62 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=2]
+resource_name = "infected_idle_down"
+length = 0.05
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 16 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "infected_idle_lateral"
+length = 0.05
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "infected_idle_up"
+length = 0.05
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "infected_walk_down"
 length = 0.6
 loop = true
+step = 0.041
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
 tracks/0/interp = 1
@@ -132,10 +149,11 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 8, 9, 10 ]
+"values": [ 15, 16, 17 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=22]
+resource_name = "infected_walk_lateral"
 length = 0.6
 loop = true
 step = 0.041
@@ -149,7 +167,60 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.205, 0.41 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 6, 5, 4 ]
+"values": [ 11, 10, 9 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "infected_walk_up"
+length = 0.6
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.205, 0.41 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "walk_down"
+length = 0.6
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.205, 0.41 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "walk_lateral"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 7, 6 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -169,9 +240,8 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=11]
-length = 0.05
-step = 0.041
+[sub_resource type="Animation" id=24]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
 tracks/0/interp = 1
@@ -181,40 +251,8 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 11 ]
-}
-
-[sub_resource type="Animation" id=12]
-length = 0.05
-step = 0.041
-tracks/0/type = "value"
-tracks/0/path = NodePath("Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 7 ]
-}
-
-[sub_resource type="Animation" id=13]
-length = 0.05
-step = 0.041
-tracks/0/type = "value"
-tracks/0/path = NodePath("Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 3 ]
+"update": 0,
+"values": [ 25 ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -228,10 +266,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.041 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 21 ]
+"values": [ 31 ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -245,10 +283,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.082 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 17 ]
+"values": [ 25 ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -262,10 +300,115 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.123 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 19 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "infected_idle_down"
+length = 0.05
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 34 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "infected_idle_lateral"
+length = 0.05
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 28 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "infected_idle_up"
+length = 0.05
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 22 ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "infected_walk_down"
+length = 0.6
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.205, 0.41 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 33, 34, 35 ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "infected_walk_lateral"
+length = 0.6
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.205, 0.41 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 29, 28, 27 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "infeted_walk_up"
+length = 0.6
+loop = true
+step = 0.041
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 21, 22, 23 ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -281,7 +424,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 20, 21, 22 ]
+"values": [ 30, 31, 32 ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -298,7 +441,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.205, 0.41 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 16, 17, 18 ]
+"values": [ 26, 25, 24 ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -312,10 +455,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
+"times": PoolRealArray( 0, 0.205, 0.41 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2 ]
+"values": [ 18, 19, 20 ]
 }
 
 [node name="Gina" type="KinematicBody2D"]
@@ -360,12 +503,12 @@ position = Vector2( -0.20575, 0.205757 )
 shape = SubResource( 1 )
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( -4.69191, -1.47955 )
+position = Vector2( -0.0669708, -0.218197 )
 scale = Vector2( 0.40759, 0.408289 )
 texture = ExtResource( 5 )
-hframes = 4
-vframes = 18
-frame = 9
+hframes = 6
+vframes = 6
+frame = 25
 
 [node name="Shooter" type="Node2D" parent="."]
 position = Vector2( 16, 16 )
@@ -378,23 +521,31 @@ position = Vector2( 8, 0 )
 [node name="Timer" type="Timer" parent="Shooter"]
 
 [node name="AnimationBase" type="AnimationPlayer" parent="."]
-anims/dead_down = SubResource( 2 )
-anims/dead_lateral = SubResource( 3 )
-anims/dead_up = SubResource( 4 )
+anims/RESET = SubResource( 20 )
 anims/idle_down = SubResource( 5 )
 anims/idle_lateral = SubResource( 6 )
 anims/idle_up = SubResource( 7 )
-anims/walk_down = SubResource( 8 )
-anims/walk_lateral = SubResource( 9 )
+anims/infected_idle_down = SubResource( 2 )
+anims/infected_idle_lateral = SubResource( 3 )
+anims/infected_idle_up = SubResource( 4 )
+anims/infected_walk_down = SubResource( 21 )
+anims/infected_walk_lateral = SubResource( 22 )
+anims/infected_walk_up = SubResource( 23 )
+anims/walk_down = SubResource( 9 )
+anims/walk_lateral = SubResource( 8 )
 anims/walk_up = SubResource( 10 )
 
 [node name="AnimationFaceMask" type="AnimationPlayer" parent="."]
-anims/dead_down = SubResource( 11 )
-anims/dead_lateral = SubResource( 12 )
-anims/dead_up = SubResource( 13 )
+anims/RESET = SubResource( 24 )
 anims/idle_down = SubResource( 14 )
 anims/idle_lateral = SubResource( 15 )
 anims/idle_up = SubResource( 16 )
+anims/infected_idle_down = SubResource( 11 )
+anims/infected_idle_lateral = SubResource( 12 )
+anims/infected_idle_up = SubResource( 13 )
+anims/infected_walk_down = SubResource( 26 )
+anims/infected_walk_lateral = SubResource( 27 )
+anims/infeted_walk_up = SubResource( 25 )
 anims/walk_down = SubResource( 17 )
 anims/walk_lateral = SubResource( 18 )
 anims/walk_up = SubResource( 19 )

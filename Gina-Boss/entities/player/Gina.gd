@@ -119,11 +119,11 @@ func play_dead_animation():
 
 func animation_player():
 	if !PlayerData.using_area_protection():
-		animation_base_player.stop()
-		return animation_face_mask_player
-	else:
 		animation_face_mask_player.stop()
 		return animation_base_player
+	else:
+		animation_base_player.stop()
+		return animation_face_mask_player
 	
 func _handle_attack(event: InputEvent):
 	if event.is_action_pressed("attack_left") and Bag.available_experimental_vaccines():
