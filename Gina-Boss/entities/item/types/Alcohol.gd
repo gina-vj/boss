@@ -7,10 +7,10 @@ const velocity:int = 300
 const duration:float = 1.0
 const disinfection_duration = 6
 
-var texture_path setget ,get_texture
+var scene setget ,get_scene
 
-func get_texture():
-	return load("res://assets/item/botella-de-alcohol.png")
+func get_scene():
+	return load("res://entities/item/alcohol/ThrowableAlcohol.tscn")
 
 func hit(enemy):
 	enemy.desinfect_area(disinfection_duration)
