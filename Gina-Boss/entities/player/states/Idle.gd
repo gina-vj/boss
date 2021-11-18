@@ -14,6 +14,7 @@ func enter():
 
 
 func handle_input(event:InputEvent):
+	parent._handle_action_input()
 	parent._handle_attack(event)
 	if _is_dash(event):
 		emit_signal("finished", "dash")
