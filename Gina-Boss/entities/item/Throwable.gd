@@ -18,9 +18,9 @@ func initialize(container, throwable, spawn_position:Vector2, direction:Vector2)
 	hitbox = $Hitbox
 	lifetime_timer = $LifetimeTimer
 
-	self.throwable = throwable
+	self.throwable = _throwable
 
-	self.direction = direction
+	self.direction = _direction
 	global_position = spawn_position
 	velocity = throwable.velocity
 
