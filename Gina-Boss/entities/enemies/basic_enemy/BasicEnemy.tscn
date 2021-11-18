@@ -441,7 +441,7 @@ anims/walk_up_healted = SubResource( 17 )
 
 [node name="EnemyInteraction" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-volume_db = -8.0
+volume_db = -80.0
 bus = "Enemy"
 
 [node name="EnemySfx" type="AudioStreamPlayer" parent="."]
