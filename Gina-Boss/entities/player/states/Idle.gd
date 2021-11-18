@@ -1,18 +1,5 @@
 extends "res://entities/AbstractState.gd"
 
-func enter():
-	if(Input.is_action_just_released("move_left")):
-		parent.body.flip_h = true
-		parent._play_animation("idle_lateral")
-	if(Input.is_action_just_released("move_right")):
-		parent.body.flip_h = false
-		parent._play_animation("idle_lateral")
-	if(Input.is_action_just_released("move_up")):
-		parent._play_animation("idle_up")
-	if(Input.is_action_just_released("move_down")):
-		parent._play_animation("idle_down")
-
-
 func handle_input(event:InputEvent):
 	parent._handle_action_input()
 	parent._handle_attack(event)
@@ -22,6 +9,7 @@ func handle_input(event:InputEvent):
 		emit_signal("finished", "walk")
 	
 func update(_delta:float):
+	parent._handle_move_input()
 	parent._handle_protection()
 	parent._handle_deacceleration()
 	parent._apply_movement()
