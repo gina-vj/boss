@@ -29,8 +29,8 @@ var path: Array = []
 
 var area_protection = null
 
-func initialize(item_throwable_container):
-	self.item_throwable_container = item_throwable_container
+func initialize(_item_throwable_container):
+	self.item_throwable_container = _item_throwable_container
 	
 func _ready():
 	state_machine.set_parent(self)
@@ -70,7 +70,7 @@ func _play_animation(anim_name:String):
 	animation_player().play(anim_name)
 
 func animation_player():
-	if PlayerData.using_area_protection():
+	if !PlayerData.using_area_protection():
 		animation_base_player.stop()
 		return animation_face_mask_player
 	else:

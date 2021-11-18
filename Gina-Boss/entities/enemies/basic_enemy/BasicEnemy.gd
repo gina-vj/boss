@@ -31,7 +31,7 @@ func _ready():
 
 func navigate():
 	if path.size() > 0:
-		var target_position = path.front()
+		target_position = path.front()
 		if global_position.distance_to(target_position) < MINIMUM_DISTANCE_TO_TARGET:
 			path.pop_front()
 			velocity = Vector2.ZERO
@@ -52,7 +52,6 @@ func show_animation(direction):
 		animation_direction = deduced_direction
 		
 func deduce_direction(direction):
-	var coso = direction.angle()
 	var angle = rad2deg(direction.angle())
 	if angle < 0:
 		angle = 360 + angle
@@ -87,17 +86,17 @@ func desinfect_area(time):
 	disinfection_timer.wait_time = time
 	disinfection_timer.start()
 
-func _on_DetectionArea_body_entered(body):
-	state_machine.notify_body_entered(body)
+func _on_DetectionArea_body_entered(_body):
+	state_machine.notify_body_entered(_body)
 
-func _on_DetectionArea_body_exited(body):
-	state_machine.notify_body_exited(body)
+func _on_DetectionArea_body_exited(_body):
+	state_machine.notify_body_exited(_body)
 
-func _on_ContationArea_body_entered(body):
-	state_machine.body_entered_contagion_area(body)
+func _on_ContationArea_body_entered(_body):
+	state_machine.body_entered_contagion_area(_body)
 
-func _on_ContationArea_body_exited(body):
-	state_machine.body_exited_contagion_area(body)
+func _on_ContationArea_body_exited(_body):
+	state_machine.body_exited_contagion_area(_body)
 
 func play_idle_animation(direction):
 	var animation = ""
