@@ -6,6 +6,7 @@ signal third_component_found()
 signal game_over()
 signal player_dead()
 signal restart()
+signal main_menu()
 
 var current_health:int
 var area_protection = null
@@ -44,3 +45,6 @@ func game_over():
 
 func restart():
 	emit_signal("restart")
+
+func main_menu():
+	emit_signal("main_menu")

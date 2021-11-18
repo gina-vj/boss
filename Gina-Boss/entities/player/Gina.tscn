@@ -400,7 +400,6 @@ anims/walk_lateral = SubResource( 18 )
 anims/walk_up = SubResource( 19 )
 
 [node name="PlayerSfx" type="AudioStreamPlayer" parent="."]
-bus = "Sfx"
 
 [node name="PlayerInteraction" type="AudioStreamPlayer" parent="."]
 

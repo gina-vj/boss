@@ -16,7 +16,6 @@ func _ready():
 
 func game_over():
 	finished.visible = true
-	get_tree().paused = true
 	show_game_over_screen()
 
 func player_dead():
@@ -30,8 +29,7 @@ func show_game_over_screen():
 	tween.start()
 
 func go_to_main_menu():
-	get_tree().paused = false
-	get_tree().change_scene("res://screens/Menu.tscn")
+	PlayerData.main_menu()
 	
 func _on_restart_game_pressed():
 	PlayerData.restart()

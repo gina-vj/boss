@@ -6,4 +6,4 @@ func _ready():
 func _physics_process(_delta):
 	visible=PlayerData.using_area_protection()
 	if visible:
-		value=PlayerData.area_protection.current_protecion_points
+		value=PlayerData.area_protection.current_protection_points
