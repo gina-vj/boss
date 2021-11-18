@@ -75,7 +75,7 @@ shader = SubResource( 4 )
 shader_param/player_position = Vector2( 0.5, 0.5 )
 shader_param/color = Color( 0, 0, 0, 1 )
 shader_param/MULTIPLIER = 0.56
-shader_param/SCALE = 0.8
+shader_param/SCALE = 0.7
 shader_param/SOFTNESS = 0.65
 
 [sub_resource type="DynamicFont" id=2]
@@ -369,9 +369,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 20 )
-autoplay = true
+[node name="Background2" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PausaCanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 21 )
@@ -594,6 +602,10 @@ text = "Volver a jugar"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="GUI"]
+stream = ExtResource( 20 )
+autoplay = true
 
 [connection signal="pausa" from="PausaCanvasLayer" to="GameStatus" method="_on_PausaCanvasLayer_pausa"]
 [connection signal="pressed" from="PausaCanvasLayer/Button" to="PausaCanvasLayer" method="_on_Button_pressed"]

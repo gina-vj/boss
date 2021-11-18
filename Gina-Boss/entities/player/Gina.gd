@@ -129,7 +129,7 @@ func animation_player():
 		return animation_face_mask_player
 	
 func _handle_attack(event: InputEvent):
-	if event.is_action_pressed("attack_left") and Bag.available_experimental_vaccines():
+	if Input.is_action_just_pressed("attack_left") and Bag.available_experimental_vaccines():
 		shooter.rotation = ((get_global_mouse_position() - shooter.global_position).normalized()).angle()
 		shooter.shoot(Bag.take_experimental_vaccine(), item_throwable_container)
 		_fire_sfx()

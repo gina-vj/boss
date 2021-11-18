@@ -6,6 +6,9 @@ onready var tween = $Tween
 onready var body = $Body
 onready var trail_particles: Particles2D = $Trail
 onready var impact_particles: Particles2D = $Impact
+onready var sfx: AudioStreamPlayer2D = $SFX
+
+export (AudioStream) var impact_sound
 
 func _ready():
 	tween.interpolate_property(body, "rotation_degrees", 0, 360, 1)
@@ -17,5 +20,7 @@ func impact():
 	impact_particles.visible = true
 	impact_particles.emitting = true
 	body.visible = false
+	sfx.stream = impact_sound
+	sfx.play()
 	yield(get_tree().create_timer(0.5), "timeout")
 	emit_signal("finished_impact")
