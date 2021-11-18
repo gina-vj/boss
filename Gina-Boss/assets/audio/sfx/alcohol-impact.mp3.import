@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/alcohol-impact.mp3-b2834b63681de1445533ab3720bb7314.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/alcohol-impact.mp3"
+dest_files=[ "res://.import/alcohol-impact.mp3-b2834b63681de1445533ab3720bb7314.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

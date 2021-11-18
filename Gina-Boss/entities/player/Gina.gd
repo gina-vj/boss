@@ -8,12 +8,14 @@ onready var body:Sprite = $Body
 onready var collision_shape = $CollisionShape2D
 onready var animation_base_player:AnimationPlayer=$AnimationBase
 onready var animation_face_mask_player:AnimationPlayer=$AnimationFaceMask
+onready var player_sfx:AudioStreamPlayer=$PlayerSfx
 
 export (int) var max_health = 20
 export (float) var ACCELERATION:float = 10.0
 export (float) var SPEED_LIMIT:float = 170.0
 export (float) var FRICTION_WEIGHT:float = 0.2
 export (float) var SPEED_WHILE_DEAD:int = 150
+export (AudioStream) var fire_sfx
 
 const MINIMUM_DISTANCE_TO_PATROLL_POINT = 30
 var using_barbijo=false
@@ -79,10 +81,12 @@ func _handle_attack(event: InputEvent):
 	if event.is_action_pressed("attack_left") and Bag.available_experimental_vaccines():
 		shooter.rotation = ((get_global_mouse_position() - shooter.global_position).normalized()).angle()
 		shooter.shoot(Bag.take_experimental_vaccine(), item_throwable_container)
+		_fire_sfx()
 
 	if event.is_action_pressed("attack_right") and Bag.available_alcohol():
 		shooter.rotation = ((get_global_mouse_position() - shooter.global_position).normalized()).angle()
 		shooter.shoot(Bag.take_alcohol(), item_throwable_container)
+		_fire_sfx()
 		
 func _handle_protection():
 	if !PlayerData.using_area_protection() && Bag.available_face_masks():
@@ -125,3 +129,7 @@ func generate_path(level_navigation: Navigation2D):
 		patroll_to, 
 		false
 	)
+
+func _fire_sfx():
+	player_sfx.stream = fire_sfx
+	player_sfx.play()

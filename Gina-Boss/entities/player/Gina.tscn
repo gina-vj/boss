@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://entities/player/states/State_machine.gd" type="Script" id=1]
 [ext_resource path="res://entities/player/states/Idle.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://entities/player/states/Dash.gd" type="Script" id=9]
 [ext_resource path="res://entities/player/states/IdleDead.gd" type="Script" id=10]
 [ext_resource path="res://entities/player/states/Wander.gd" type="Script" id=11]
+[ext_resource path="res://assets/audio/sfx/throw.mp3" type="AudioStream" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.2057
@@ -321,6 +322,7 @@ tracks/0/keys = {
 collision_layer = 2
 collision_mask = 3
 script = ExtResource( 4 )
+fire_sfx = ExtResource( 12 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -363,7 +365,7 @@ scale = Vector2( 0.40759, 0.408289 )
 texture = ExtResource( 5 )
 hframes = 4
 vframes = 18
-frame = 9
+frame = 20
 
 [node name="Shooter" type="Node2D" parent="."]
 position = Vector2( 16, 16 )
@@ -396,6 +398,11 @@ anims/idle_up = SubResource( 16 )
 anims/walk_down = SubResource( 17 )
 anims/walk_lateral = SubResource( 18 )
 anims/walk_up = SubResource( 19 )
+
+[node name="PlayerSfx" type="AudioStreamPlayer" parent="."]
+bus = "Sfx"
+
+[node name="PlayerInteraction" type="AudioStreamPlayer" parent="."]
 
 [connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_on_DashTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashRecuperationTimer" to="StateMachine/Dash" method="_on_DashRecuperationTimer_timeout"]
