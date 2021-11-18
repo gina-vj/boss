@@ -16,13 +16,15 @@ onready var animation_player:AnimationPlayer = $AnimationPlayer
 onready var body:Sprite = $Body
 
 const MINIMUM_DISTANCE_TO_TARGET = 30
-var away=1
 var path: Array = []
 var target_position: Vector2 = Vector2.ZERO
 var target:Player = null
 var contagion_target:Player = null
 var velocity: Vector2 = Vector2.ZERO
 var current_projectile = null
+
+enum Directions { UP, DOWN, LEFT, RIGHT }
+var animation_direction = Directions.DOWN
 
 func _ready():
 	state_machine.set_parent(self)
@@ -34,11 +36,35 @@ func navigate():
 			path.pop_front()
 			velocity = Vector2.ZERO
 		else:
-			velocity = away*global_position.direction_to(target_position) * SPEED
+			velocity = global_position.direction_to(target_position) * SPEED
 	else:
 		velocity = Vector2.ZERO
-
+	
+	show_animation(velocity.normalized())
 	velocity = move_and_slide(velocity)
+
+func show_animation(direction):
+	var deduced_direction = deduce_direction(direction)
+	if direction == Vector2.ZERO:
+		play_idle_animation(animation_direction)
+	else:
+		play_moving_animation(deduced_direction)
+		animation_direction = deduced_direction
+		
+func deduce_direction(direction):
+	var coso = direction.angle()
+	var angle = rad2deg(direction.angle())
+	if angle < 0:
+		angle = 360 + angle
+
+	if angle <= 45 or angle > 315:
+		return Directions.RIGHT
+	elif angle > 45 and angle <= 135:
+		return Directions.DOWN
+	elif angle > 135 and angle <= 225:
+		return Directions.LEFT
+	elif angle > 225 and angle <= 315:
+		return Directions.UP	
 
 func can_see_target():
 	if target == null:
@@ -73,9 +99,37 @@ func _on_ContationArea_body_entered(body):
 func _on_ContationArea_body_exited(body):
 	state_machine.body_exited_contagion_area(body)
 
-func _play_animation(anim_name:String):
-	if animation_player.has_animation(anim_name):
-		animation_player.play(anim_name)
+func play_idle_animation(direction):
+	var animation = ""
+	match direction:
+		Directions.UP:
+			animation = "idle_up"
+		Directions.DOWN:
+			animation = "idle_down"
+		Directions.LEFT:
+			body.flip_h = true
+			animation = "idle_lateral"
+		Directions.RIGHT:
+			body.flip_h = false
+			animation = "idle_lateral"
+
+	animation_player.play(animation)
+
+func play_moving_animation(direction):
+	var animation = ""
+	match direction:
+		Directions.UP:
+			animation = "walk_up"
+		Directions.DOWN:
+			animation = "walk_down"
+		Directions.LEFT:
+			body.flip_h = true
+			animation = "walk_lateral"
+		Directions.RIGHT:
+			body.flip_h = false
+			animation = "walk_lateral"
+
+	animation_player.play(animation)
 		
 func _on_DisinfectionTimer_timeout():
 	contagion_area.visible = true
