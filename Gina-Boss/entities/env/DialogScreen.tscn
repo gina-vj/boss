@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/world/computer_screen_large.png" type="Texture" id=1]
+[ext_resource path="res://entities/env/DialogScreen.gd" type="Script" id=2]
+[ext_resource path="res://assets/world/next-indicator.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/Message:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "ShowMessage"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/Message:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -201.753, 114.584 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "esperando"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -201.753, 114.584 ), Vector2( -201.753, 106.584 ) ]
+}
+
+[node name="DialogScreen" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Body" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.2 )
+texture = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.055
+anchor_top = -0.293
+anchor_right = 0.297
+anchor_bottom = 0.04
+margin_left = -256.0
+margin_top = -168.0
+margin_right = 256.0
+margin_bottom = 168.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="MarginContainer"]
+margin_top = 161.0
+margin_right = 512.0
+margin_bottom = 175.0
+custom_colors/font_color = Color( 0.295166, 0.8125, 0.375999, 1 )
+
+[node name="ScreenAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/ShowMessage = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="NextIndicator" type="TextureRect" parent="."]
+margin_left = -201.753
+margin_top = 114.584
+margin_right = -171.753
+margin_bottom = 144.584
+rect_rotation = 90.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NextIndicator"]
+autoplay = "esperando"
+anims/RESET = SubResource( 3 )
+anims/esperando = SubResource( 4 )
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

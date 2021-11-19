@@ -44,6 +44,7 @@ func game_over():
 	emit_signal("game_over")
 
 func restart():
+	area_protection = null
 	emit_signal("restart")
 
 func main_menu():
