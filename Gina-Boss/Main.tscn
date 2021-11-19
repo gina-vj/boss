@@ -611,6 +611,7 @@ __meta__ = {
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="GUI"]
 stream = ExtResource( 20 )
+volume_db = -20.0
 autoplay = true
 
 [connection signal="pausa" from="PausaCanvasLayer" to="GameStatus" method="_on_PausaCanvasLayer_pausa"]

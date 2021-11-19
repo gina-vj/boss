@@ -23,5 +23,7 @@ func index_to_type():
 
 
 func _on_DetectionArea_body_entered(_body):
+	if _body.has_method("notify_item_added"):
+		_body.notify_item_added()
 	Bag.add_item(type, item_quantity)
 	queue_free()

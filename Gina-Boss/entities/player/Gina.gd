@@ -118,13 +118,13 @@ func play_dead_animation():
 		animation = "infected_walk_up"
 	elif direction_helper.looking_down():
 		animation = "infected_walk_down"
-	elif direction_helper.looking_left:
+	elif direction_helper.looking_left():
 		animation = true
 		animation = "infected_walk_lateral"
 	elif direction_helper.looking_right():
 		body.flip_h = false
 		animation = "infected_walk_lateral"
-
+	
 	animation_player().play(animation)
 
 func animation_player():
@@ -139,12 +139,12 @@ func _handle_attack(event: InputEvent):
 	if Input.is_action_just_pressed("attack_left") and Bag.available_experimental_vaccines():
 		shooter.rotation = ((get_global_mouse_position() - shooter.global_position).normalized()).angle()
 		shooter.shoot(Bag.take_experimental_vaccine(), item_throwable_container)
-		_fire_sfx()
 
 	if event.is_action_pressed("attack_right") and Bag.available_alcohol():
 		shooter.rotation = ((get_global_mouse_position() - shooter.global_position).normalized()).angle()
 		shooter.shoot(Bag.take_alcohol(), item_throwable_container)
-		_fire_sfx()
+		
+	_fire_sfx()
 		
 func _handle_protection():
 	if !PlayerData.using_area_protection() && Bag.available_face_masks():
@@ -191,14 +191,19 @@ func _fire_sfx():
 	player_sfx.stream = fire_sfx
 	player_sfx.play()
 	
-
+func notify_item_added():
+	_grab_item_sfx()
+	
 func _injured_sfx():
 	player_sfx.stream = injured_sfx
 	player_sfx.play()
 
 func _grab_item_sfx():
+	player_sfx.stop()
 	player_sfx.stream = grab_item_sfx
+	print("se ejecuta el audio de agarrar item")
 	player_sfx.play()
+	
 func appear():
 	$Body.material.set_shader_param("progress", 0.5)
 	var progress=0.5
