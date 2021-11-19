@@ -35,7 +35,7 @@ var area_protection = null
 
 func initialize(_item_throwable_container):
 	self.item_throwable_container = _item_throwable_container
-	
+	appear()
 func _ready():
 	state_machine.set_parent(self)
 	PlayerData.current_health = max_health
@@ -194,3 +194,10 @@ func _injured_sfx():
 func _grab_item_sfx():
 	player_sfx.stream = grab_item_sfx
 	player_sfx.play()
+func appear():
+	$Body.material.set_shader_param("progress", 0.5)
+	var progress=0.5
+	while(progress>0.0):
+		progress=progress-0.04
+		$Body.material.set_shader_param("progress", progress)
+		yield(get_tree().create_timer(0.1), "timeout")
