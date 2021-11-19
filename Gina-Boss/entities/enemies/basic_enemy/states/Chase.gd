@@ -20,6 +20,7 @@ func update(_delta):
 
 func exit():
 	timer.stop()
+	parent.steps_sfx.stop()
 	parent.path = []
 
 

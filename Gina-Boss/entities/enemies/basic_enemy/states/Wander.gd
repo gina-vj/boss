@@ -15,4 +15,5 @@ func update(delta):
 		emit_signal("finished", "idle")
 
 func exit():
+	parent.steps_sfx.stop()
 	parent.path = []
