@@ -9,7 +9,6 @@
 [ext_resource path="res://entities/enemies/basic_enemy/states/Attack.gd" type="Script" id=7]
 [ext_resource path="res://assets/shader/noise_combined.png" type="Texture" id=8]
 [ext_resource path="res://assets/shader/spotlight_3.png" type="Texture" id=9]
-[ext_resource path="res://assets/audio/sfx/step_enemy2.ogg" type="AudioStream" id=10]
 [ext_resource path="res://entities/enemies/basic_enemy/states/RunAway.gd" type="Script" id=11]
 [ext_resource path="res://assets/audio/sfx/step_enemy1.ogg" type="AudioStream" id=12]
 [ext_resource path="res://assets/audio/sfx/zombie-injured.ogg" type="AudioStream" id=13]
@@ -255,35 +254,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 6, 7, 8 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("EnemyInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.123, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("EnemyInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.287 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 12 ), ExtResource( 10 ) ]
-}
 
 [sub_resource type="Animation" id=13]
 length = 0.6
@@ -318,35 +288,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 5, 4, 3 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("EnemyInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.123, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("EnemyInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.287 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 12 ), ExtResource( 10 ) ]
-}
 
 [sub_resource type="Animation" id=15]
 length = 0.6
@@ -380,35 +321,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("EnemyInteraction")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.123, 0.369 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-}, {
-"args": [ 0.0 ],
-"method": "play"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("EnemyInteraction:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.287 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 12 ), ExtResource( 10 ) ]
 }
 
 [sub_resource type="Animation" id=17]
