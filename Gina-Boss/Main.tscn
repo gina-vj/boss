@@ -244,7 +244,7 @@ zoom = Vector2( 0.8, 0.8 )
 
 [node name="ExperimentalVaccine" parent="Environment/Items" instance=ExtResource( 28 )]
 position = Vector2( 152, 136 )
-item_quantity = 10
+item_quantity = 5
 
 [node name="ExperimentalVaccine2" parent="Environment/Items" instance=ExtResource( 28 )]
 position = Vector2( 4328, 728 )
@@ -264,15 +264,15 @@ item_quantity = 5
 
 [node name="Alcohol4" parent="Environment/Items" instance=ExtResource( 30 )]
 position = Vector2( 4192, 728 )
-item_quantity = 10
+item_quantity = 5
 
 [node name="Alcohol6" parent="Environment/Items" instance=ExtResource( 30 )]
 position = Vector2( 2624, 2512 )
-item_quantity = 2
+item_quantity = 5
 
 [node name="Alcohol5" parent="Environment/Items" instance=ExtResource( 30 )]
 position = Vector2( 2200, -1808 )
-item_quantity = 2
+item_quantity = 5
 
 [node name="FaceMask" parent="Environment/Items" instance=ExtResource( 31 )]
 position = Vector2( -104, 144 )
