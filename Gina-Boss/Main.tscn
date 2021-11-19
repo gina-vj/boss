@@ -247,15 +247,15 @@ position = Vector2( 152, 136 )
 item_quantity = 5
 
 [node name="ExperimentalVaccine2" parent="Environment/Items" instance=ExtResource( 28 )]
-position = Vector2( 4328, 728 )
+position = Vector2( 4637.02, 611.616 )
 item_quantity = 5
 
 [node name="ExperimentalVaccine4" parent="Environment/Items" instance=ExtResource( 28 )]
-position = Vector2( 2720, 2512 )
+position = Vector2( 2866.32, 2247.54 )
 item_quantity = 3
 
 [node name="ExperimentalVaccine3" parent="Environment/Items" instance=ExtResource( 28 )]
-position = Vector2( 2304, -1800 )
+position = Vector2( 2776.58, -1907.63 )
 item_quantity = 5
 
 [node name="Alcohol3" parent="Environment/Items" instance=ExtResource( 30 )]
@@ -263,15 +263,15 @@ position = Vector2( 8, 144 )
 item_quantity = 5
 
 [node name="Alcohol4" parent="Environment/Items" instance=ExtResource( 30 )]
-position = Vector2( 4192, 728 )
+position = Vector2( 4371.4, 530.991 )
 item_quantity = 5
 
 [node name="Alcohol6" parent="Environment/Items" instance=ExtResource( 30 )]
-position = Vector2( 2624, 2512 )
+position = Vector2( 2736.51, 2541.62 )
 item_quantity = 5
 
 [node name="Alcohol5" parent="Environment/Items" instance=ExtResource( 30 )]
-position = Vector2( 2200, -1808 )
+position = Vector2( 2160.48, -1756.71 )
 item_quantity = 5
 
 [node name="FaceMask" parent="Environment/Items" instance=ExtResource( 31 )]
@@ -283,15 +283,15 @@ position = Vector2( 931.333, -314.841 )
 item_quantity = 1
 
 [node name="FaceMask3" parent="Environment/Items" instance=ExtResource( 31 )]
-position = Vector2( 4272, 728 )
+position = Vector2( 4363.08, 740.234 )
 item_quantity = 1
 
 [node name="FaceMask5" parent="Environment/Items" instance=ExtResource( 31 )]
-position = Vector2( 2608, 2360 )
+position = Vector2( 2596.55, 2538.46 )
 item_quantity = 1
 
 [node name="FaceMask4" parent="Environment/Items" instance=ExtResource( 31 )]
-position = Vector2( 2248, -1816 )
+position = Vector2( 2780.29, -1747.89 )
 item_quantity = 2
 
 [node name="Computers" type="Node" parent="Environment"]
@@ -300,27 +300,27 @@ item_quantity = 2
 position = Vector2( 188.216, -115.911 )
 
 [node name="Computer2" parent="Environment/Computers" instance=ExtResource( 1 )]
-position = Vector2( 4352, 576 )
+position = Vector2( 4083, 549.412 )
 dialog_index = 1
 
 [node name="Computer4" parent="Environment/Computers" instance=ExtResource( 1 )]
-position = Vector2( 2622.32, 2273.68 )
+position = Vector2( 2708.09, 2252.66 )
 dialog_index = 3
 
 [node name="Computer3" parent="Environment/Computers" instance=ExtResource( 1 )]
-position = Vector2( 2416, -1888 )
+position = Vector2( 2483.27, -1893.05 )
 dialog_index = 2
 
 [node name="VaccineComponents" type="Node" parent="Environment"]
 
 [node name="VaccineComponent" parent="Environment/VaccineComponents" instance=ExtResource( 10 )]
-position = Vector2( 4208.78, 574.313 )
+position = Vector2( 4201.2, 535.389 )
 
 [node name="VaccineComponent2" parent="Environment/VaccineComponents" instance=ExtResource( 8 )]
-position = Vector2( 2512, -1864 )
+position = Vector2( 2150.41, -1895.95 )
 
 [node name="VaccineComponent3" parent="Environment/VaccineComponents" instance=ExtResource( 9 )]
-position = Vector2( 2669.34, 2426.66 )
+position = Vector2( 2595.34, 2269.41 )
 
 [node name="Doors" type="Node" parent="Environment"]
 script = ExtResource( 2 )
