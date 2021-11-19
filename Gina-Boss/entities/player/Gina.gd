@@ -34,7 +34,7 @@ var area_protection = null
 
 func initialize(_item_throwable_container):
 	self.item_throwable_container = _item_throwable_container
-	appear()
+
 func _ready():
 	state_machine.set_parent(self)
 	PlayerData.current_health = max_health
@@ -64,6 +64,8 @@ func _apply_movement():
 
 func notify_hit(amount):
 	state_machine.notify_hit(amount)
+	body.material.set_shader_param("flash_modifier",0.7)
+	$TimerHurt.start()
 	
 func _remove():
 	hide()
@@ -198,10 +200,8 @@ func _grab_item_sfx():
 	print("se ejecuta el audio de agarrar item")
 	player_sfx.play()
 	
-func appear():
-	$Body.material.set_shader_param("progress", 0.5)
-	var progress=0.5
-	while(progress>0.0):
-		progress=progress-0.04
-		$Body.material.set_shader_param("progress", progress)
-		yield(get_tree().create_timer(0.1), "timeout")
+
+
+func _on_TimerHurt_timeout():
+	body.material.set_shader_param("flash_modifier",0)
+	
