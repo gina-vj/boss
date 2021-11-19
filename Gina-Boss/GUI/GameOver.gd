@@ -4,6 +4,7 @@ onready var background:ColorRect = $Background
 onready var tween:Tween = $Tween
 onready var finished:Control = $Finished
 onready var dead:Control = $Dead
+onready var ending_sfx:AudioStreamPlayer=$Ending
 
 func _ready():
 	PlayerData.connect("game_over", self, "game_over")
@@ -17,6 +18,8 @@ func _ready():
 func game_over():
 	finished.visible = true
 	show_game_over_screen()
+	ending_sfx.play()
+
 
 func player_dead():
 	dead.visible = true
