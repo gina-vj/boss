@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/world/computer_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/env/Computer.gd" type="Script" id=2]
-[ext_resource path="res://entities/env/DialogScreen.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 24.0
@@ -79,9 +78,6 @@ collision_mask = 2
 
 [node name="MessageCollision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 4 )
-
-[node name="DialogScreen" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

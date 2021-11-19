@@ -1,8 +1,6 @@
 extends KinematicBody2D
 class_name Player
 
-signal interact_pressed()
-
 onready var state_machine = $StateMachine
 onready var shooter = $Shooter
 onready var body:Sprite = $Body
@@ -47,10 +45,6 @@ func _handle_move_input():
 		Input.get_axis("move_up", "move_down")
 	).normalized()
 	velocity = direction * SPEED_LIMIT
-
-func _handle_action_input():
-	if Input.is_action_pressed("ui_accept"):
-		emit_signal("interact_pressed")
 		
 func _handle_deacceleration():
 	velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
