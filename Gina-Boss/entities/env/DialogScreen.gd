@@ -1,7 +1,6 @@
 extends Node2D
 
-onready var dialog_animation_player: AnimationPlayer = $ScreenAnimationPlayer
-onready var dialog_container: Label = $MarginContainer/Message
+onready var dialog_container: Label = $Control/Message
 onready var tween: Tween = $Tween
 
 const WELCOME_DIALOG = [
@@ -21,15 +20,23 @@ const SECOND_COMPONENT_DIALOG= [
 const THIRD_COMPONENT_DIALOG = ["¡Gina, sos una guerrera! \n\nLogré desactivar la última barrera laser \n\nque bloqueaba el paso a la sala central. \n\nEsto se encuentra al Este de dónde encontraste el primer componente.\n\n",
 "Corre hacia allí porque cada minuto que pasa hay más infectados, \n\nno hay tiempo que perder y acordate de usar tus items con sabiduría. \n\nNos vemos del otro lado!"]
 
-var selected_dialog_index	
+var selected_dialog_index
 var TEXT_SPEED = 0.01
 var dialog_index = 0
 var selected_dialog
 
+func _ready():
+	PlayerData.connect("player_by_computer", self, "open")
+	PlayerData.connect("player_leave_computer", self, "close")
+	visible = false
+
+func _input(event:InputEvent):
+	if event.is_action_pressed("ui_accept") and selected_dialog != null:
+		next_screen()
+
 func next_screen():
 	if(selected_dialog == null):
 		selected_dialog = get_selected_dialog()	
-	visible = true
 	load_dialog()
 
 func get_selected_dialog():
@@ -53,5 +60,11 @@ func load_dialog():
 		close()
 
 func close():
-	dialog_index = 0
+	selected_dialog_index = null
 	visible = false
+
+func open(dialog_index):
+	self.selected_dialog_index = dialog_index
+	self.dialog_index = 0
+	visible = true
+	next_screen()

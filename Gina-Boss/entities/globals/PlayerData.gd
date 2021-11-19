@@ -7,6 +7,8 @@ signal game_over()
 signal player_dead()
 signal restart()
 signal main_menu()
+signal player_by_computer(message_index)
+signal player_leave_computer()
 
 var current_health:int
 var area_protection = null

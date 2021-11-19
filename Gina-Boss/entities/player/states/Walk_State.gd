@@ -9,7 +9,6 @@ func update(_delta):
 		emit_signal("finished", "idle")
 
 func handle_input(event:InputEvent):
-	parent._handle_action_input()
 	if _is_dash(event):
 		emit_signal("finished", "dash")
 	else:
