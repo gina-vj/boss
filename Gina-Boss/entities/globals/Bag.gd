@@ -46,3 +46,6 @@ func _on_restart():
 	suits = 0
 	experimental_vaccines = 0
 	alcohol = 0
+
+func has_throwable_items():
+	return available_experimental_vaccines() or available_alcohol()
