@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gina-injured.ogg-7fc24ab8f7566f20271ce0b5cf8b9004.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/gina-injured.ogg"
+dest_files=[ "res://.import/gina-injured.ogg-7fc24ab8f7566f20271ce0b5cf8b9004.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

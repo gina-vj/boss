@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/step_gina1.ogg-5a39a8aa4206a8889d8479ddf4d23a5d.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/step_gina1.ogg"
+dest_files=[ "res://.import/step_gina1.ogg-5a39a8aa4206a8889d8479ddf4d23a5d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
