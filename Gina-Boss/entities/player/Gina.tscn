@@ -1053,7 +1053,7 @@ anims/walk_up = SubResource( 19 )
 bus = "Sfx"
 
 [node name="PlayerInteraction" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 13 )
+stream = ExtResource( 16 )
 volume_db = -10.0
 pitch_scale = 0.5
 bus = "Sfx"
