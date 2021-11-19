@@ -386,10 +386,12 @@ script = ExtResource( 21 )
 
 [node name="Button" type="Button" parent="PausaCanvasLayer"]
 pause_mode = 2
-margin_left = 11.4665
-margin_top = 538.659
-margin_right = 535.466
-margin_bottom = 1056.66
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = -64.0001
+margin_right = 536.0
+margin_bottom = 454.001
 rect_scale = Vector2( 0.1, 0.1 )
 icon = ExtResource( 22 )
 flat = true
@@ -398,11 +400,14 @@ __meta__ = {
 }
 
 [node name="MenuButton" type="MenuButton" parent="PausaCanvasLayer"]
-visible = false
-margin_left = 183.058
-margin_top = 73.0101
-margin_right = 675.058
-margin_bottom = 463.01
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -243.0
+margin_top = -179.0
+margin_right = 290.0
+margin_bottom = 211.0
 text = "altoaa"
 icon = ExtResource( 24 )
 __meta__ = {
@@ -415,10 +420,10 @@ anchor_left = 0.31
 anchor_top = 0.5
 anchor_right = 0.31
 anchor_bottom = 0.5
-margin_left = 13.7651
-margin_top = -92.3439
-margin_right = 184.765
-margin_bottom = -39.3439
+margin_left = -2.23001
+margin_top = -89.0
+margin_right = 168.77
+margin_bottom = -36.0
 text = "Continuar"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -426,10 +431,10 @@ __meta__ = {
 
 [node name="Restart" type="Button" parent="PausaCanvasLayer/MenuButton"]
 pause_mode = 2
-margin_left = 167.281
-margin_top = 189.625
-margin_right = 334.281
-margin_bottom = 233.625
+margin_left = 166.0
+margin_top = 198.0
+margin_right = 333.0
+margin_bottom = 242.0
 text = "Restart"
 __meta__ = {
 "_edit_use_anchors_": false
