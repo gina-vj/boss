@@ -18,8 +18,8 @@ data = PoolByteArray( 79, 103, 103, 83, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 189, 200, 
 radius = 450.416
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 69.8935
-height = 106.824
+radius = 49.8572
+height = 154.908
 
 [sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
