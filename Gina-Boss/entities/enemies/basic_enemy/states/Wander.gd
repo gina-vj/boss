@@ -3,6 +3,7 @@ extends "res://entities/enemies/basic_enemy/states/AbstractBasicEnemyState.gd"
 func enter():
 	if level_navigation != null && parent.patroll_to != null && parent.patroll_from != null:
 		parent.path = generate_path()
+		parent.steps_sfx.play()
 	else:
 		emit_signal("finished", "idle")
 

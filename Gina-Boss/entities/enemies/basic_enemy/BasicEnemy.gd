@@ -16,6 +16,7 @@ onready var state_machine = $StateMachine
 onready var animation_player:AnimationPlayer = $AnimationPlayer
 onready var body:Sprite = $Body
 onready var enemy_sfx:AudioStreamPlayer=$EnemySfx
+onready var steps_sfx:AudioStreamPlayer2D=$EnemySteps
 
 const MINIMUM_DISTANCE_TO_TARGET = 30
 var path: Array = []
