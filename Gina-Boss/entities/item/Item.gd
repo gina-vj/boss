@@ -6,6 +6,7 @@ export var item_quantity = 0
 export(int, "Alcohol", "Experimental Vaccine", "Face Mask", "Suit") var item_type_index = 0
 
 onready var item_quantity_node = $ItemQuantityBackground/ItemQuantity
+onready var sfx: AudioStreamPlayer2D = $SFX
 
 var type = null
 
@@ -23,7 +24,8 @@ func index_to_type():
 
 
 func _on_DetectionArea_body_entered(_body):
-	if _body.has_method("notify_item_added"):
-		_body.notify_item_added()
+	sfx.play()
+	visible = false
 	Bag.add_item(type, item_quantity)
+	yield(sfx, "finished")
 	queue_free()

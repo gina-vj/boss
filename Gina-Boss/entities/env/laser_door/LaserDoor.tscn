@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/env/laser_door/LaserDoor.gd" type="Script" id=1]
 [ext_resource path="res://entities/env/laser_door/Lasers.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/audio/sfx/fx-electricidad-1.ogg" type="AudioStream" id=3]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 0, -64 )
@@ -33,6 +34,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SecondDoorstep"]
 position = Vector2( 56, 0 )
 shape = SubResource( 2 )
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+max_distance = 300.0
 
 [connection signal="body_entered" from="FirstDoorstep" to="." method="toogle_door"]
 [connection signal="body_entered" from="SecondDoorstep" to="." method="toogle_door"]
