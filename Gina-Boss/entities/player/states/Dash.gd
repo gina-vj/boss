@@ -15,6 +15,7 @@ func enter():
 	else:
 		.enter()
 		timer.start()
+		PlayerData.dash_unavailable()
 
 
 func update(delta):
@@ -38,4 +39,5 @@ func _on_DashTimer_timeout():
 
 
 func _on_DashRecuperationTimer_timeout():
+	PlayerData.dash_available()
 	still_recuperating = false

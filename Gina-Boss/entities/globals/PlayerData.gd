@@ -9,6 +9,8 @@ signal restart()
 signal main_menu()
 signal player_by_computer(message_index)
 signal player_leave_computer()
+signal dash_available()
+signal dash_unavailable()
 
 var current_health:int
 var area_protection = null
@@ -51,3 +53,9 @@ func restart():
 
 func main_menu():
 	emit_signal("main_menu")
+
+func dash_available():
+	emit_signal("dash_available")
+	
+func dash_unavailable():
+	emit_signal("dash_unavailable")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://GUI/footer/Alcohol.gd" type="Script" id=1]
 [ext_resource path="res://GUI/footer/ExperimentalVaccines.gd" type="Script" id=2]
@@ -12,6 +12,53 @@
 [ext_resource path="res://assets/assets-prueba/keyboard_indicators_spritesheet.png" type="Texture" id=10]
 [ext_resource path="res://assets/gui/alcohol.png" type="Texture" id=11]
 [ext_resource path="res://assets/assets-prueba/computer_popup_spritesheet.png" type="Texture" id=12]
+[ext_resource path="res://GUI/footer/DashContainer.gd" type="Script" id=13]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.75, 2.75 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "beat"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2.75, 2.75 ), Vector2( 3.5, 3.5 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2.75, 2.75 ), Vector2( 1e-05, 1e-05 ) ]
+}
 
 [node name="Footer" type="MarginContainer"]
 anchor_left = 1.0
@@ -37,6 +84,7 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 12 )
 region_rect = Rect2( 192.013, 0, 191.987, 63 )
+script = ExtResource( 13 )
 
 [node name="Dash" type="Sprite" parent="VBoxContainer/DashContainer"]
 position = Vector2( 152, 40 )
@@ -45,10 +93,15 @@ texture = ExtResource( 8 )
 hframes = 3
 frame = 2
 
-[node name="Sprite" type="Sprite" parent="VBoxContainer/DashContainer"]
+[node name="Shift" type="Sprite" parent="VBoxContainer/DashContainer"]
 position = Vector2( 152, 80 )
 scale = Vector2( 2.75, 2.75 )
 texture = ExtResource( 10 )
+
+[node name="ShiftAnimation" type="AnimationPlayer" parent="VBoxContainer/DashContainer/Shift"]
+anims/RESET = SubResource( 1 )
+anims/beat = SubResource( 2 )
+anims/fade_out = SubResource( 3 )
 
 [node name="ItemsContainer" type="NinePatchRect" parent="VBoxContainer"]
 margin_top = 104.0

@@ -61,6 +61,8 @@ func load_dialog():
 
 func close():
 	selected_dialog_index = null
+	dialog_index = 0
+	selected_dialog = null
 	visible = false
 
 func open(dialog_index):
