@@ -49,7 +49,7 @@ func _handle_move_input():
 	velocity = direction * SPEED_LIMIT
 
 func _handle_action_input():
-	if Input.is_action_pressed("to_interact"):
+	if Input.is_action_pressed("ui_accept"):
 		emit_signal("interact_pressed")
 		
 func _handle_deacceleration():
