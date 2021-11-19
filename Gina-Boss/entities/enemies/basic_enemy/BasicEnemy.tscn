@@ -12,8 +12,8 @@
 [ext_resource path="res://assets/audio/sfx/step_enemy2.ogg" type="AudioStream" id=10]
 [ext_resource path="res://entities/enemies/basic_enemy/states/RunAway.gd" type="Script" id=11]
 [ext_resource path="res://assets/audio/sfx/step_enemy1.ogg" type="AudioStream" id=12]
-[ext_resource path="res://assets/audio/sfx/zombie-injured.mp3" type="AudioStream" id=13]
-[ext_resource path="res://assets/audio/sfx/zombie-idle.mp3" type="AudioStream" id=14]
+[ext_resource path="res://assets/audio/sfx/zombie-injured.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/sfx/zombie-idle.ogg" type="AudioStream" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 450.416
@@ -99,7 +99,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 14 ) ]
+"values": [ ExtResource( 15 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -159,7 +159,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 14 ) ]
+"values": [ ExtResource( 15 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -219,7 +219,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 14 ) ]
+"values": [ ExtResource( 15 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -527,7 +527,7 @@ volume_db = -80.0
 bus = "Enemy"
 
 [node name="EnemySfx" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = -5.0
 pitch_scale = 1.3
 

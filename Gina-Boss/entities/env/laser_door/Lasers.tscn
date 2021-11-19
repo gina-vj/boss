@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/world/lasers_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/env/laser_door/Lasers.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/sfx/fx-electricidad-1.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 9.68201
@@ -12,7 +13,7 @@ length = 0.001
 
 [sub_resource type="Animation" id=2]
 resource_name = "blink"
-length = 0.4
+length = 2.8
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -21,10 +22,24 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("../LaserSfx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [node name="Lasers" type="StaticBody2D"]
@@ -49,3 +64,8 @@ region_rect = Rect2( 0, 5, 137.511, 649.96 )
 root_node = NodePath("../LasersBody")
 anims/RESET = SubResource( 1 )
 anims/blink = SubResource( 2 )
+
+[node name="LaserSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.0
+bus = "Laser"
