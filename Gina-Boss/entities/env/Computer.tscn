@@ -1,7 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/world/computer_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/env/Computer.gd" type="Script" id=2]
+[ext_resource path="res://entities/shaderTitilar.gdshader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 3 )
+shader_param/active = false
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 24.0
@@ -49,14 +54,23 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/active = false
+
 [sub_resource type="CircleShape2D" id=4]
 radius = 41.7159
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 101.457
 
 [node name="Computer" type="StaticBody2D"]
 position = Vector2( 182.318, -78.3182 )
 script = ExtResource( 2 )
 
 [node name="Computer" type="Sprite" parent="."]
+material = SubResource( 6 )
 position = Vector2( 1.0511, -0.630661 )
 scale = Vector2( 0.759789, 0.772928 )
 texture = ExtResource( 1 )
@@ -72,6 +86,20 @@ root_node = NodePath("../Computer")
 anims/RESET = SubResource( 2 )
 anims/blink = SubResource( 3 )
 
+[node name="TextInfo" type="TextEdit" parent="."]
+visible = false
+material = SubResource( 7 )
+anchor_left = -0.036
+anchor_right = 0.062
+margin_left = -36.0
+margin_top = 34.0
+margin_right = 44.0
+margin_bottom = 59.0
+text = "  Press bar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
@@ -79,5 +107,13 @@ collision_mask = 2
 [node name="MessageCollision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 4 )
 
+[node name="AreaInfo" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInfo"]
+position = Vector2( 0.943878, 1.52588e-05 )
+shape = SubResource( 8 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="AreaInfo" to="." method="_on_AreaInfo_body_entered"]
+[connection signal="body_exited" from="AreaInfo" to="." method="_on_AreaInfo_body_exited"]
