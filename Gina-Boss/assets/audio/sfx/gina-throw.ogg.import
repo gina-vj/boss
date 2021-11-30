@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gina-throw.ogg-8a6a89afbd92a2c222b55d1c485f753f.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/gina-throw.ogg"
+dest_files=[ "res://.import/gina-throw.ogg-8a6a89afbd92a2c222b55d1c485f753f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zombie-idle.mp3-a97ac3f48b5d46b8ca7c655c468ac0e8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/zombie-idle.mp3"
+dest_files=[ "res://.import/zombie-idle.mp3-a97ac3f48b5d46b8ca7c655c468ac0e8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

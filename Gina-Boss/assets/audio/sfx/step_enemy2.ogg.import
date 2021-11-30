@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/step_enemy2.ogg-c7e6046fb737368e420640933860bcd9.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/step_enemy2.ogg"
+dest_files=[ "res://.import/step_enemy2.ogg-c7e6046fb737368e420640933860bcd9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

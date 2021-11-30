@@ -7,20 +7,29 @@ func _ready():
 	var tree = get_tree()
 	level_navigation = tree.get_nodes_in_group("LevelNavigation")[0]
 
-func update(delta):
+func update(_delta):
 	if parent.can_see_target():
 		emit_signal("finished", "chase")
 
-func generate_random_path():
-	var tilemap: TileMap = level_navigation.tile_map
-	var cells: Array = tilemap.get_used_cells()
-
-	var random_position = randi() % cells.size() + 0
-	var local_position = tilemap.map_to_world(cells[random_position])
+func generate_path():
+	var distance_to_start_patroll_point = parent.global_position.distance_to(parent.patroll_from)
+	var distance_to_finish_patroll_point = parent.global_position.distance_to(parent.patroll_to)
+	
+	var path_to: Vector2 = Vector2.ZERO
+	if distance_to_start_patroll_point >= distance_to_finish_patroll_point:
+		if distance_to_finish_patroll_point <= parent.MINIMUM_DISTANCE_TO_TARGET:
+			path_to = parent.patroll_from
+		else:
+			path_to = parent.patroll_to
+	else:
+		if distance_to_start_patroll_point <= parent.MINIMUM_DISTANCE_TO_TARGET:
+			path_to = parent.patroll_to
+		else:
+			path_to = parent.patroll_from
 
 	return level_navigation.get_simple_path(
 		parent.global_position, 
-		tilemap.to_global(local_position) ,
+		path_to,
 		false
 	)
 
@@ -31,27 +40,18 @@ func hurt_player_with_contagion_zone():
 func body_entered_contagion_area(body):
 	parent.contagion_target = body
 	
-func body_exited_contagion_area(body):
+	
+func body_exited_contagion_area(_body):
 	parent.contagion_target = null
 
 func notify_body_entered(body):
 	parent.target = body
 
 
-func notify_body_exited(body):
-	parent.target = null
+func notify_body_exited(_body):
 	if parent.can_see_target():
 		emit_signal("finished", "idle")
+	parent.target = null
 
-func notify_impact(projectile):
-	if parent.is_still_ill():
-		emit_signal("finished", "impacted")
-	else:
-		emit_signal("finished", "healed")
-		
-func notify_cura(body):
-	pass
-
-
-func item_detected(item):
+func item_detected(_item):
 	pass

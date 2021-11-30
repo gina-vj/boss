@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fx-electricidad-1.ogg-8fecc9fc4f5da24dda360e5441b3fc79.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/fx-electricidad-1.ogg"
+dest_files=[ "res://.import/fx-electricidad-1.ogg-8fecc9fc4f5da24dda360e5441b3fc79.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

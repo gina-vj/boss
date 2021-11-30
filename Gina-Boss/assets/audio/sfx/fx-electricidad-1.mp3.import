@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fx-electricidad-1.mp3-0c71affb3f836336446f61bf48820613.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/fx-electricidad-1.mp3"
+dest_files=[ "res://.import/fx-electricidad-1.mp3-0c71affb3f836336446f61bf48820613.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

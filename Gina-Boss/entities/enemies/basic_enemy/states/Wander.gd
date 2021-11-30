@@ -1,8 +1,11 @@
 extends "res://entities/enemies/basic_enemy/states/AbstractBasicEnemyState.gd"
 
 func enter():
-	if level_navigation != null:
-		parent.path = generate_random_path()
+	if level_navigation != null && parent.patroll_to != null && parent.patroll_from != null:
+		parent.path = generate_path()
+		parent.steps_sfx.play()
+	else:
+		emit_signal("finished", "idle")
 
 func update(delta):
 	.update(delta)
@@ -12,4 +15,5 @@ func update(delta):
 		emit_signal("finished", "idle")
 
 func exit():
+	parent.steps_sfx.stop()
 	parent.path = []
