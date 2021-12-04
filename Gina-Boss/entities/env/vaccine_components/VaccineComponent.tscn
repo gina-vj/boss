@@ -32,6 +32,7 @@ angle = 360.0
 angle_random = 1.0
 scale_random = 0.3
 scale_curve = SubResource( 7 )
+color = Color( 0.431373, 0.627451, 0.819608, 1 )
 color_ramp = SubResource( 5 )
 hue_variation = 0.02
 hue_variation_random = 1.0
