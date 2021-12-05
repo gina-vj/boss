@@ -3,6 +3,7 @@ extends NinePatchRect
 onready var dash = $Dash
 onready var shift = $Shift
 onready var shift_animation = $Shift/ShiftAnimation
+onready var shift_bar=$TextureProgress
 
 func _ready():
 	PlayerData.connect("dash_available", self, "shift_available")
@@ -12,8 +13,11 @@ func _ready():
 func shift_available():
 	dash.frame = 1
 	shift_animation.play("beat")
+	shift_bar._initialize()
+	
 
 func shift_unavailable():
 	dash.frame = 2
 	shift_animation.play("fade_out")
+	shift_bar._buy_dash()
 

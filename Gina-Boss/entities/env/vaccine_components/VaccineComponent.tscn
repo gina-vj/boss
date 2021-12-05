@@ -1,6 +1,43 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://entities/env/vaccine_components/VaccineComponent.gd" type="Script" id=1]
+[ext_resource path="res://assets/item/random_selection.png" type="Texture" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.539683, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.492063, 0.492063, 0.492063, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 0.3
+scale_curve = SubResource( 7 )
+color = Color( 0.431373, 0.627451, 0.819608, 1 )
+color_ramp = SubResource( 5 )
+hue_variation = 0.02
+hue_variation_random = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 24.0
@@ -10,6 +47,11 @@ height = 44.0
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+
+[node name="Particles2D" type="Particles2D" parent="Sprite"]
+material = SubResource( 2 )
+process_material = SubResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
