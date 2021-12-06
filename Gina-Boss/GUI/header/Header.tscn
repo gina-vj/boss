@@ -1,7 +1,5 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://GUI/LifeBar.tscn" type="PackedScene" id=1]
-[ext_resource path="res://GUI/ProtectionBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/gui/componente3.png" type="Texture" id=3]
 [ext_resource path="res://assets/gui/componente1.png" type="Texture" id=4]
 [ext_resource path="res://assets/item/vacuna-roja-spritesheet.png" type="Texture" id=5]
@@ -15,20 +13,6 @@ margin_bottom = 200.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Bars" type="VBoxContainer" parent="."]
-visible = false
-margin_right = 500.0
-margin_bottom = 200.0
-alignment = 1
-
-[node name="LifeBar" parent="Bars" instance=ExtResource( 1 )]
-margin_top = 51.0
-margin_bottom = 104.0
-
-[node name="ProtectionBar" parent="Bars" instance=ExtResource( 2 )]
-margin_top = 108.0
-margin_bottom = 148.0
 
 [node name="VaccineComponentsContainer" type="NinePatchRect" parent="."]
 margin_right = 100.0

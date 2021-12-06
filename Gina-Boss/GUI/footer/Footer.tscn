@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://GUI/footer/Alcohol.gd" type="Script" id=1]
 [ext_resource path="res://GUI/footer/ExperimentalVaccines.gd" type="Script" id=2]
@@ -6,60 +6,100 @@
 [ext_resource path="res://GUI/footer/Suit.gd" type="Script" id=4]
 [ext_resource path="res://assets/gui/vacuna-roja-ui.png" type="Texture" id=5]
 [ext_resource path="res://assets/gui/barbijo.png" type="Texture" id=6]
-[ext_resource path="res://assets/gui/mouse.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/placeholder.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/jeringa.png" type="Texture" id=8]
 [ext_resource path="res://assets/gui/traje.png" type="Texture" id=9]
+[ext_resource path="res://GUI/footer/VaccineComponents.gd" type="Script" id=10]
 [ext_resource path="res://assets/gui/alcohol.png" type="Texture" id=11]
-[ext_resource path="res://assets/assets-prueba/computer_popup_spritesheet.png" type="Texture" id=12]
+[ext_resource path="res://assets/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://assets/gui/jeringa-rojo-verde-azul.png" type="Texture" id=13]
+[ext_resource path="res://assets/gui/jeringa-rojo.png" type="Texture" id=14]
+[ext_resource path="res://assets/gui/jeringa-rojo-verde.png" type="Texture" id=15]
 
-[node name="Footer" type="MarginContainer"]
+[sub_resource type="DynamicFont" id=1]
+size = 150
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 150
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 150
+font_data = ExtResource( 12 )
+
+[node name="Footer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+rect_min_size = Vector2( 200, 200 )
+
+[node name="VaccineComponents" type="TextureRect" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -216.0
-margin_top = -40.0
-margin_right = 88.0
-margin_bottom = 214.0
-rect_min_size = Vector2( 300, 255 )
+margin_left = -448.0
+margin_top = -184.0
+margin_right = 1052.0
+margin_bottom = 516.0
+rect_min_size = Vector2( 200, 200 )
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+flip_h = true
+script = ExtResource( 10 )
 __meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+all_empty = ExtResource( 8 )
+with_red = ExtResource( 14 )
+with_red_and_green = ExtResource( 15 )
+with_red_green_and_blue = ExtResource( 13 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -184.0
+margin_right = 1200.0
+margin_bottom = 516.0
+rect_scale = Vector2( 0.3, 0.3 )
+__meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 220.0
-margin_bottom = 255.0
-
 [node name="ItemsContainer" type="NinePatchRect" parent="VBoxContainer"]
-margin_right = 220.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 200, 150 )
-texture = ExtResource( 12 )
-region_rect = Rect2( 192.013, 0, 191.987, 63 )
+margin_right = 1200.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 1200, 700 )
+texture = ExtResource( 7 )
 
 [node name="Items" type="HBoxContainer" parent="VBoxContainer/ItemsContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -80.0
-margin_top = -46.0
-margin_right = 111.0
-margin_bottom = 46.0
+margin_left = -304.0
+margin_top = -158.5
+margin_right = 304.0
+margin_bottom = 158.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ExperimentalVaccines" type="VBoxContainer" parent="VBoxContainer/ItemsContainer/Items"]
-margin_right = 50.0
-margin_bottom = 92.0
+margin_right = 200.0
+margin_bottom = 317.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Count" type="Label" parent="VBoxContainer/ItemsContainer/Items/ExperimentalVaccines"]
-margin_right = 50.0
-margin_bottom = 14.0
+margin_right = 200.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 1
 valign = 1
@@ -68,29 +108,17 @@ __meta__ = {
 }
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/ItemsContainer/Items/ExperimentalVaccines"]
-margin_top = 18.0
-margin_right = 50.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 50, 50 )
+margin_top = 117.0
+margin_right = 200.0
+margin_bottom = 317.0
+rect_min_size = Vector2( 200, 200 )
 texture = ExtResource( 5 )
-
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ItemsContainer/Items/ExperimentalVaccines"]
-margin_top = 72.0
-margin_right = 50.0
-margin_bottom = 92.0
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ItemsContainer/Items/ExperimentalVaccines/CenterContainer"]
-margin_left = 16.0
-margin_right = 33.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 17, 20 )
-texture = ExtResource( 7 )
-expand = true
+region_rect = Rect2( 0, 0, 130, 130 )
 
 [node name="Alcohol" type="VBoxContainer" parent="VBoxContainer/ItemsContainer/Items"]
-margin_left = 54.0
-margin_right = 104.0
-margin_bottom = 92.0
+margin_left = 204.0
+margin_right = 404.0
+margin_bottom = 317.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true,
@@ -98,8 +126,9 @@ __meta__ = {
 }
 
 [node name="Count" type="Label" parent="VBoxContainer/ItemsContainer/Items/Alcohol"]
-margin_right = 50.0
-margin_bottom = 14.0
+margin_right = 200.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
 valign = 1
@@ -108,30 +137,16 @@ __meta__ = {
 }
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/ItemsContainer/Items/Alcohol"]
-margin_top = 18.0
-margin_right = 50.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 50, 50 )
+margin_top = 117.0
+margin_right = 200.0
+margin_bottom = 317.0
+rect_min_size = Vector2( 200, 200 )
 texture = ExtResource( 11 )
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ItemsContainer/Items/Alcohol"]
-margin_top = 72.0
-margin_right = 50.0
-margin_bottom = 92.0
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ItemsContainer/Items/Alcohol/CenterContainer"]
-margin_left = 16.0
-margin_right = 33.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 17, 20 )
-texture = ExtResource( 7 )
-expand = true
-flip_h = true
-
 [node name="FaceMask" type="VBoxContainer" parent="VBoxContainer/ItemsContainer/Items"]
-margin_left = 108.0
-margin_right = 158.0
-margin_bottom = 92.0
+margin_left = 408.0
+margin_right = 608.0
+margin_bottom = 317.0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true,
@@ -139,8 +154,9 @@ __meta__ = {
 }
 
 [node name="Count" type="Label" parent="VBoxContainer/ItemsContainer/Items/FaceMask"]
-margin_right = 50.0
-margin_bottom = 14.0
+margin_right = 200.0
+margin_bottom = 113.0
+custom_fonts/font = SubResource( 3 )
 text = "0"
 align = 1
 valign = 1
@@ -149,10 +165,10 @@ __meta__ = {
 }
 
 [node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/ItemsContainer/Items/FaceMask"]
-margin_top = 18.0
-margin_right = 50.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 50, 50 )
+margin_top = 117.0
+margin_right = 200.0
+margin_bottom = 317.0
+rect_min_size = Vector2( 200, 200 )
 texture = ExtResource( 6 )
 
 [node name="Suit" type="VBoxContainer" parent="VBoxContainer/ItemsContainer/Items"]

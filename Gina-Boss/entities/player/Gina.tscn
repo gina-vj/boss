@@ -56,7 +56,7 @@ height = 39.4862
 
 [sub_resource type="ShaderMaterial" id=39]
 shader = ExtResource( 12 )
-shader_param/flash_modifier = null
+shader_param/flash_modifier = 0.0
 shader_param/flash_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="Animation" id=20]
