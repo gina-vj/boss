@@ -1,6 +1,10 @@
 extends Node
 class_name PlayerBag
 
+signal player_found_face_masks()
+signal player_found_alcohol()
+signal player_found_experimental_vaccines()
+
 var face_masks = 0
 var suits = 0
 var experimental_vaccines = 0
@@ -12,10 +16,13 @@ func _ready():
 func add_item(type, quantity):
 	match type:
 		FaceMask.type:
+			emit_signal("player_found_face_masks")
 			face_masks += quantity
 		Alcohol.type:
+			emit_signal("player_found_alcohol")
 			alcohol += quantity
 		ExperimentalVaccine.type:
+			emit_signal("player_found_experimental_vaccines")
 			experimental_vaccines += quantity
 		Suit.type:
 			suits += quantity
