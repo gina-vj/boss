@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://entities/env/vaccine_components/VaccineComponent.gd" type="Script" id=1]
 [ext_resource path="res://assets/item/random_selection.png" type="Texture" id=2]
+[ext_resource path="res://assets/audio/sfx/grab.ogg" type="AudioStream" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 1
@@ -59,5 +60,10 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 10.0
+pitch_scale = 2.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://GUI/footer/Alcohol.gd" type="Script" id=1]
 [ext_resource path="res://GUI/footer/ExperimentalVaccines.gd" type="Script" id=2]
@@ -16,6 +16,12 @@
 [ext_resource path="res://assets/gui/jeringa-rojo.png" type="Texture" id=14]
 [ext_resource path="res://assets/gui/jeringa-rojo-verde.png" type="Texture" id=15]
 [ext_resource path="res://GUI/footer/FooterItemTexture.gdshader" type="Shader" id=16]
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 16 )
+shader_param/brightness = 0.0
+shader_param/contrast = 1.0
+shader_param/saturation = 1.0
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -57,6 +63,7 @@ __meta__ = {
 }
 
 [node name="VaccineComponents" type="TextureRect" parent="."]
+material = SubResource( 9 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -71,13 +78,14 @@ texture = ExtResource( 8 )
 flip_h = true
 script = ExtResource( 10 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 all_empty = ExtResource( 8 )
 with_red = ExtResource( 14 )
 with_red_and_green = ExtResource( 15 )
 with_red_green_and_blue = ExtResource( 13 )
+
+[node name="TweenBrightness" type="Tween" parent="VaccineComponents"]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 1.0
