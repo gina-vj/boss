@@ -19,6 +19,8 @@ onready var enemy_sfx:AudioStreamPlayer=$EnemySfx
 onready var steps_sfx:AudioStreamPlayer2D=$EnemySteps
 
 const MINIMUM_DISTANCE_TO_TARGET = 30
+
+var navigation: Navigation2D = null
 var path: Array = []
 var target_position: Vector2 = Vector2.ZERO
 var target:Player = null
