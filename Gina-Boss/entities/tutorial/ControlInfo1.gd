@@ -18,17 +18,10 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	for i in range(10):
-		icon.material.set_shader_param("progress",-0.1)
-		timerOn.start()
+		timerOn.start(0.1)
 
 
-func _on_Area2D_body_exited(body):
-	pass # Replace with function body.
-
-
-func _on_TimerOff_timeout():
-	pass # Replace with function body.
 
 
 func _on_TimerOn_timeout():
-	icon.material.set_shader_param("progress",icon.material.get_shader_param("progress")+0.1)
+	icon.material.set_shader_param("progress",icon.material.get_shader_param("progress")-0.1)
