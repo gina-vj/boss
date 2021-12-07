@@ -16,7 +16,7 @@ b = Vector2( 0, 72 )
 script = ExtResource( 1 )
 
 [node name="Lasers" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, 0 )
+position = Vector2( 0, -1.41422 )
 scale = Vector2( 2, 3 )
 
 [node name="FirstDoorstep" type="Area2D" parent="."]
