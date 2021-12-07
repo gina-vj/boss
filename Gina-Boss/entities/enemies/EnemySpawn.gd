@@ -18,9 +18,3 @@ func _spawn_element(scene:PackedScene):
 	var new_element = scene.instance()
 	add_child(new_element)
 	new_element.set_owner(get_tree().get_edited_scene_root())
-
-
-## Execution on runtime
-func _ready():
-	if !Engine.editor_hint:
-		call_deferred("_initialize")

@@ -78,10 +78,8 @@ height = 0.0
 script = ExtResource( 2 )
 
 [node name="TextEdit" type="TextEdit" parent="."]
-margin_left = -7002.4
-margin_top = 94.7885
-margin_right = -6895.4
-margin_bottom = 132.788
+margin_right = 107.0
+margin_bottom = 37.9995
 custom_styles/normal = SubResource( 10 )
 text = "Movimiento
 "
