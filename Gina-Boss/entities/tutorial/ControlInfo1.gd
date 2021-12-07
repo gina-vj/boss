@@ -4,6 +4,8 @@ export var hframe: int
 export var vframe: int 
 export var scala:Vector2=Vector2(0.5,0.5)
 export (Texture) var textura
+export(String, "animationIcon", "animationIconSec") var animation_name 
+
 onready var icon =$Icon
 onready var timerOn=$TimerOn
 onready var timerOff=$TimerOff
@@ -18,6 +20,7 @@ func _ready():
 	if(animation):
 		icon.hframes=hframe
 		icon.vframes=vframe
+		
 		animationNode.play("animationIcon")
 	
 
