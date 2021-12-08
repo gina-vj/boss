@@ -29,4 +29,5 @@ func next_level():
 	get_tree().get_nodes_in_group("nivel")[0].queue_free()
 	load_level()
 	transitionAnimation.play_backwards("fade")
-
+	Bag._on_restart()
+	get_tree().get_nodes_in_group("Player")[0].position = Vector2(0,0)	
