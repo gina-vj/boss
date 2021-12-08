@@ -25,7 +25,7 @@ func load_level():
 
 func next_level():
 	GameHandler.nivel_actual += 1
-	#get_tree().get_nodes_in_group("nivel")[0].queue_free()
-	#lo comento así gina vuelve a aparecer en el cero. Sino habría que reiniciarla a mano
+	get_tree().get_nodes_in_group("nivel")[0].queue_free()
 	load_level()
-	get_tree().reload_current_scene()
+	get_tree().get_nodes_in_group("Player")[0].position = Vector2(0,0)
+	

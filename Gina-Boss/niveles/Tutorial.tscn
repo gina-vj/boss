@@ -41,7 +41,7 @@ outlines = [ PoolVector2Array( -3903.39, -112.849, -3902.46, 171.869, -2536.74, 
 a = Vector2( -0.986572, -138.407 )
 b = Vector2( -0.986572, 132.199 )
 
-[node name="Tutorial" type="Node" groups=["nivel"]]
+[node name="Tutorial" type="Node2D" groups=["nivel"]]
 script = ExtResource( 4 )
 
 [node name="Floor" type="TileMap" parent="."]
