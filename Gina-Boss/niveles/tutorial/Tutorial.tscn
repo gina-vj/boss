@@ -19,9 +19,6 @@
 [ext_resource path="res://niveles/tutorial/StepFiveFaceMask.gd" type="Script" id=17]
 [ext_resource path="res://assets/flecha.png" type="Texture" id=18]
 
-[sub_resource type="CircleShape2D" id=10]
-radius = 23.8249
-
 [sub_resource type="ShaderMaterial" id=5]
 
 [sub_resource type="NavigationPolygon" id=13]
@@ -49,7 +46,7 @@ b = Vector2( -0.986572, 132.199 )
 script = ExtResource( 4 )
 
 [node name="Gina" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1815, 26 )
+position = Vector2( -65.2264, 4.85059 )
 
 [node name="Camera2D" type="Camera2D" parent="Gina"]
 current = true
@@ -70,37 +67,22 @@ hframe = 1
 textura = ExtResource( 12 )
 
 [node name="ControlInfo2" parent="StepOneMovements" instance=ExtResource( 8 )]
-position = Vector2( 5268, 11 )
+position = Vector2( 7017.28, 8.93059 )
 animation = false
 hframe = 1
 scala = Vector2( 0.7, 0.7 )
 textura = ExtResource( 6 )
 
-[node name="LaserDoor" parent="StepOneMovements" instance=ExtResource( 13 )]
-position = Vector2( 1204.64, 38.4303 )
-scale = Vector2( 2, 2.5 )
-opened = false
-
-[node name="FinishTrigger" type="Area2D" parent="StepOneMovements"]
-position = Vector2( 1047.2, 29.6579 )
-collision_layer = 0
-collision_mask = 2
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StepOneMovements/FinishTrigger"]
-shape = SubResource( 10 )
-
-[node name="ExperimentalVaccine" parent="StepOneMovements/FinishTrigger" instance=ExtResource( 5 )]
+[node name="ExperimentalVaccine" parent="StepOneMovements" instance=ExtResource( 5 )]
 material = SubResource( 5 )
+position = Vector2( 1047.2, 29.6579 )
 item_quantity = 20
 
 [node name="StepTwoVaccines" type="Node" parent="."]
 script = ExtResource( 9 )
 
 [node name="ControlInfo3" parent="StepTwoVaccines" instance=ExtResource( 8 )]
-position = Vector2( 8421.18, -11.2728 )
+position = Vector2( 8233.55, 63.2409 )
 hframe = 4
 vframe = 1
 scala = Vector2( 0.7, 0.7 )
@@ -109,11 +91,12 @@ textura = ExtResource( 7 )
 [node name="StepNavigation" type="Navigation2D" parent="StepTwoVaccines" groups=["LevelNavigation"]]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="StepTwoVaccines/StepNavigation"]
+visible = false
 position = Vector2( 7334.65, -0.891052 )
 navpoly = SubResource( 13 )
 
 [node name="BasicEnemy24" parent="StepTwoVaccines" instance=ExtResource( 2 )]
-position = Vector2( 1719.13, -71.8961 )
+position = Vector2( 1717.47, -69.4085 )
 patroll_to = Vector2( 1719.13, -71.896 )
 patroll_from = Vector2( 1712.63, 152.809 )
 injured_sfx = SubResource( 18 )
@@ -144,7 +127,7 @@ shape = SubResource( 11 )
 script = ExtResource( 11 )
 
 [node name="ControlInfo4" parent="StepThreeAlcohol" instance=ExtResource( 8 )]
-position = Vector2( 10534.4, 9.6955 )
+position = Vector2( 10261.8, 29.1853 )
 hframe = 4
 vframe = 1
 scala = Vector2( 0.7, 0.7 )
@@ -152,6 +135,7 @@ textura = ExtResource( 7 )
 flip = true
 
 [node name="StepNavigation" type="Navigation2D" parent="StepThreeAlcohol" groups=["LevelNavigation"]]
+visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="StepThreeAlcohol/StepNavigation"]
 navpoly = SubResource( 19 )
@@ -163,7 +147,7 @@ opened = false
 
 [node name="Alcohol" parent="StepThreeAlcohol" instance=ExtResource( 14 )]
 material = SubResource( 5 )
-position = Vector2( 3223.61, -85.7747 )
+position = Vector2( 3171.55, 77.6805 )
 item_quantity = 10
 
 [node name="FinishTrigger" type="Area2D" parent="StepThreeAlcohol"]
@@ -184,7 +168,7 @@ patroll_from = Vector2( 4566.47, 134.144 )
 injured_sfx = SubResource( 18 )
 
 [node name="BasicEnemy27" parent="StepThreeAlcohol" instance=ExtResource( 2 )]
-position = Vector2( 3599.46, 127.326 )
+position = Vector2( 3605.71, 130.449 )
 patroll_to = Vector2( 3782.8, -56.014 )
 patroll_from = Vector2( 3599.46, 127.326 )
 injured_sfx = SubResource( 18 )

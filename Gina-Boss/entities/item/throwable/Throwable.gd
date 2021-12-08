@@ -52,4 +52,6 @@ func _on_Hitbox_body_entered(body):
 
 
 func _on_LifetimeTimer_timeout():
+	throwable_scene.impact()
+	yield(throwable_scene, "finished_impact")
 	call_deferred("_remove")

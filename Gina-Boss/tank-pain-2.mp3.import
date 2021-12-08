@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tank-pain-2.mp3-95bce1dd44de84b1399c1916d72dad4f.mp3str"
+
+[deps]
+
+source_file="res://tank-pain-2.mp3"
+dest_files=[ "res://.import/tank-pain-2.mp3-95bce1dd44de84b1399c1916d72dad4f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

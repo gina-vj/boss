@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://BigEnemy.gd" type="Script" id=2]
+[ext_resource path="res://assets/shader/noise_combined.png" type="Texture" id=3]
+[ext_resource path="res://70.mp3" type="AudioStream" id=4]
+[ext_resource path="res://tank-pain-2.mp3" type="AudioStream" id=5]
+
+[sub_resource type="CircleShape2D" id=4]
+resource_local_to_scene = true
+radius = 597.508
+
+[sub_resource type="CapsuleShape2D" id=5]
+resource_local_to_scene = true
+radius = 43.75
+height = 57.5001
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_img;
+uniform float speed = 1.0;
+uniform vec4 smoke_color : hint_color;
+
+void fragment(){
+	vec2 uv1 = vec2(UV.x + TIME*speed, UV.y);
+	vec2 uv2 = vec2(UV.x - TIME*speed, UV.y);
+	vec2 uv3 = vec2(UV.x, UV.y + TIME*speed);
+	
+	
+	float noise_r = texture( noise_img, uv1 ).r;
+	float noise_g = texture( noise_img, uv2 ).g;
+	float noise_b = texture( noise_img, uv3 ).b;
+	
+	vec3 new_color = vec3(noise_r, noise_g, noise_b);
+	
+	float new_alpha = noise_r * noise_g * noise_b;
+	
+	COLOR.rgb = smoke_color.rgb;//texture(TEXTURE, UV).rgb;
+	COLOR.a = clamp(new_alpha * 15.0 * texture(TEXTURE, UV).a, 0.0, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+render_priority = 1
+shader = SubResource( 3 )
+shader_param/speed = 0.028
+shader_param/smoke_color = Color( 2.21875, 3, 0.5, 1 )
+shader_param/noise_img = ExtResource( 3 )
+
+[sub_resource type="StreamTexture" id=7]
+resource_local_to_scene = true
+flags = 4
+load_path = "res://.import/spotlight_3.png-feaf4cd8ec89acdf709d5c39d9ae6ba8.stex"
+
+[sub_resource type="StreamTexture" id=8]
+resource_local_to_scene = true
+flags = 4
+load_path = "res://.import/enemy-release.png-4498d4cc6e3ade0950e2e163370824e9.stex"
+
+[sub_resource type="CapsuleShape2D" id=9]
+resource_local_to_scene = true
+radius = 30.1833
+height = 93.1276
+
+[node name="BigEnemy" instance=ExtResource( 1 )]
+position = Vector2( 262, 225 )
+script = ExtResource( 2 )
+SPEED = 300
+contagion_zone_damage = 5
+injured_sfx = ExtResource( 5 )
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+shape = SubResource( 4 )
+
+[node name="Detector" parent="ContationArea" index="0"]
+position = Vector2( 1.25003, -36.2499 )
+rotation = 0.0
+shape = SubResource( 5 )
+
+[node name="Fire" parent="ContationArea" index="1"]
+modulate = Color( 0.513726, 0.0901961, 0.490196, 1 )
+material = SubResource( 6 )
+position = Vector2( 3.75006, -31.25 )
+scale = Vector2( 2, 2 )
+texture = SubResource( 7 )
+
+[node name="Body" parent="." index="4"]
+modulate = Color( 1, 0.623529, 0.623529, 1 )
+scale = Vector2( 0.6, 0.6 )
+texture = SubResource( 8 )
+frame = 7
+
+[node name="CollisionBody" parent="." index="5"]
+shape = SubResource( 9 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="12"]
+stream = ExtResource( 4 )

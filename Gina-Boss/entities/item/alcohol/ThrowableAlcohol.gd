@@ -7,6 +7,7 @@ onready var body = $Body
 onready var trail_particles: Particles2D = $Trail
 onready var impact_particles: Particles2D = $Impact
 onready var sfx: AudioStreamPlayer2D = $SFX
+onready var water_explosion = $WaterExplosion
 
 export (AudioStream) var impact_sound
 
@@ -22,5 +23,6 @@ func impact():
 	body.visible = false
 	sfx.stream = impact_sound
 	sfx.play()
-	yield(get_tree().create_timer(0.5), "timeout")
+	water_explosion.initiate_explosion()
+	yield(water_explosion, "exposion_finished")
 	emit_signal("finished_impact")

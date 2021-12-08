@@ -20,7 +20,7 @@ const SECOND_COMPONENT_DIALOG= [
 const THIRD_COMPONENT_DIALOG = ["¡Gina, sos una guerrera! \n\nLogré desactivar la última barrera laser \n\nque bloqueaba el paso a la sala central. \n\nEsto se encuentra al Este de dónde encontraste el primer componente.\n\n",
 "Corre hacia allí porque cada minuto que pasa hay más infectados, \n\nno hay tiempo que perder y acordate de usar tus items con sabiduría. \n\nNos vemos del otro lado!"]
 
-const END_TUTORIAL_DIALOG = ["Gina, gracias a esta práctica, estás lista para ayudarnos con la mision! \n\n Recuerda que nuesras vacunas experimentales y alcohol no hacen daño a los infectados \n\n pero si te protegeran de ellos. \n\n Avanza hacia la plataforma para comenzar. Buena suerte"]
+const END_TUTORIAL_DIALOG = ["Gina, gracias a esta práctica, estás lista para ayudarnos con la mision!", "Recuerda que nuesras vacunas experimentales y \n\n alcohol no hacen daño a los infectados pero si te protegeran de ellos. \n\n Avanza hacia la plataforma para comenzar. Buena suerte"]
 
 var selected_dialog_index
 var TEXT_SPEED = 0.01
@@ -55,8 +55,15 @@ func load_dialog():
 		dialog_container.text = selected_dialog[dialog_index]
 		dialog_container.percent_visible = 0
 		var tween_duration = TEXT_SPEED * selected_dialog[dialog_index].length()
-		tween.interpolate_property(dialog_container, "percent_visible", 0.0, 1.0, 
-		tween_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		tween.interpolate_property(
+			dialog_container, 
+			"percent_visible", 
+			0.0, 
+			1.0, 
+			tween_duration, 
+			Tween.TRANS_LINEAR, 
+			Tween.EASE_IN_OUT
+		)
 		tween.start()
 		dialog_index += 1
 	else: 
