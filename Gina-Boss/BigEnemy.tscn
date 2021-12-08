@@ -69,6 +69,7 @@ script = ExtResource( 2 )
 SPEED = 300
 contagion_zone_damage = 5
 injured_sfx = ExtResource( 5 )
+base_hits_needed = 3
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource( 4 )

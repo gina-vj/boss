@@ -66,6 +66,7 @@ texture = ExtResource( 3 )
 position = Vector2( 16, 0 )
 emitting = false
 amount = 100
+lifetime = 0.5
 one_shot = true
 speed_scale = 3.46
 process_material = SubResource( 2 )
