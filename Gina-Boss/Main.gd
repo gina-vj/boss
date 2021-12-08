@@ -1,6 +1,6 @@
 extends Node
 
-onready var player = $Environment/Gina
+onready var player = $Gina
 onready var background = $Background/ColorRect
 onready var screen_dimensions = get_viewport().size 
 
