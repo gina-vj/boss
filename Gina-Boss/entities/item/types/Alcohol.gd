@@ -4,7 +4,7 @@ class_name Alcohol
 const type: String= "ALCOHOL"
 
 const velocity:int = 300
-const duration:float = 1.0
+const duration:float = 0.8
 const disinfection_duration = 6
 
 var scene setget ,get_scene

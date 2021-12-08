@@ -3,7 +3,7 @@ class_name ExperimentalVaccine
 
 const type: String = "EXPERIMENTAL_VACCINE"
 const velocity:int = 300
-const duration:float = 0.5
+const duration:float = 0.8
 const innoculation_duration = 5
 
 var scene setget ,get_scene
