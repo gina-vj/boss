@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://entities/item/face_mask/FaceMask.tscn" type="PackedScene" id=1]
-[ext_resource path="res://niveles/Nivel1.gd" type="Script" id=2]
+[ext_resource path="res://niveles/nivel1/Nivel1.gd" type="Script" id=2]
 [ext_resource path="res://entities/player/Gina.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/item/alcohol/Alcohol.tscn" type="PackedScene" id=6]
