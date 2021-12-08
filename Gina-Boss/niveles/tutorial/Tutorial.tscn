@@ -69,13 +69,13 @@ tile_data = PoolIntArray( -131209, 38, 0, -131208, 36, 0, -131207, 36, 0, -13120
 script = ExtResource( 10 )
 
 [node name="ControlInfo1" parent="StepOneMovements" instance=ExtResource( 8 )]
-position = Vector2( -1334.99, 42.8145 )
+position = Vector2( -1009.62, 19.154 )
 animation = false
 hframe = 1
 textura = ExtResource( 12 )
 
 [node name="ControlInfo2" parent="StepOneMovements" instance=ExtResource( 8 )]
-position = Vector2( -1062.64, 46.429 )
+position = Vector2( -1364.55, 30.2422 )
 animation = false
 hframe = 1
 scala = Vector2( 0.7, 0.7 )
@@ -196,7 +196,7 @@ position = Vector2( 5277.74, -83.938 )
 dialog_index = 4
 
 [node name="NextLevelTrigger" type="Area2D" parent="StepFourFinish"]
-position = Vector2( 5487.67, 36.4227 )
+position = Vector2( 5457.57, 35.2651 )
 collision_layer = 0
 collision_mask = 2
 __meta__ = {
@@ -261,9 +261,7 @@ __meta__ = {
 [node name="IconInfo" type="Sprite" parent="StepFiveFaceMask/CanvasLayer/Container"]
 visible = false
 position = Vector2( 70.2141, 8.93634 )
-scale = Vector2( 0.208333, 0.131291 )
 texture = ExtResource( 18 )
-flip_h = true
 
 [node name="Timer" type="Timer" parent="StepFiveFaceMask"]
 
