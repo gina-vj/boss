@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://entities/item/face_mask/FaceMask.tscn" type="PackedScene" id=1]
 [ext_resource path="res://niveles/nivel1/Nivel1.gd" type="Script" id=2]
 [ext_resource path="res://entities/player/Gina.tscn" type="PackedScene" id=3]
+[ext_resource path="res://BigEnemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/enemies/basic_enemy/BasicEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/item/alcohol/Alcohol.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/level_tileset.tres" type="TileSet" id=7]
@@ -69,9 +70,9 @@ patroll_from = Vector2( 2477.55, 131.127 )
 injured_sfx = SubResource( 18 )
 
 [node name="BasicEnemy4" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
-position = Vector2( 2429.32, 527.211 )
-patroll_to = Vector2( 2429.32, 527.211 )
-patroll_from = Vector2( 2927.8, 431.521 )
+position = Vector2( 2626.57, 444.159 )
+patroll_to = Vector2( 2626.57, 444.159 )
+patroll_from = Vector2( 2920.71, 444.159 )
 injured_sfx = SubResource( 18 )
 
 [node name="BasicEnemy5" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
@@ -81,9 +82,9 @@ patroll_from = Vector2( 2396.34, 638.929 )
 injured_sfx = SubResource( 18 )
 
 [node name="BasicEnemy6" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
-position = Vector2( 2430.34, 750.647 )
-patroll_to = Vector2( 3424, 1088 )
-patroll_from = Vector2( 2430.34, 750.647 )
+position = Vector2( 2918.27, 761.028 )
+patroll_to = Vector2( 2918.27, 761.028 )
+patroll_from = Vector2( 2631.05, 778.331 )
 injured_sfx = SubResource( 18 )
 
 [node name="BasicEnemy7" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
@@ -188,12 +189,6 @@ patroll_to = Vector2( 2159.36, -2430.91 )
 patroll_from = Vector2( 1562.62, -2412.46 )
 injured_sfx = SubResource( 18 )
 
-[node name="BasicEnemy18" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
-position = Vector2( 2971.57, -3208.11 )
-patroll_to = Vector2( 4608, 2256 )
-patroll_from = Vector2( 4752, 2256 )
-injured_sfx = SubResource( 18 )
-
 [node name="BasicEnemy24" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
 position = Vector2( 3590.66, -3124.89 )
 patroll_to = Vector2( 3590.66, -3124.89 )
@@ -210,12 +205,6 @@ injured_sfx = SubResource( 18 )
 position = Vector2( 2452.2, -2867.99 )
 patroll_to = Vector2( 2332.28, -2681.73 )
 patroll_from = Vector2( 2602.74, -3110.38 )
-injured_sfx = SubResource( 18 )
-
-[node name="BasicEnemy20" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
-position = Vector2( 2445.93, -3471.11 )
-patroll_to = Vector2( 2316.46, -3954.65 )
-patroll_from = Vector2( 2464.43, -3196.31 )
 injured_sfx = SubResource( 18 )
 
 [node name="BasicEnemy21" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
@@ -235,6 +224,26 @@ position = Vector2( 1962.52, -3505.95 )
 patroll_to = Vector2( 2130.92, -3692.21 )
 patroll_from = Vector2( 1755.85, -3314.58 )
 injured_sfx = SubResource( 18 )
+
+[node name="BigEnemy" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 4 )]
+position = Vector2( 2403.74, -3747.52 )
+patroll_to = Vector2( 2550.72, -3523.38 )
+patroll_from = Vector2( 2315.56, -3817.33 )
+
+[node name="BigEnemy2" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 4 )]
+position = Vector2( 2686.68, -3358.02 )
+patroll_to = Vector2( 2686.68, -3358.02 )
+patroll_from = Vector2( 2829.98, -3144.91 )
+
+[node name="BigEnemy3" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 4 )]
+position = Vector2( 3134.61, -1363.22 )
+patroll_to = Vector2( 3134.61, -1363.22 )
+patroll_from = Vector2( 2723.76, -1368.93 )
+
+[node name="BigEnemy4" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 4 )]
+position = Vector2( 2432.66, 858.413 )
+patroll_to = Vector2( 2432.66, 858.413 )
+patroll_from = Vector2( 2429.2, 356.639 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )
@@ -261,7 +270,7 @@ item_quantity = 5
 [node name="ExperimentalVaccine4" parent="Items" instance=ExtResource( 8 )]
 material = SubResource( 5 )
 position = Vector2( 3388.58, -1922.36 )
-item_quantity = 3
+item_quantity = 10
 
 [node name="ExperimentalVaccine3" parent="Items" instance=ExtResource( 8 )]
 material = SubResource( 5 )
