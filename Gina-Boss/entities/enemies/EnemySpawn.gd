@@ -23,4 +23,5 @@ func _spawn_element(scene:PackedScene):
 ## Execution on runtime
 func _ready():
 	if !Engine.editor_hint:
-		call_deferred("_initialize")
+		for child in get_children():
+			child.navigation = get_parent()
