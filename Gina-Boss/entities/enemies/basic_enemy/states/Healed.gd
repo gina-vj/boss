@@ -1,8 +1,8 @@
 extends "res://entities/enemies/basic_enemy/states/AbstractBasicEnemyState.gd"
 
 onready var timer: Timer = $Timer
-export var max_wait: int = 1.5
-export var min_wait: int = 1
+export var max_wait: int = 2
+export var min_wait: int = 1.5
 
 func enter():
 	parent.path = []

@@ -48,6 +48,7 @@ func game_over():
 	emit_signal("game_over")
 
 func restart():
+	Bag.empty_bag()
 	area_protection = null
 	emit_signal("restart")
 

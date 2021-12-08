@@ -81,8 +81,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Bag="*res://globals/Bag.gd"
-PlayerData="*res://globals/PlayerData.gd"
 GameHandler="*res://globals/GameHandler.gd"
+PlayerData="*res://globals/PlayerData.gd"
 
 [input]
 

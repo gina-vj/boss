@@ -10,8 +10,9 @@ const WELCOME_DIALOG = [
 "Si te persiguen lo mejor es correr! \n\nRecordá no quedarte mucho cerca de ellos que te vas a contagiar! \n\nSuerte... \n\nla vas a necesitar..."]
 
 const FIRST_COMPONENT_DIALOG = [
-"¡Veo que lograste conseguir el primer componente! \n\nes una buena noticia pero no te relajes que los próximos dos sectores \n\nson los que están más atestados de estas personas infectadas!\n\n", 
-"Seguramente ya viste que te dejé algunos items \n\nacá al lado que te pueden servir.. \n\nLas vacunas experimentales no curan a los infectados, pero\n\nte pueden dar el suficiente tiempo para huír, usalos con sabiduría!!"]
+"¡Veo que lograste conseguir el primer componente! \n\n es una buena noticia pero no te relajes que los próximos dos sectores \n\nson los que están más atestados de estas personas infectadas!\n\n",
+"Encontra los 2 componentes restantes lo mas rapido posible por favor... \n\n antes  de que todo este perdido"
+]
 
 const SECOND_COMPONENT_DIALOG= [
 "Que bueno verte en este sector porque significa que tu misión \n\nestá siendo exitosa, te confieso que me estaba preocupando un poco. \n\nNo hay tiempo que perder, te dejé unos items más al lado de la computadora \n\nque espero te ayuden a superar lo que viene.\n\n",

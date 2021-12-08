@@ -153,10 +153,22 @@ patroll_to = Vector2( 4704, -1280 )
 patroll_from = Vector2( 4736, -584 )
 injured_sfx = SubResource( 18 )
 
+[node name="BasicEnemy20" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
+position = Vector2( 4545.2, -1223.07 )
+patroll_to = Vector2( 4545.2, -1223.07 )
+patroll_from = Vector2( 4172.16, -1143.34 )
+injured_sfx = SubResource( 18 )
+
 [node name="BasicEnemy14" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
 position = Vector2( 2984, -832 )
 patroll_to = Vector2( 2736, -1336 )
 patroll_from = Vector2( 3120, -768 )
+injured_sfx = SubResource( 18 )
+
+[node name="BasicEnemy18" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
+position = Vector2( 2758.31, -1064.24 )
+patroll_to = Vector2( 2758.31, -1064.23 )
+patroll_from = Vector2( 2702.7, -1433.85 )
 injured_sfx = SubResource( 18 )
 
 [node name="BasicEnemy12" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 5 )]
@@ -231,12 +243,17 @@ patroll_to = Vector2( 2550.72, -3523.38 )
 patroll_from = Vector2( 2315.56, -3817.33 )
 
 [node name="BigEnemy2" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 4 )]
-position = Vector2( 2686.68, -3358.02 )
+position = Vector2( 2638.52, -3358.02 )
 patroll_to = Vector2( 2686.68, -3358.02 )
 patroll_from = Vector2( 2829.98, -3144.91 )
 
+[node name="BigEnemy6" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 4 )]
+position = Vector2( 1418.24, -2747.62 )
+patroll_to = Vector2( 1724.42, -2217.82 )
+patroll_from = Vector2( 1376.96, -2954.03 )
+
 [node name="BigEnemy3" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 4 )]
-position = Vector2( 3134.61, -1363.22 )
+position = Vector2( 3307.97, -1330.51 )
 patroll_to = Vector2( 3134.61, -1363.22 )
 patroll_from = Vector2( 2723.76, -1368.93 )
 
@@ -249,6 +266,11 @@ patroll_from = Vector2( 3901.85, -1247.41 )
 position = Vector2( 2432.66, 858.413 )
 patroll_to = Vector2( 2432.66, 858.413 )
 patroll_from = Vector2( 2429.2, 356.639 )
+
+[node name="BigEnemy7" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 4 )]
+position = Vector2( 3480.06, -3457.07 )
+patroll_to = Vector2( 3480.06, -3457.07 )
+patroll_from = Vector2( 3394.65, -3807.7 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 7 )
@@ -325,17 +347,17 @@ item_quantity = 2
 [node name="FaceMask2" parent="Items" instance=ExtResource( 1 )]
 material = SubResource( 5 )
 position = Vector2( 931.333, -314.841 )
-item_quantity = 1
+item_quantity = 2
 
 [node name="FaceMask3" parent="Items" instance=ExtResource( 1 )]
 material = SubResource( 5 )
 position = Vector2( 3419.1, 792.902 )
-item_quantity = 1
+item_quantity = 2
 
 [node name="FaceMask5" parent="Items" instance=ExtResource( 1 )]
 material = SubResource( 5 )
 position = Vector2( 3756.14, -1206.98 )
-item_quantity = 1
+item_quantity = 2
 
 [node name="FaceMask4" parent="Items" instance=ExtResource( 1 )]
 material = SubResource( 5 )
@@ -347,6 +369,9 @@ item_quantity = 2
 [node name="Computer2" parent="Computers" instance=ExtResource( 17 )]
 position = Vector2( 3401.19, 440.689 )
 dialog_index = 1
+
+[node name="Computer3" parent="Computers" instance=ExtResource( 17 )]
+position = Vector2( 163.283, -48.5892 )
 
 [node name="VaccineComponents" type="Node" parent="."]
 
