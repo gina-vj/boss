@@ -240,6 +240,11 @@ position = Vector2( 3134.61, -1363.22 )
 patroll_to = Vector2( 3134.61, -1363.22 )
 patroll_from = Vector2( 2723.76, -1368.93 )
 
+[node name="BigEnemy5" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 4 )]
+position = Vector2( 3882.55, -740.748 )
+patroll_to = Vector2( 3882.54, -740.748 )
+patroll_from = Vector2( 3901.85, -1247.41 )
+
 [node name="BigEnemy4" parent="LevelNavigation/EnemySpawn" instance=ExtResource( 4 )]
 position = Vector2( 2432.66, 858.413 )
 patroll_to = Vector2( 2432.66, 858.413 )
