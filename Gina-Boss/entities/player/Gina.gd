@@ -37,8 +37,11 @@ func initialize(_item_throwable_container):
 
 func _ready():
 	state_machine.set_parent(self)
-	PlayerData.current_health = max_health
+	reset_health()
 
+func reset_health():
+	PlayerData.current_health = max_health
+	
 func _handle_move_input():
 	direction = Vector2(
 		Input.get_axis("move_left", "move_right"),
