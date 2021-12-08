@@ -7,6 +7,7 @@ export(int, "Alcohol", "Experimental Vaccine", "Face Mask", "Suit") var item_typ
 
 onready var item_quantity_node = $ItemQuantityBackground/ItemQuantity
 onready var sfx: AudioStreamPlayer2D = $SFX
+onready var collision = $DetectionArea/CollisionShape2D
 
 var type = null
 
@@ -24,8 +25,9 @@ func index_to_type():
 
 
 func _on_DetectionArea_body_entered(_body):
-	sfx.play()
 	visible = false
+	collision.set_deferred("disabled", true)
+	sfx.play()
 	Bag.add_item(type, item_quantity)
 	yield(sfx, "finished")
 	queue_free()

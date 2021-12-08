@@ -48,7 +48,7 @@ func take_alcohol():
 	alcohol -= 1
 	return Alcohol.new()
 	
-func _on_restart():
+func empty_bag():
 	face_masks = 0
 	suits = 0
 	experimental_vaccines = 0
