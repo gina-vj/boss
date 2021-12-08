@@ -4,6 +4,7 @@ onready var laser_door = $LaserDoor
 onready var icon_info=$CanvasLayer/Container/IconInfo
 onready var timer=$Timer
 onready var navigation = $StepNavigation
+onready var FinishTrigger= $FinishTrigger
 
 func _ready():
 	for child in get_children():
@@ -17,4 +18,5 @@ func _on_FinishTrigger_body_entered(body):
 	
 
 func _on_Timer_timeout():
-	icon_info.visible=false
+	icon_info.modulate.a=0
+	
