@@ -16,7 +16,6 @@ func open():
 	lasers.toogle(true)
 	sfx.stop()
 
-
 func close():
 	lasers.toogle(false)
 	sfx.play()

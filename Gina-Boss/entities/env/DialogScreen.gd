@@ -20,6 +20,8 @@ const SECOND_COMPONENT_DIALOG= [
 const THIRD_COMPONENT_DIALOG = ["¡Gina, sos una guerrera! \n\nLogré desactivar la última barrera laser \n\nque bloqueaba el paso a la sala central. \n\nEsto se encuentra al Este de dónde encontraste el primer componente.\n\n",
 "Corre hacia allí porque cada minuto que pasa hay más infectados, \n\nno hay tiempo que perder y acordate de usar tus items con sabiduría. \n\nNos vemos del otro lado!"]
 
+const END_TUTORIAL_DIALOG = ["Gina, gracias a esta práctica, estás lista para ayudarnos con la mision! \n\n Presiona la barra para avanzar"]
+
 var selected_dialog_index
 var TEXT_SPEED = 0.01
 var dialog_index = 0
@@ -44,7 +46,8 @@ func get_selected_dialog():
 		WELCOME_DIALOG, 
 		FIRST_COMPONENT_DIALOG, 
 		SECOND_COMPONENT_DIALOG, 
-		THIRD_COMPONENT_DIALOG
+		THIRD_COMPONENT_DIALOG,
+		END_TUTORIAL_DIALOG
 	][selected_dialog_index]
 
 func load_dialog():	
