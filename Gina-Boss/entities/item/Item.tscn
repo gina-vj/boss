@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://entities/item/Item.gd" type="Script" id=1]
 [ext_resource path="res://assets/gui/label_HP_bg.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/grab.ogg" type="AudioStream" id=3]
+[ext_resource path="res://entities/item/Item.tres" type="DynamicFont" id=4]
 
 [sub_resource type="ShaderMaterial" id=5]
 
@@ -113,5 +114,35 @@ __meta__ = {
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 bus = "Sfx"
+
+[node name="Pickup" type="Node2D" parent="."]
+position = Vector2( 0.19241, -61.5201 )
+z_index = 2
+z_as_relative = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PickupTween" type="Tween" parent="Pickup"]
+
+[node name="PickupLabel" type="Label" parent="Pickup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+grow_horizontal = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 4 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
