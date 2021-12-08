@@ -5,6 +5,7 @@ export (PackedScene) var nivel1
 
 onready var player = $Gina
 onready var background = $Background/ColorRect
+onready var transitionAnimation = $GUI/TransitionAnimation
 onready var screen_dimensions = get_viewport().size 
 var nivel_actual = 1
 
@@ -24,8 +25,10 @@ func load_level():
 	add_child(nuevo_nivel)
 
 func next_level():
+	transitionAnimation.play("fade")
 	GameHandler.nivel_actual += 1
+	yield(transitionAnimation, "animation_finished")
 	get_tree().get_nodes_in_group("nivel")[0].queue_free()
 	load_level()
-	get_tree().get_nodes_in_group("Player")[0].position = Vector2(0,0)
-	
+	transitionAnimation.play_backwards("fade")
+	get_tree().get_nodes_in_group("Player")[0].position = Vector2(0,0)	
