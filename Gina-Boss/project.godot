@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "PlayerBag",
 "language": "GDScript",
-"path": "res://entities/globals/Bag.gd"
+"path": "res://globals/Bag.gd"
 }, {
 "base": "Node",
 "class": "Suit",
@@ -80,8 +80,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Bag="*res://entities/globals/Bag.gd"
-PlayerData="*res://entities/globals/PlayerData.gd"
+Bag="*res://globals/Bag.gd"
+GameHandler="*res://globals/GameHandler.gd"
+PlayerData="*res://globals/PlayerData.gd"
 
 [input]
 
