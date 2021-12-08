@@ -37,7 +37,6 @@ shape = SubResource( 2 )
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-autoplay = true
 max_distance = 300.0
 
 [connection signal="body_entered" from="FirstDoorstep" to="." method="toogle_door"]

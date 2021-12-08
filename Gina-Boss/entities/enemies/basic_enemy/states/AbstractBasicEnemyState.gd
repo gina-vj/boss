@@ -52,5 +52,3 @@ func notify_body_exited(_body):
 		emit_signal("finished", "idle")
 	parent.target = null
 
-func item_detected(_item):
-	pass

@@ -26,3 +26,7 @@ func exit():
 
 func _on_ContagionTimmer_timeout():
 	hurt_player_with_contagion_zone()
+
+
+func _on_ContagionTimer_timeout():
+	pass # Replace with function body.

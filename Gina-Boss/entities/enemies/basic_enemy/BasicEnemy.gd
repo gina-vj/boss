@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name BasicEnemy
 
 export(int) var SPEED: int = 150
-export(int) var contagion_zone_damage: int = 1
+export(int) var contagion_zone_damage: int = 2
 export(Vector2) var patroll_to = null
 export(Vector2) var patroll_from = null
 export (AudioStream) var injured_sfx
@@ -17,6 +17,7 @@ onready var animation_player:AnimationPlayer = $AnimationPlayer
 onready var body:Sprite = $Body
 onready var enemy_sfx:AudioStreamPlayer=$EnemySfx
 onready var steps_sfx:AudioStreamPlayer2D=$EnemySteps
+onready var healed_particles:Particles2D = $HealedParticles
 
 const MINIMUM_DISTANCE_TO_TARGET = 30
 
@@ -28,6 +29,7 @@ var contagion_target:Player = null
 var velocity: Vector2 = Vector2.ZERO
 var current_projectile = null
 var direction_helper = DirectionHelper.new()
+var healed = false
 
 func _ready():
 	state_machine.set_parent(self)
@@ -66,8 +68,8 @@ func notify_hit(projectile):
 	projectile.hit(self)
 	_injured_sfx()
 
-func run_away():
-	state_machine.run_away()	
+func temporary_heal():
+	state_machine.healed()	
 
 func desinfect_area(time):
 	contagion_area.visible = false
@@ -100,6 +102,8 @@ func play_idle_animation():
 		body.flip_h = false
 		animation = "idle_lateral"
 
+	if healed:
+		animation = animation + "_healted"
 	animation_player.play(animation)
 
 func play_moving_animation():
