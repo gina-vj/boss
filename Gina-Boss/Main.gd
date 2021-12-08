@@ -3,7 +3,6 @@ extends Node
 export (PackedScene) var tutorial
 export (PackedScene) var nivel1
 
-onready var player = $Gina
 onready var background = $Background/ColorRect
 onready var transitionAnimation = $GUI/TransitionAnimation
 onready var screen_dimensions = get_viewport().size 
@@ -12,7 +11,6 @@ var nivel_actual = 1
 func _ready():
 	randomize()
 	load_level()
-	player.initialize(self)
 	VisualServer.set_default_clear_color(Color.gray)
 
 func load_level():
@@ -31,4 +29,4 @@ func next_level():
 	get_tree().get_nodes_in_group("nivel")[0].queue_free()
 	load_level()
 	transitionAnimation.play_backwards("fade")
-	get_tree().get_nodes_in_group("Player")[0].position = Vector2(0,0)	
+

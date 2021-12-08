@@ -2,6 +2,7 @@ extends Node
 
 onready var laser_door = $LaserDoor
 onready var navigation = $StepNavigation
+
 func _ready():
 	laser_door.open()
 	laser_door.lock()
