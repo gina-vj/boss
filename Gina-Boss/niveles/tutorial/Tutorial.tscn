@@ -239,6 +239,7 @@ __meta__ = {
 shape = SubResource( 20 )
 
 [node name="FaceMask" parent="StepFiveFaceMask/FinishTrigger" instance=ExtResource( 16 )]
+scale = Vector2( 0.997141, 1 )
 item_quantity = 3
 
 [node name="StepNavigation" type="Navigation2D" parent="StepFiveFaceMask"]

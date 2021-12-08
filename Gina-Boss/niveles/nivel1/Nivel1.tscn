@@ -370,9 +370,6 @@ item_quantity = 2
 position = Vector2( 3401.19, 440.689 )
 dialog_index = 1
 
-[node name="Computer3" parent="Computers" instance=ExtResource( 17 )]
-position = Vector2( 163.283, -48.5892 )
-
 [node name="VaccineComponents" type="Node" parent="."]
 
 [node name="VaccineComponent" parent="VaccineComponents" instance=ExtResource( 14 )]

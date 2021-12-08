@@ -60,7 +60,7 @@ shader = ExtResource( 3 )
 shader_param/active = false
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 57.7065
+radius = 97.8861
 
 [sub_resource type="CircleShape2D" id=8]
 radius = 101.457
