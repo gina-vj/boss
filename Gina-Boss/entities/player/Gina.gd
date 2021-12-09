@@ -8,8 +8,11 @@ onready var collision_shape = $CollisionShape2D
 onready var animation_base_player:AnimationPlayer=$AnimationBase
 onready var animation_face_mask_player:AnimationPlayer=$AnimationFaceMask
 onready var player_sfx:AudioStreamPlayer=$PlayerSfx
+onready var expend_stamina_timer: Timer = $ExpendStaminaTimer
+onready var recover_stamina_timer: Timer = $RecoverStaminaTimer
 
 export (int) var max_health = 20
+export (int) var max_stamina = 5
 export (float) var ACCELERATION:float = 10.0
 export (float) var SPEED_LIMIT:float = 170.0
 export (float) var FRICTION_WEIGHT:float = 0.2
@@ -37,6 +40,7 @@ func initialize(_item_throwable_container):
 
 func _ready():
 	state_machine.set_parent(self)
+	PlayerData.current_stamina = max_stamina
 	reset_health()
 
 func reset_health():
@@ -208,3 +212,17 @@ func _grab_item_sfx():
 func _on_TimerHurt_timeout():
 	body.material.set_shader_param("flash_modifier",0)
 	
+
+
+func _on_ExpendStaminaTimer_timeout():
+	if PlayerData.current_stamina <= 0:
+		state_machine.stamina_empty()
+		expend_stamina_timer.stop()
+	else:
+		PlayerData.expend_stamina()
+
+func _on_RecoverStaminaTimer_timeout():
+	if PlayerData.current_stamina >= max_stamina:
+		recover_stamina_timer.stop()
+	else:
+		PlayerData.recover_stamine()

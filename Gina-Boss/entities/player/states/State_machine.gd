@@ -15,3 +15,6 @@ func notify_hit(amount):
 	player.receive_damage(amount)
 	if(!player.still_alive()):
 		_change_state("dead")
+
+func stamina_empty():
+	_change_state("walk")

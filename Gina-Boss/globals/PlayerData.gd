@@ -13,6 +13,7 @@ signal dash_available()
 signal dash_unavailable()
 
 var current_health:int
+var current_stamina:int
 var area_protection = null
 
 func first_component_found():
@@ -23,6 +24,13 @@ func second_component_found():
 
 func third_component_found():
 	emit_signal("third_component_found")
+
+func recover_stamine():
+	current_stamina += 1
+
+func expend_stamina():
+	if current_stamina > 0:
+		current_stamina -= 1
 
 func receive_area_damage(amount):
 	if area_protection != null:

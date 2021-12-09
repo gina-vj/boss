@@ -922,13 +922,6 @@ script = ExtResource( 3 )
 [node name="Dash" type="Node2D" parent="StateMachine"]
 script = ExtResource( 9 )
 
-[node name="DashTimer" type="Timer" parent="StateMachine/Dash"]
-one_shot = true
-
-[node name="DashRecuperationTimer" type="Timer" parent="StateMachine/Dash"]
-wait_time = 5.0
-one_shot = true
-
 [node name="Dead" type="Node2D" parent="StateMachine"]
 script = ExtResource( 8 )
 
@@ -1006,8 +999,14 @@ bus = "Sfx"
 
 [node name="TimerHurt" type="Timer" parent="."]
 
-[connection signal="timeout" from="StateMachine/Dash/DashTimer" to="StateMachine/Dash" method="_on_DashTimer_timeout"]
-[connection signal="timeout" from="StateMachine/Dash/DashRecuperationTimer" to="StateMachine/Dash" method="_on_DashRecuperationTimer_timeout"]
+[node name="ExpendStaminaTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="RecoverStaminaTimer" type="Timer" parent="."]
+wait_time = 0.3
+
 [connection signal="timeout" from="StateMachine/IdleDead/IdleTimer" to="StateMachine/IdleDead" method="_on_IdleTimer_timeout"]
 [connection signal="timeout" from="Shooter/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="TimerHurt" to="." method="_on_TimerHurt_timeout"]
+[connection signal="timeout" from="ExpendStaminaTimer" to="." method="_on_ExpendStaminaTimer_timeout"]
+[connection signal="timeout" from="RecoverStaminaTimer" to="." method="_on_RecoverStaminaTimer_timeout"]

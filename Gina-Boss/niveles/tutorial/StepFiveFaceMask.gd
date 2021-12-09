@@ -1,6 +1,5 @@
 extends Node
 
-onready var laser_door = $LaserDoor
 onready var icon_info=$CanvasLayer/Container/IconInfo
 onready var timer=$Timer
 onready var navigation = $StepNavigation

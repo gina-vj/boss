@@ -2,19 +2,19 @@ extends Node2D
 
 signal exposion_finished()
 
-export (float) var disinfection_duration : float
+export (int) var disinfection_duration : int = 4
 
 onready var sound : AudioStreamPlayer2D = $AudioStreamPlayer2D
 onready var animated_sprite : AnimatedSprite = $AnimatedSprite
 onready var area : Area2D = $Area2D
 
 func _ready():
-	area.monitorable = false
-	area.monitoring = false
+	area.set_deferred("monitorable", false)
+	area.set_deferred("monitoring", false)
 
 func initiate_explosion():
-	area.monitorable = true
-	area.monitoring = true
+	area.set_deferred("monitorable", true)
+	area.set_deferred("monitoring", true)
 	animated_sprite.play("explosion")
 	sound.play(0.1)
 

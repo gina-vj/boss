@@ -13,11 +13,11 @@ func _ready():
 func shift_available():
 	dash.frame = 1
 	shift_animation.play("beat")
-	shift_bar._initialize()
+
 	
 
 func shift_unavailable():
 	dash.frame = 2
 	shift_animation.play("fade_out")
-	shift_bar._buy_dash()
+
 

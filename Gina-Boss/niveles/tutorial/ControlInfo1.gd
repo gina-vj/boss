@@ -8,7 +8,6 @@ export (bool) var  flip=false
 
 onready var icon =$Icon
 onready var timerOn=$TimerOn
-onready var timerOff=$TimerOff
 onready var animationNode=$AnimationPlayer
 
 func _ready():
