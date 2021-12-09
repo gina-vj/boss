@@ -12,4 +12,4 @@ func _pausa():
 	emit_signal("pausa")
 	
 func _on_Restart_pressed():
-	PlayerData.restart()
+	PlayerData.restart(false)

@@ -40,4 +40,4 @@ func go_to_main_menu():
 	
 func _on_restart_game_pressed():
 	Bag.empty_bag()
-	PlayerData.restart()
+	PlayerData.restart(false)

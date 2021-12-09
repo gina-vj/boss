@@ -55,10 +55,11 @@ func still_alive():
 func game_over():
 	emit_signal("game_over")
 
-func restart():
+func restart(is_new_level):
 	Bag.empty_bag()
 	area_protection = null
-	emit_signal("restart")
+	if !is_new_level:
+		emit_signal("restart")
 
 func main_menu():
 	emit_signal("main_menu")
