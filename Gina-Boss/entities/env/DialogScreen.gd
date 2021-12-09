@@ -29,7 +29,9 @@ var dialog_index = 0
 var selected_dialog
 
 func _ready():
+# warning-ignore:return_value_discarded
 	PlayerData.connect("player_by_computer", self, "open")
+# warning-ignore:return_value_discarded
 	PlayerData.connect("player_leave_computer", self, "close")
 	visible = false
 
@@ -56,6 +58,8 @@ func load_dialog():
 		dialog_container.text = selected_dialog[dialog_index]
 		dialog_container.percent_visible = 0
 		var tween_duration = TEXT_SPEED * selected_dialog[dialog_index].length()
+		
+		# warning-ignore:return_value_discarded
 		tween.interpolate_property(
 			dialog_container, 
 			"percent_visible", 
@@ -65,19 +69,21 @@ func load_dialog():
 			Tween.TRANS_LINEAR, 
 			Tween.EASE_IN_OUT
 		)
-		tween.start()
+		
+		# warning-ignore:return_value_discarded
+		tween.start()	
 		dialog_index += 1
 	else: 
 		close()
 
 func close():
 	selected_dialog_index = null
-	dialog_index = 0
+	self.dialog_index = 0
 	selected_dialog = null
 	visible = false
 
-func open(dialog_index):
-	self.selected_dialog_index = dialog_index
+func open(_dialog_index):
+	self.selected_dialog_index = _dialog_index
 	self.dialog_index = 0
 	visible = true
 	next_screen()

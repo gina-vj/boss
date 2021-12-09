@@ -40,10 +40,10 @@ func initialize(_item_throwable_container):
 
 func _ready():
 	state_machine.set_parent(self)
-	PlayerData.current_stamina = max_stamina
-	reset_health()
+	reset_health_and_stamina()
 
-func reset_health():
+func reset_health_and_stamina():
+	PlayerData.current_stamina = max_stamina
 	PlayerData.current_health = max_health
 	
 func _handle_move_input():
