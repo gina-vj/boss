@@ -65,9 +65,16 @@ func _apply_movement():
 		else:
 			play_moving_animation()
 	else:
-		play_dead_animation()
-
+		dead_animation(velocity.normalized())
+	
 	velocity = move_and_slide(velocity)
+
+func dead_animation(direction):
+	direction_helper.deduce_direction(direction)
+	if direction == Vector2.ZERO:
+		play_dead_idle_animation()
+	else:
+		play_dead_animation()
 
 func notify_hit(amount):
 	state_machine.notify_hit(amount)
@@ -95,9 +102,9 @@ func play_idle_animation():
 	elif direction_helper.looking_right():
 		body.flip_h = false
 		animation = "idle_lateral"
-
-	animation_player().play(animation)
 	
+	animation_player().play(animation)
+
 func play_moving_animation():
 	var animation = ""
 	direction_helper.deduce_direction(direction)
@@ -111,24 +118,39 @@ func play_moving_animation():
 	elif direction_helper.looking_right():
 		body.flip_h = false
 		animation = "walk_lateral"
-
-	animation_player().play(animation)
 	
+	animation_player().play(animation)
+
+
 func play_dead_animation():
 	var animation = ""
-	direction_helper.deduce_direction(direction)
 	if direction_helper.looking_up():
 		animation = "infected_walk_up"
 	elif direction_helper.looking_down():
 		animation = "infected_walk_down"
 	elif direction_helper.looking_left():
-		animation = true
+		body.flip_h  = true
 		animation = "infected_walk_lateral"
 	elif direction_helper.looking_right():
 		body.flip_h = false
 		animation = "infected_walk_lateral"
 	
-	animation_player().play(animation)
+	animation_base_player.play(animation)
+
+func play_dead_idle_animation():
+	var animation = ""
+	if direction_helper.looking_up():
+		animation = "infected_idle_up"
+	elif direction_helper.looking_down():
+		animation = "infected_idle_down"
+	elif direction_helper.looking_left():
+		body.flip_h = true
+		animation = "infected_idle_lateral"
+	elif direction_helper.looking_right():
+		body.flip_h = false
+		animation = "infected_idle_lateral"
+	
+	animation_base_player.play(animation)
 
 func animation_player():
 	if !PlayerData.using_area_protection():
