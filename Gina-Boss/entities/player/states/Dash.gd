@@ -11,7 +11,7 @@ func enter():
 	parent.recover_stamina_timer.stop()
 
 
-func update(delta):
+func update(_delta):
 	parent._handle_move_input()
 	parent._handle_protection()
 	parent.velocity = parent.velocity * 3

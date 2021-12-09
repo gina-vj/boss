@@ -34,7 +34,9 @@ func index_to_type():
 
 func play_pickup_animation():
 	pickup_label.visible = true
+# warning-ignore:return_value_discarded
 	pickup_tween.interpolate_property(font, "size", font_size, 300, 1)
+# warning-ignore:return_value_discarded
 	pickup_tween.start()
 	yield(pickup_tween, "tween_all_completed")
 

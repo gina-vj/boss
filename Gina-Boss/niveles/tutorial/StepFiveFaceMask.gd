@@ -10,7 +10,7 @@ func _ready():
 		if child.is_in_group('enemy'):
 			child.navigation = navigation
 
-func _on_FinishTrigger_body_entered(body):
+func _on_FinishTrigger_body_entered(_body):
 	icon_info.visible=true
 	timer.start(1)
 	

@@ -14,8 +14,11 @@ signal animation_finished()
 func _ready():
 	texture = all_empty
 	
+# warning-ignore:return_value_discarded
 	PlayerData.connect("first_component_found", self, "on_first_component_found")
+# warning-ignore:return_value_discarded
 	PlayerData.connect("second_component_found", self, "on_second_component_found")
+# warning-ignore:return_value_discarded
 	PlayerData.connect("third_component_found", self, "on_third_component_found")
 
 func on_first_component_found():
@@ -35,14 +38,19 @@ func on_third_component_found():
 
 
 func animate_texture():
+	# warning-ignore:return_value_discarded
 	tween_brightness.interpolate_property(material, "shader_param/brightness", 0, 1, tween_duration)
+	# warning-ignore:return_value_discarded
 	tween_brightness.connect("tween_all_completed", self, "brightness_completed")
+	# warning-ignore:return_value_discarded
 	tween_brightness.start()
 
 func brightness_completed():
 	emit_signal("animation_finished")
 	tween_brightness.disconnect("tween_all_completed", self, "brightness_completed")
+	# warning-ignore:return_value_discarded
 	tween_brightness.interpolate_property(material, "shader_param/brightness", 1, 0, tween_duration)
+	# warning-ignore:return_value_discarded
 	tween_brightness.start()
 
 

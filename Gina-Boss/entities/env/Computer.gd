@@ -18,12 +18,12 @@ func _on_Area2D_body_entered(_body):
 func _on_Area2D_body_exited(_body):
 	interactor = null
 	opened = false
-	PlayerData.emit_signal("player_leave_computer")
+	PlayerData.player_leave_computer()
 	
 func _input(event:InputEvent):
 	if event.is_action_pressed("ui_accept") and interactor != null && !opened:
 		opened = true
-		PlayerData.emit_signal("player_by_computer", dialog_index)
+		PlayerData.player_by_computer(dialog_index)
 
 func _on_AreaInfo_body_entered(body):
 	if(body is Player):

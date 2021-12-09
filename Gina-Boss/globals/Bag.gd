@@ -9,9 +9,6 @@ var face_masks = 0
 var suits = 0
 var experimental_vaccines = 0
 var alcohol = 0
-
-func _ready():
-	PlayerData.connect("restart", self, "_on_restart")
 	
 func add_item(type, quantity):
 	match type:

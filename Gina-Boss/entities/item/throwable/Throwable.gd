@@ -9,23 +9,23 @@ var direction:Vector2
 var throwable
 var throwable_scene
 
-func initialize(container, throwable, spawn_position:Vector2, direction:Vector2):
+func initialize(container, _throwable, spawn_position:Vector2, _direction:Vector2):
 	container.add_child(self)
 	
 	hitbox = $Hitbox
 	lifetime_timer = $LifetimeTimer
 
-	self.throwable = throwable
+	self.throwable = _throwable
 
-	self.direction = direction
+	self.direction = _direction
 	global_position = spawn_position
-	velocity = throwable.velocity
+	velocity = _throwable.velocity
 
-	throwable_scene = throwable.scene.instance()
-	throwable_scene.rotation = direction.angle()
+	throwable_scene = _throwable.scene.instance()
+	throwable_scene.rotation = _direction.angle()
 	add_child(throwable_scene)
 	
-	lifetime_timer.wait_time = throwable.duration
+	lifetime_timer.wait_time = _throwable.duration
 	lifetime_timer.start()
 
 func _physics_process(delta:float):

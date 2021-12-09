@@ -9,10 +9,12 @@ onready var inicio = $MainMenu/Inicio
 func _ready():
 	inicio.grab_focus()
 
+
 func _on_Inicio_pressed():
-	get_tree().change_scene("res://Main.tscn")
+	if get_tree().change_scene("res://Main.tscn") != OK:
+		print ("An unexpected error occured when trying to switch to the Main scene")
 
-
+	
 func _on_Configuracion_pressed():
 	config_menu.popup_centered()
 	hide_settings()
@@ -46,6 +48,7 @@ func hide_settings():
 
 func _on_HSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+
 
 func _on_CheckButton_toggled(button_pressed):
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), button_pressed)

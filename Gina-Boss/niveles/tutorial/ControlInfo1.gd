@@ -19,8 +19,8 @@ func _ready():
 		animationNode.play("animationIcon")
 		icon.flip_h=flip
 
-func _on_Area2D_body_entered(body):
-	for i in range(10):
+func _on_Area2D_body_entered(_body):
+	for _i in range(10):
 		timerOn.start(0.1)
 
 func _on_TimerOn_timeout():
