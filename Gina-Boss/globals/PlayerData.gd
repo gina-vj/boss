@@ -68,3 +68,9 @@ func dash_available():
 	
 func dash_unavailable():
 	emit_signal("dash_unavailable")
+
+func player_by_computer(dialog_index):
+	emit_signal("player_by_computer", dialog_index)
+	
+func player_leave_computer():
+	emit_signal("player_leave_computer")
