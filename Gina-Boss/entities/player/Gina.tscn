@@ -53,7 +53,7 @@ data = PoolByteArray( 79, 103, 103, 83, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 58, 248, 1
 [sub_resource type="ShaderMaterial" id=39]
 shader = ExtResource( 12 )
 shader_param/flash_modifier = 0.0
-shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_color = Color( 0.0627451, 0.611765, 0.0156863, 1 )
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.20575
