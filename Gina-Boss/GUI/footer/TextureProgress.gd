@@ -6,7 +6,7 @@ onready var final_dash= $FinalDashBar
 func _ready():
 	max_value = 5
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if PlayerData.current_stamina == max_value:
 		final_dash.visible = true
 	else:
