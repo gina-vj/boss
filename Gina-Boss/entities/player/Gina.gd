@@ -20,6 +20,7 @@ export (float) var SPEED_WHILE_DEAD:int = 150
 export (AudioStream) var fire_sfx
 export (AudioStream) var injured_sfx
 export (AudioStream) var grab_item_sfx
+export (AudioStream) var dead_sfx
 
 
 const MINIMUM_DISTANCE_TO_PATROLL_POINT = 30
@@ -230,6 +231,9 @@ func _grab_item_sfx():
 	player_sfx.play()
 	
 
+func _dead_sfx():
+	player_sfx.stream = dead_sfx
+	player_sfx.play()
 
 func _on_TimerHurt_timeout():
 	body.material.set_shader_param("flash_modifier",0)
