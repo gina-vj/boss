@@ -193,7 +193,7 @@ injured_sfx = SubResource( 18 )
 
 [node name="Computer" parent="StepFourFinish" instance=ExtResource( 1 )]
 position = Vector2( 5277.74, -83.938 )
-dialog_index = 4
+dialog_index = 1
 
 [node name="NextLevelTrigger" type="Area2D" parent="StepFourFinish"]
 position = Vector2( 5457.57, 35.2651 )
