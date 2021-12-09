@@ -11,7 +11,8 @@ signal player_by_computer(message_index)
 signal player_leave_computer()
 signal dash_available()
 signal dash_unavailable()
-
+signal entry_zone_security()
+signal out_zone_security()
 var current_health:int
 var current_stamina:int
 var area_protection = null
@@ -75,3 +76,7 @@ func player_by_computer(dialog_index):
 	
 func player_leave_computer():
 	emit_signal("player_leave_computer")
+func entry_zone_security():
+	emit_signal("entry_zone_security")
+func out_zone_security():
+	emit_signal("out_zone_security")
