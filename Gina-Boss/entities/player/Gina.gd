@@ -70,9 +70,9 @@ func _apply_movement():
 	
 	velocity = move_and_slide(velocity)
 
-func dead_animation(direction):
-	direction_helper.deduce_direction(direction)
-	if direction == Vector2.ZERO:
+func dead_animation(_direction):
+	direction_helper.deduce_direction(_direction)
+	if _direction == Vector2.ZERO:
 		play_dead_idle_animation()
 	else:
 		play_dead_animation()

@@ -10,7 +10,9 @@ func _ready():
 	PlayerData.connect("game_over", self, "_on_game_over")
 # warning-ignore:return_value_discarded
 	PlayerData.connect("main_menu", self, "_on_main_menu")
+# warning-ignore:return_value_discarded
 	PlayerData.connect("entry_zone_security",self,"_change_music_security")
+# warning-ignore:return_value_discarded
 	PlayerData.connect("out_zone_security",self,"_change_music_background")
 
 func _change_music_security():

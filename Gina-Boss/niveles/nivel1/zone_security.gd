@@ -1,25 +1,8 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	PlayerData.entry_zone_security()
 
 
-
-func _on_Area2D_body_exited(body):
+func _on_Area2D_body_exited(_body):
 	PlayerData.out_zone_security()

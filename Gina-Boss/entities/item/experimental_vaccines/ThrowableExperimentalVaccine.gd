@@ -19,5 +19,4 @@ func impact():
 	body.visible = false
 	sfx.stream = impact_sound
 	sfx.play()
-	yield(get_tree().create_timer(0.5), "timeout")
 	emit_signal("finished_impact")
