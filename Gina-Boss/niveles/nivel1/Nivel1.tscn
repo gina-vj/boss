@@ -300,12 +300,12 @@ tile_data = PoolIntArray( -2162637, 17, 0, -2162636, 18, 0, -2162635, 18, 0, -20
 [node name="ExperimentalVaccine" parent="Items" instance=ExtResource( 8 )]
 material = SubResource( 5 )
 position = Vector2( 160.596, 161.492 )
-item_quantity = 15
+item_quantity = 5
 
 [node name="ExperimentalVaccine2" parent="Items" instance=ExtResource( 8 )]
 material = SubResource( 5 )
 position = Vector2( 3306.14, 793.929 )
-item_quantity = 10
+item_quantity = 15
 
 [node name="ExperimentalVaccine4" parent="Items" instance=ExtResource( 8 )]
 material = SubResource( 5 )
@@ -315,7 +315,7 @@ item_quantity = 10
 [node name="ExperimentalVaccine3" parent="Items" instance=ExtResource( 8 )]
 material = SubResource( 5 )
 position = Vector2( 2753.34, -1883.42 )
-item_quantity = 10
+item_quantity = 5
 
 [node name="ExperimentalVaccine5" parent="Items" instance=ExtResource( 8 )]
 material = SubResource( 5 )
@@ -325,17 +325,17 @@ item_quantity = 10
 [node name="Alcohol3" parent="Items" instance=ExtResource( 6 )]
 material = SubResource( 5 )
 position = Vector2( 93.2136, 162.255 )
-item_quantity = 15
+item_quantity = 5
 
 [node name="Alcohol4" parent="Items" instance=ExtResource( 6 )]
 material = SubResource( 5 )
 position = Vector2( 3512.5, 796.358 )
-item_quantity = 15
+item_quantity = 5
 
 [node name="Alcohol6" parent="Items" instance=ExtResource( 6 )]
 material = SubResource( 5 )
 position = Vector2( 4568.88, -1009.39 )
-item_quantity = 5
+item_quantity = 10
 
 [node name="Alcohol8" parent="Items" instance=ExtResource( 6 )]
 material = SubResource( 5 )
@@ -355,7 +355,7 @@ item_quantity = 5
 [node name="FaceMask" parent="Items" instance=ExtResource( 1 )]
 material = SubResource( 5 )
 position = Vector2( 2424.9, 104.747 )
-item_quantity = 5
+item_quantity = 3
 
 [node name="FaceMask2" parent="Items" instance=ExtResource( 1 )]
 material = SubResource( 5 )

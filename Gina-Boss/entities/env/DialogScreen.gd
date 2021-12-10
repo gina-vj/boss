@@ -8,7 +8,7 @@ onready var vaccine2 = $Vaccine2
 onready var vaccine3 = $Vaccine3
 
 const END_TUTORIAL_DIALOG = ["","Gracias Gina. Necesitamos tu ayuda para [color=#a3f5b0]encontrar[/color] los [color=#a3f5b0]3 componentes[/color] \n\nnecesarios para fabricar la vacuna que salvará a la humanidad. \n\nLos [color=#a3f5b0]items[/color] que aprendiste a usar, sirven para [color=#a3f5b0]protegerte[/color] por cortos \n\nlapsos de tiempo de los infectados, pero [color=#a3f5b0]no les hacen daño real[/color]. \n\nAvanza hacia la plataforma para comenzar. Buena suerte"]
-const INIT_LEVEL_ONE = ["","En este piso encontraras los componentes necesarios para la vacuna.\n\nConsigue los 3 para poder entregarmelos al final del nivel. \n\n[color=#a3f5b0]Evita[/color] que [color=#a3f5b0]los infectados[/color] más grandes y enojados [color=#a3f5b0]te encierren[/color] \n\ny procura usar tus items con sabiduría.\n\nUn consejo: [color=#a3f5b0]siempre que puedas[/color]... [color=#a3f5b0]corre!![/color]"]
+const INIT_LEVEL_ONE = ["","En este piso encontraras los componentes necesarios para la vacuna.\n\nConsigue los 3 para poder entregarmelos al final del nivel. \n\n[color=#a3f5b0]Evita[/color] que [color=#a3f5b0]los infectados[/color] más grandes y enojados [color=#a3f5b0]te encierren[/color] \n\ny procura [color=#a3f5b0]usar[/color] tus [color=#a3f5b0]items con sabiduría[/color].\n\nUn consejo: [color=#a3f5b0]siempre que puedas[/color]... [color=#a3f5b0]corre!![/color]"]
 const FIRST_COMPONENT_DIALOG = ["","Estupendo Gina, tenemos un componente y sólo quedan 2. \n\nContinua por este camino y luego sube por el pasillo \n\npara buscar los 2 componentes restantes. \n\n[color=#a3f5b0]No te relajes![/color]"]
 
 var selected_dialog_index
