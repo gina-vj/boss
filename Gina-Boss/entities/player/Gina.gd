@@ -236,7 +236,7 @@ func _dead_sfx():
 	player_sfx.play()
 
 func _on_TimerHurt_timeout():
-	body.material.set_shader_param("flash_modifier",0)
+	body.material.set_shader_param("flash_modifier", 0)
 	
 
 
