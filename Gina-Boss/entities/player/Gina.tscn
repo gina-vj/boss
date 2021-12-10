@@ -918,13 +918,16 @@ flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, -100, 0 )
 initial_velocity = 50.0
+initial_velocity_random = 1.0
 angular_velocity = 100.0
+angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 50.0
+damping_random = 1.0
 angle = 360.0
 angle_random = 1.0
-scale_random = 0.2
+scale_random = 1.0
 color = Color( 0.34902, 0.4, 0.905882, 1 )
 
 [node name="Gina" type="KinematicBody2D"]
@@ -1040,6 +1043,7 @@ position = Vector2( 0, -36 )
 z_index = 2
 amount = 40
 lifetime = 1.5
+speed_scale = 13.74
 explosiveness = 0.07
 process_material = SubResource( 44 )
 texture = ExtResource( 12 )
