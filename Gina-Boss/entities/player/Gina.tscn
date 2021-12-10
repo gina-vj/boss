@@ -1037,6 +1037,7 @@ wait_time = 0.1
 wait_time = 0.3
 
 [node name="Particles2D" type="Particles2D" parent="."]
+visible = false
 material = SubResource( 43 )
 position = Vector2( -14.8651, 34.7579 )
 rotation = 4.64607
