@@ -157,7 +157,7 @@ opened = false
 
 [node name="Alcohol" parent="StepThreeAlcohol" instance=ExtResource( 14 )]
 material = SubResource( 5 )
-position = Vector2( 3171.55, 77.6805 )
+position = Vector2( 3170.61, 8.77767 )
 item_quantity = 10
 
 [node name="FinishTrigger" type="Area2D" parent="StepThreeAlcohol"]
