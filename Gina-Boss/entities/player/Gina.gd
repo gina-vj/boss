@@ -10,7 +10,7 @@ onready var animation_face_mask_player:AnimationPlayer=$AnimationFaceMask
 onready var player_sfx:AudioStreamPlayer=$PlayerSfx
 onready var expend_stamina_timer: Timer = $ExpendStaminaTimer
 onready var recover_stamina_timer: Timer = $RecoverStaminaTimer
-
+onready var particle_stamina=$Particles2D
 export (int) var max_health = 20
 export (int) var max_stamina = 5
 export (float) var ACCELERATION:float = 10.0
