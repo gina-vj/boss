@@ -53,12 +53,6 @@ outlines = [ PoolVector2Array( -584.35, -121.369, -585.988, 185.033, 840.452, 18
 [node name="Tutorial" type="Node" groups=["nivel"]]
 script = ExtResource( 4 )
 
-[node name="Gina" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1406.12, 7.1995 )
-
-[node name="Camera2D" type="Camera2D" parent="Gina"]
-current = true
-
 [node name="Floor" type="TileMap" parent="."]
 position = Vector2( 7167.9, 0 )
 tile_set = ExtResource( 3 )
@@ -264,6 +258,12 @@ position = Vector2( 70.2141, 8.93634 )
 texture = ExtResource( 18 )
 
 [node name="Timer" type="Timer" parent="StepFiveFaceMask"]
+
+[node name="Gina" parent="." instance=ExtResource( 15 )]
+position = Vector2( -1406.12, 7.1995 )
+
+[node name="Camera2D" type="Camera2D" parent="Gina"]
+current = true
 
 [connection signal="body_entered" from="StepTwoVaccines/FinishTrigger" to="StepTwoVaccines" method="_on_FinishTrigger_body_entered"]
 [connection signal="body_entered" from="StepThreeAlcohol/FinishTrigger" to="StepThreeAlcohol" method="_on_FinishTrigger_body_entered"]
