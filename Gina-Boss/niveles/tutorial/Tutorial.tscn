@@ -54,7 +54,7 @@ outlines = [ PoolVector2Array( -584.35, -121.369, -585.988, 185.033, 840.452, 18
 script = ExtResource( 4 )
 
 [node name="Gina" parent="." instance=ExtResource( 15 )]
-position = Vector2( 5256.02, 80.7299 )
+position = Vector2( -1406.12, 7.1995 )
 
 [node name="Camera2D" type="Camera2D" parent="Gina"]
 current = true
