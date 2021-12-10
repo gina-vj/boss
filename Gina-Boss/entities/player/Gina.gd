@@ -11,6 +11,12 @@ onready var player_sfx:AudioStreamPlayer=$PlayerSfx
 onready var expend_stamina_timer: Timer = $ExpendStaminaTimer
 onready var recover_stamina_timer: Timer = $RecoverStaminaTimer
 onready var particle_stamina=$Particles2D
+onready var up_ray_casts: Node = $UpRayCasts
+onready var down_ray_casts: Node = $DownRayCasts
+onready var left_ray_casts: Node = $LeftRayCasts
+onready var right_ray_casts: Node = $RightRayCasts
+onready var contagion_area = $Area
+
 export (int) var max_health = 20
 export (int) var max_stamina = 5
 export (float) var ACCELERATION:float = 10.0
@@ -40,6 +46,7 @@ func initialize(_item_throwable_container):
 	self.item_throwable_container = _item_throwable_container
 
 func _ready():
+	contagion_area.visible = false
 	state_machine.set_parent(self)
 	reset_health_and_stamina()
 
@@ -57,6 +64,44 @@ func _handle_move_input():
 func _handle_deacceleration():
 	velocity.x = lerp(velocity.x, 0, FRICTION_WEIGHT) if abs(velocity.x) > 1 else 0
 	velocity.y = lerp(velocity.y, 0, FRICTION_WEIGHT) if abs(velocity.y) > 1 else 0
+
+func _handle_dead_movement():
+	if direction == Vector2.ZERO:
+		direction = next_direction(direction)
+	
+	direction_helper.deduce_direction(direction)
+	if direction_helper.looking_up():
+		check_ray_casts(up_ray_casts)
+	elif direction_helper.looking_down():
+		check_ray_casts(down_ray_casts)
+	elif direction_helper.looking_left():
+		check_ray_casts(left_ray_casts)
+	elif direction_helper.looking_right():
+		check_ray_casts(right_ray_casts)
+	
+	velocity = direction * SPEED_LIMIT
+
+func check_ray_casts(ray_casts):
+	for ray_cast in ray_casts.get_children():
+		if ray_cast.is_colliding():
+			direction = next_direction(direction)
+			return
+
+func next_direction(current_direction):
+	if current_direction == Vector2(1, 0):
+		return Vector2(1, 1)
+	if current_direction == Vector2(1, 1):
+		return Vector2(0, 1)
+	if current_direction == Vector2(0, 1):
+		return Vector2(-1, 0)
+	if current_direction == Vector2(-1, 0):
+		return Vector2(-1, -1)
+	if current_direction == Vector2(-1, -1):
+		return Vector2(0, -1)
+	if current_direction == Vector2(0, -1):
+		return Vector2(1, 0)
+	if current_direction == Vector2(0, 0):
+		return Vector2(1, 0)
 
 func _apply_movement():
 	get_material().set_shader_param("player_position", global_position)
@@ -180,38 +225,11 @@ func still_alive():
 	return PlayerData.still_alive()
 
 func die():
+	contagion_area.visible = true
 	collision_shape.disabled = true
 	set_collision_layer_bit(4, false)
 	set_collision_layer_bit(1, false)
 	collision_shape.disabled = false
-	
-func navigate():
-	var next_position = path.front()
-	if path.size() > 0:
-		if global_position.distance_to(next_position) <= MINIMUM_DISTANCE_TO_PATROLL_POINT:
-			path.pop_front()
-			velocity = Vector2.ZERO
-		else:
-			velocity = global_position.direction_to(next_position) * SPEED_WHILE_DEAD
-	else:
-		velocity = Vector2.ZERO
-
-func generate_path(level_navigation: Navigation2D):
-	#Punto aleatorio para que vuelva donde encontró el primer barbijo dentro del navigation level
-	var init_level_navigation_position = Vector2(300,0) 
-	
-	if(patroll_to != null and global_position.distance_to(patroll_to) <= MINIMUM_DISTANCE_TO_PATROLL_POINT):
-		patroll_to = patroll_from
-		patroll_from = global_position
-	else:
-		patroll_from = global_position
-		patroll_to = init_level_navigation_position
-	
-	path = level_navigation.get_simple_path(
-		patroll_from, 
-		patroll_to, 
-		false
-	)
 
 func _fire_sfx():
 	player_sfx.stream = fire_sfx
@@ -227,7 +245,6 @@ func _injured_sfx():
 func _grab_item_sfx():
 	player_sfx.stop()
 	player_sfx.stream = grab_item_sfx
-	print("se ejecuta el audio de agarrar item")
 	player_sfx.play()
 	
 
