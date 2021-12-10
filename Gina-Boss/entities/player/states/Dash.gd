@@ -11,21 +11,21 @@ func enter():
 	parent.recover_stamina_timer.stop()
 	parent.particle_stamina.visible=true
 	if(parent.velocity.x>0):
-		parent.particle_stamina.set_rotation_degrees(-100.0)
+		parent.particle_stamina.set_rotation_degrees(-90.0)
 		parent.particle_stamina.position.x=-19
-		parent.particle_stamina.position.y=0
+		parent.particle_stamina.position.y=34
 	elif (parent.velocity.x<0):
-		parent.particle_stamina.set_rotation_degrees(100.0)
+		parent.particle_stamina.set_rotation_degrees(90.0)
 		parent.particle_stamina.position.x=19
-		parent.particle_stamina.position.y=0
+		parent.particle_stamina.position.y=34
 	elif (parent.velocity.y>0):
 		parent.particle_stamina.set_rotation_degrees(0.0)
 		parent.particle_stamina.position.x=0
-		parent.particle_stamina.position.y=-42
+		parent.particle_stamina.position.y=-55
 	elif (parent.velocity.y<0):
 		parent.particle_stamina.set_rotation_degrees(-184.0)
 		parent.particle_stamina.position.x=0
-		parent.particle_stamina.position.y=34
+		parent.particle_stamina.position.y=55
 func update(_delta):
 	parent._handle_move_input()
 	parent._handle_protection()
