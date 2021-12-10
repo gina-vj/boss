@@ -152,7 +152,7 @@ opened = false
 [node name="Alcohol" parent="StepThreeAlcohol" instance=ExtResource( 14 )]
 material = SubResource( 5 )
 position = Vector2( 3170.61, 8.77767 )
-item_quantity = 10
+item_quantity = 20
 
 [node name="FinishTrigger" type="Area2D" parent="StepThreeAlcohol"]
 position = Vector2( 5042.22, 24.0783 )
@@ -233,7 +233,7 @@ shape = SubResource( 20 )
 
 [node name="FaceMask" parent="StepFiveFaceMask/FinishTrigger" instance=ExtResource( 16 )]
 scale = Vector2( 0.997141, 1 )
-item_quantity = 3
+item_quantity = 5
 
 [node name="StepNavigation" type="Navigation2D" parent="StepFiveFaceMask"]
 visible = false
