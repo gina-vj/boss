@@ -29,7 +29,7 @@ data = PoolByteArray( 79, 103, 103, 83, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 189, 200, 
 [sub_resource type="ShaderMaterial" id=5]
 
 [sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 210.833, 158.919 )
+extents = Vector2( 209.5, 155.5 )
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 230.927, 221.583 )
