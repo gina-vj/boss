@@ -47,7 +47,7 @@ func initialize(_item_throwable_container):
 
 func _ready():
 	contagion_area.visible = false
-	particle_stamina.visible = false
+	particle_stamina.emitting = false
 	state_machine.set_parent(self)
 	reset_health_and_stamina()
 
