@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/assets-prueba/computer_popup_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/env/DialogScreen.gd" type="Script" id=2]
 [ext_resource path="res://assets/world/next-indicator.png" type="Texture" id=3]
+[ext_resource path="res://assets/item/antidoto-rojo.png" type="Texture" id=4]
+[ext_resource path="res://assets/item/antidoto-azul.png" type="Texture" id=5]
+[ext_resource path="res://assets/item/antidoto.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=3]
 tracks/0/type = "value"
@@ -46,22 +49,22 @@ hframes = 2
 frame = 1
 
 [node name="Control" type="MarginContainer" parent="."]
+anchor_top = 0.1
+anchor_bottom = 0.1
 margin_left = -264.0
-margin_top = -96.0
+margin_top = -86.0
 margin_right = 264.0
 margin_bottom = 96.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Message" type="Label" parent="Control"]
-margin_top = 89.0
+[node name="Message" type="RichTextLabel" parent="Control"]
 margin_right = 528.0
-margin_bottom = 103.0
-custom_colors/font_color = Color( 0.295166, 0.8125, 0.375999, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 182.0
+custom_colors/default_color = Color( 0.294118, 0.811765, 0.376471, 1 )
+bbcode_enabled = true
+fit_content_height = true
 
 [node name="NextIndicator" type="Sprite" parent="."]
 position = Vector2( -240, 80 )
@@ -73,3 +76,18 @@ texture = ExtResource( 3 )
 autoplay = "esperando"
 anims/RESET = SubResource( 3 )
 anims/esperando = SubResource( 4 )
+
+[node name="Vaccine" type="Sprite" parent="."]
+position = Vector2( 245.214, 58 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 4 )
+
+[node name="Vaccine2" type="Sprite" parent="."]
+position = Vector2( 217.5, 53 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Vaccine3" type="Sprite" parent="."]
+position = Vector2( 190, 58 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )

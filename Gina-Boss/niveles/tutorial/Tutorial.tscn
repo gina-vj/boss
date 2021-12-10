@@ -54,7 +54,7 @@ outlines = [ PoolVector2Array( -584.35, -121.369, -585.988, 185.033, 840.452, 18
 script = ExtResource( 4 )
 
 [node name="Gina" parent="." instance=ExtResource( 15 )]
-position = Vector2( -1403.05, 7.987 )
+position = Vector2( 5256.02, 80.7299 )
 
 [node name="Camera2D" type="Camera2D" parent="Gina"]
 current = true
@@ -193,7 +193,6 @@ injured_sfx = SubResource( 18 )
 
 [node name="Computer" parent="StepFourFinish" instance=ExtResource( 1 )]
 position = Vector2( 5277.74, -83.938 )
-dialog_index = 1
 
 [node name="NextLevelTrigger" type="Area2D" parent="StepFourFinish"]
 position = Vector2( 5457.57, 35.2651 )

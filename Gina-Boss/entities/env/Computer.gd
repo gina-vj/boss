@@ -4,7 +4,7 @@ onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var computer:Sprite=$Computer
 onready var textInfo:TextEdit=$TextInfo
 
-export(int, "First component", "Tutorial end") var dialog_index = 0
+export(int, "Tutorial end", "Init level 1", "First component") var dialog_index = 0
 
 var interactor 
 var opened = false

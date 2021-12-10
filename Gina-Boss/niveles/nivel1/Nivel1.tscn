@@ -299,7 +299,7 @@ tile_data = PoolIntArray( -2162637, 17, 0, -2162636, 18, 0, -2162635, 18, 0, -20
 
 [node name="ExperimentalVaccine" parent="Items" instance=ExtResource( 8 )]
 material = SubResource( 5 )
-position = Vector2( 160.517, 161.889 )
+position = Vector2( 160.596, 161.492 )
 item_quantity = 5
 
 [node name="ExperimentalVaccine2" parent="Items" instance=ExtResource( 8 )]
@@ -324,7 +324,7 @@ item_quantity = 5
 
 [node name="Alcohol3" parent="Items" instance=ExtResource( 6 )]
 material = SubResource( 5 )
-position = Vector2( 31.811, 162.255 )
+position = Vector2( 93.2136, 162.255 )
 item_quantity = 5
 
 [node name="Alcohol4" parent="Items" instance=ExtResource( 6 )]
@@ -381,6 +381,11 @@ item_quantity = 2
 
 [node name="Computer2" parent="Computers" instance=ExtResource( 17 )]
 position = Vector2( 3401.19, 440.689 )
+dialog_index = 2
+
+[node name="Computer1" parent="Computers" instance=ExtResource( 17 )]
+position = Vector2( 163.63, -79.6531 )
+dialog_index = 1
 
 [node name="VaccineComponents" type="Node" parent="."]
 

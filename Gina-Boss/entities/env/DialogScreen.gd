@@ -1,13 +1,15 @@
 extends Node2D
 
-onready var dialog_container: Label = $Control/Message
+onready var dialog_container: RichTextLabel = $Control/Message
 onready var tween: Tween = $Tween
+onready var indicator = $NextIndicator
+onready var vaccine = $Vaccine
+onready var vaccine2 = $Vaccine2
+onready var vaccine3 = $Vaccine3
 
-const FIRST_COMPONENT_DIALOG = ["",
-"Genial, encontraste el primer componente de la vacuna y faltan 2 más. \n\nAbajo te dejé algunos items que espero te ayuden en tu búsqueda."
-]
-
-const END_TUTORIAL_DIALOG = ["","Gina, gracias por ayudarnos. \n\nRecuerda que las vacunas experimentales y el alcohol no hacen daño a los \n\ninfectados, pero te protegerán de ellos por pequeños lapsos de tiempo. \n\nAvanza hacia la plataforma para comenzar. Buena suerte"]
+const END_TUTORIAL_DIALOG = ["","Gracias Gina. Necesitamos tu ayuda para [color=#a3f5b0]encontrar[/color] los [color=#a3f5b0]3 componentes[/color] \n\nnecesarios para fabricar la vacuna que salvará a la humanidad. \n\nLos [color=#a3f5b0]items[/color] que aprendiste a usar, sirven para [color=#a3f5b0]protegerte[/color] por cortos \n\n lapsos de tiempo de los infectados, pero [color=#a3f5b0]no les hacen daño real[/color]. \n\nAvanza hacia la plataforma para comenzar. Buena suerte"]
+const INIT_LEVEL_ONE = ["","En este piso encontraras los componentes necesarios para la vacuna.\n\nConsigue los 3 para poder entregarmelos al final del nivel. \n\n[color=#a3f5b0]Evita[/color] que [color=#a3f5b0]los infectados[/color] más grandes y enojados [color=#a3f5b0]te encierren[/color] \n\ny procura usar tus items con sabiduría.\n\nUn consejo: [color=#a3f5b0]siempre que puedas[/color]... [color=#a3f5b0]corre!![/color]"]
+const FIRST_COMPONENT_DIALOG = ["","Estupendo Gina, tenemos un componente y sólo quedan 2. \n\nContinua por este camino y luego sube por el pasillo \n\npara buscar los 2 componentes restantes. \n\n[color=#a3f5b0]No te relajes![/color]"]
 
 var selected_dialog_index
 var TEXT_SPEED = 0.01
@@ -32,19 +34,20 @@ func next_screen():
 
 func get_selected_dialog():
 	return [
+		END_TUTORIAL_DIALOG,
+		INIT_LEVEL_ONE, 
 		FIRST_COMPONENT_DIALOG, 
-		END_TUTORIAL_DIALOG
 	][selected_dialog_index]
 
-func load_dialog():	
+func load_dialog():			
 	if dialog_index < selected_dialog.size():
-		dialog_container.text = selected_dialog[dialog_index]
-		dialog_container.percent_visible = 0
+		self.dialog_container.bbcode_text = selected_dialog[dialog_index]
+		self.dialog_container.percent_visible = 0
 		var tween_duration = TEXT_SPEED * selected_dialog[dialog_index].length()
 		
 		# warning-ignore:return_value_discarded
 		tween.interpolate_property(
-			dialog_container, 
+			self.dialog_container, 
 			"percent_visible", 
 			0.0, 
 			1.0, 
@@ -58,7 +61,7 @@ func load_dialog():
 		dialog_index += 1
 	else: 
 		close()
-
+	
 func close():
 	selected_dialog_index = null
 	self.dialog_index = 0
